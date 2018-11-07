@@ -1,0 +1,8 @@
+ __                      _       _       _           _       
+/ _\_ __ ___   __ _ _ __| |_    /_\   __| |_ __ ___ (_)_ __  
+\ \| '_ ` _ \ / _` | '__| __|  //_\\ / _` | '_ ` _ \| | '_ \ 
+_\ | | | | | | (_| | |  | |_  /  _  | (_| | | | | | | | | | |
+\__|_| |_| |_|\__,_|_|   \__| \_/ \_/\__,_|_| |_| |_|_|_| |_|
+                                                                                                              
+${AnsiColor.BRIGHT_BLUE}:: Bigdata SmartAdmin 2018 🤓  :: Running Spring Boot ${spring-boot.version} ::
+:: http://jhipster.github.io ::${AnsiColor.DEFAULT}
