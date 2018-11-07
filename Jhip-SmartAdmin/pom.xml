@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>au.com.bigdata.smartadmin</groupId>
-    <artifactId>BigData-SmartAdmin</artifactId>
+    <artifactId>Bigdata-SmartAdmin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>BigData-SmartAdmin</name>
+    <name>Bigdata-SmartAdmin</name>
 
     <prerequisites>
         <maven>3.0.0</maven>
@@ -590,7 +590,7 @@
                     <url>jdbc:mysql://localhost:3306/smartadmin</url>
                     <defaultSchemaName>smartadmin</defaultSchemaName>
                     <username>root</username>
-                    <password></password>
+                    <password>soho123</password>
                     <referenceUrl>hibernate:spring:au.com.bigdata.smartadmin.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
@@ -849,4 +849,7 @@
             </properties>
         </profile>
     </profiles>
+    <organization>
+    	<name>Bigdata SmartAdmin</name>
+    </organization>
 </project>
