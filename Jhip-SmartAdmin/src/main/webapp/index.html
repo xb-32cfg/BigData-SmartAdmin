@@ -1,0 +1,227 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Big Data Enterprise</title>
+        <meta name="description" content="">
+        <meta name="google" value="notranslate">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- #CSS Links -->
+        <!-- Basic Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/fonts/font-source-sans-pro/font-source-sans-pro.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/invoice.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/lockscreen.min.css">
+
+        <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-production-plugins.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-production.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-skins.min.css">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-angular.css">
+
+        <!-- SmartAdmin RTL Support (Not using RTL? Disable the CSS below to save bandwidth) -->
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-rtl.min.css">
+
+        <!-- We recommend you use "your_style.css" to override SmartAdmin
+        specific styles this will also ensure you retrain your customization with each SmartAdmin update. -->
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/myApplicationStyle.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/myTooltips.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/bootstrap-dialog.css">
+
+        <!-- #FAVICONS -->
+        <link rel="shortcut icon" href="styles/img/favicon/favicon.ico" type="image/x-icon">
+
+        <!-- #GOOGLE FONT -->
+        <!-- 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"> -->
+
+        <!-- #APP SCREEN / ICONS -->
+        <!-- Specifying a Webpage Icon for Web Clip
+        Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+        <link rel="apple-touch-icon" href="styles/img/splash/sptouch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="styles/img/splash/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="styles/img/splash/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="styles/img/splash/touch-icon-ipad-retina.png">
+
+        <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- Startup image for web apps -->
+        <link rel="apple-touch-startup-image" href="styles/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+        <link rel="apple-touch-startup-image" href="styles/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+        <link rel="apple-touch-startup-image" href="styles/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+    </head>
+
+    <body ng-app="jhipsterbankApp"
+          data-smart-device-detect
+          data-smart-fast-click
+          data-smart-layout
+          data-smart-page-title="BigData Enterprise">
+
+        <!-- ui-view container -->
+        <div ui-view="navbar" ng-cloak=""></div>
+        <div data-ui-view="content"  data-autoscroll="false"></div>
+
+
+         <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+         <![endif]-->
+
+         <!--[if lt IE 9]>
+             <script src="plugin/es5-shim/es5-shim.js"></script>
+             <script src="plugin/json3/lib/json3.min.js"></script>
+         <![endif]-->
+
+        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>-->
+
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.js"></script>
+        <script src="bower_components/messageformat/messageformat.js"></script>
+        <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+        <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+        <script src="bower_components/messageformat/locale/en.js"></script>
+        <script src="bower_components/messageformat/locale/fr.js"></script>
+
+        <!-- build:js({.tmp,src/main/webapp}) app.js -->
+        <script src="app/app.js"></script>
+        <script src="app/app.constants.js"></script>
+
+     <script src="app/layout/navbar/navbar.directive.js"></script>
+     <script src="app/layout/navbar/navbar.controller.js"></script>
+
+    <script src="app/components/auth/auth.service.js"></script>
+    <script src="app/components/auth/principal.service.js"></script>
+    <script src="app/components/auth/authority.directive.js"></script>
+    <script src="app/components/auth/services/account.service.js"></script>
+    <script src="app/components/auth/services/activate.service.js"></script>
+    <script src="app/components/auth/services/password.service.js"></script>
+    <script src="app/components/auth/services/register.service.js"></script>
+    <script src="app/components/form/form.directive.js"></script>
+    <script src="app/components/form/maxbytes.directive.js"></script>
+    <script src="app/components/form/minbytes.directive.js"></script>
+    <script src="app/components/form/uib-pager.config.js"></script>
+    <script src="app/components/form/uib-pagination.config.js"></script>
+    <script src="app/components/admin/audits.service.js"></script>
+    <script src="app/components/admin/logs.service.js"></script>
+    <script src="app/components/admin/configuration.service.js"></script>
+    <script src="app/components/admin/monitoring.service.js"></script>
+    <script src="app/components/interceptor/auth.interceptor.js"></script>
+    <script src="app/components/interceptor/errorhandler.interceptor.js"></script>
+    <script src="app/components/interceptor/notification.interceptor.js"></script>
+    <script src="app/components/user/user.service.js"></script>
+    <script src="app/components/util/truncate.filter.js"></script>
+    <script src="app/components/util/base64.service.js"></script>
+    <script src="app/components/util/capitalize.filter.js"></script>
+    <script src="app/components/alert/alert.service.js"></script>
+    <script src="app/components/alert/alert.directive.js"></script>
+    <script src="app/components/util/parse-links.service.js"></script>
+    <script src="app/components/util/date-util.service.js"></script>
+    <script src="app/components/util/data-util.service.js"></script>
+    <script src="app/components/util/sort.directive.js"></script>
+    <script src="app/components/language/language.service.js"></script>
+    <script src="app/components/language/language.controller.js"></script>
+    <script src="app/components/auth/services/sessions.service.js"></script>
+    <script src="app/components/auth/provider/auth.session.service.js"></script>
+
+    <script src="app/account/account.js"></script>
+    <script src="app/account/activate/activate.js"></script>
+    <script src="app/account/activate/activate.controller.js"></script>
+    <script src="app/account/login/login.js"></script>
+    <script src="app/account/login/login.controller.js"></script>
+    <script src="app/account/password/password.js"></script>
+    <script src="app/account/password/password.controller.js"></script>
+    <script src="app/account/password/password.directive.js"></script>
+    <script src="app/account/register/register.js"></script>
+    <script src="app/account/register/register.controller.js"></script>
+    <script src="app/account/settings/settings.js"></script>
+    <script src="app/account/settings/settings.controller.js"></script>
+    <script src="app/account/reset/finish/reset.finish.controller.js"></script>
+    <script src="app/account/reset/finish/reset.finish.js"></script>
+    <script src="app/account/reset/request/reset.request.controller.js"></script>
+    <script src="app/account/reset/request/reset.request.js"></script>
+    <script src="app/account/sessions/sessions.js"></script>
+    <script src="app/account/sessions/sessions.controller.js"></script>
+
+    <script src="app/admin/admin.js"></script>
+    <script src="app/admin/audits/audits.js"></script>
+    <script src="app/admin/audits/audits.controller.js"></script>
+    <script src="app/admin/configuration/configuration.js"></script>
+    <script src="app/admin/configuration/configuration.controller.js"></script>
+    <script src="app/admin/docs/docs.js"></script>
+    <script src="app/admin/health/health.js"></script>
+    <script src="app/admin/health/health.controller.js"></script>
+    <script src="app/admin/health/health.modal.controller.js"></script>
+    <script src="app/admin/logs/logs.js"></script>
+    <script src="app/admin/logs/logs.controller.js"></script>
+    <script src="app/admin/metrics/metrics.js"></script>
+    <script src="app/admin/metrics/metrics.controller.js"></script>
+    <script src="app/admin/metrics/metrics.modal.controller.js"></script>
+    <script src="app/admin/user-management/user-management-detail.controller.js"></script>
+    <script src="app/admin/user-management/user-management-dialog.controller.js"></script>
+    <script src="app/admin/user-management/user-management-delete-dialog.controller.js"></script>
+    <script src="app/admin/user-management/user-management.controller.js"></script>
+    <script src="app/admin/user-management/user-management.js"></script>
+
+    <script src="app/entities/entity.js"></script>
+    <script src="app/error/error.js"></script>
+    <script src="app/entities/bankAccount/bankAccount.js"></script>
+    <script src="app/entities/bankAccount/bankAccount.controller.js"></script>
+    <script src="app/entities/bankAccount/bankAccount-dialog.controller.js"></script>
+    <script src="app/entities/bankAccount/bankAccount-delete-dialog.controller.js"></script>
+    <script src="app/entities/bankAccount/bankAccount-detail.controller.js"></script>
+    <script src="app/entities/label/label.js"></script>
+    <script src="app/entities/label/label.controller.js"></script>
+    <script src="app/entities/label/label-dialog.controller.js"></script>
+    <script src="app/entities/label/label-delete-dialog.controller.js"></script>
+    <script src="app/entities/label/label-detail.controller.js"></script>
+    <script src="app/entities/operation/operation.js"></script>
+    <script src="app/entities/operation/operation.controller.js"></script>
+    <script src="app/entities/operation/operation-dialog.controller.js"></script>
+    <script src="app/entities/operation/operation-delete-dialog.controller.js"></script>
+    <script src="app/entities/operation/operation-detail.controller.js"></script>
+    <script src="app/components/entities/bankAccount/bankAccount.service.js"></script>
+    <script src="app/components/entities/bankAccount/bankAccount.search.service.js"></script>
+    <script src="app/components/entities/label/label.service.js"></script>
+    <script src="app/components/entities/label/label.search.service.js"></script>
+    <script src="app/components/entities/operation/operation.service.js"></script>
+    <script src="app/components/entities/operation/operation.search.service.js"></script>
+
+    <script src="app/main/main.js"></script>
+    <script src="app/main/main.controller.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/dashboard/dashboard.state.js"></script>
+
+
+
+    </body>
+</html>
