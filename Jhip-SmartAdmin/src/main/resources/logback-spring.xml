@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="au.com.bigdata.smartadmin" level="#logback.loglevel#"/>
+    <logger name="net.webapp.jhipsterbank" level="#logback.loglevel#"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>

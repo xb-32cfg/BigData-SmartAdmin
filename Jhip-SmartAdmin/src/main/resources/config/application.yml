@@ -19,7 +19,7 @@ management:
 
 spring:
     application:
-        name: BigDataSmartAdmin
+        name: Bigdata-SmartAdmin
     profiles:
         # The commented value for `active` can be replaced with valid spring profiles to load.
         # Otherwise, it will be filled in by maven when building the WAR file
@@ -46,7 +46,7 @@ security:
         enabled: false
 
 # ===================================================================
-# BigData SmartAdmin specific properties
+# SmartAdmin specific properties
 # ===================================================================
 
 jhipster:
@@ -62,10 +62,10 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: dr.zaman1981@gmail.com
+        from: BigdataSmartAdmin@localhost
     swagger:
-        title: BigData SmartAdmin API
-        description: BigData SmartAdmin API documentation
+        title: Bigdata SmartAdmin API
+        description: Bigdata SmartAdmin API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contactName:
