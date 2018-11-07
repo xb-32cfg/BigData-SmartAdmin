@@ -1,0 +1,44 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "bankAccount",
+            "otherEntityName": "bankAccount",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "label",
+            "otherEntityName": "label",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "label",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160126113641",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pager"
+}

@@ -1,0 +1,36 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "operation",
+            "otherEntityName": "operation",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "bankAccount"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "balance",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160126112615",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pager"
+}

@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "operation",
+            "otherEntityName": "operation",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "label"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160126113107",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}
