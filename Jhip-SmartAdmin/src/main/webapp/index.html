@@ -64,8 +64,10 @@
           data-smart-page-title="BigData Enterprise">
 
         <!-- ui-view container -->
-        <div ui-view="navbar" ng-cloak=""></div>
-        <div data-ui-view="content"  data-autoscroll="false"></div>
+        <div data-ui-view="root"  data-autoscroll="false"></div>
+
+        <!--<div ui-view="navbar" ng-cloak=""></div>-->
+        <!--<div data-ui-view="content"  data-autoscroll="false"></div>-->
 
 
          <!--[if lt IE 7]>
@@ -99,6 +101,15 @@
         <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="plugin/angular-animate/angular-animate.min.js"></script>
+        <script src="plugin/restangular/dist/restangular.min.js"></script>
+        <script src="plugin/ngstorage/ngStorage.js"></script>
+        <script src="plugin/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+        <script src="plugin/angular-ui-util/angular-ui-utils.min.js" type="text/javascript"></script>
+        <script src="plugin/angular-datatables/angular-datatables.min-0.6.2.js"></script>
+        <script src="plugin/angular-datatables/angular-datatables.columnfilter.min.js"></script>
+        <script src="plugin/angular-datatables/dataTables.columnFilter.js"></script>
+
         <script src="bower_components/angular-translate/angular-translate.js"></script>
         <script src="bower_components/messageformat/messageformat.js"></script>
         <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
@@ -114,7 +125,7 @@
 
         <!-- build:js({.tmp,src/main/webapp}) app.js -->
         <script src="app/app.js"></script>
-        <script src="app/app.constants.js"></script>
+        <script src="app/constants.js"></script>
 
      <script src="app/layout/navbar/navbar.directive.js"></script>
      <script src="app/layout/navbar/navbar.controller.js"></script>
