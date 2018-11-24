@@ -1,7 +1,7 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html lang="en-us">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Big Data Enterprise</title>
         <meta name="description" content="">
@@ -192,19 +192,18 @@
         <script src="plugin/angular-datatables/dataTables.columnFilter.js"></script>
 
         <!-- build:js({.tmp,src/main/webapp}) app.js -->
-        <script src="app/app.js"></script>
+        <script src="app/app.module.js"></script>
         <script src="app/app.constants.js"></script>
 
+        <script src="app/layout/layout.state.js"></script>
+        <script src="app/layout/layout.controller.js"></script>
 
-    <script src="app/layout/navbar/navbar.state.js"></script>
-    <script src="app/layout/navbar/navbar.directive.js"></script>
-    <script src="app/layout/navbar/navbar.controller.js"></script>
 
     <script src="app/account/login/login.js"></script>
     <script src="app/account/login/login.controller.js"></script>
 
-   <!-- <script src="app/main/main.js"></script>
-    <script src="app/main/main.controller.js"></script>-->
+    <script src="app/home/home.state.js"></script>
+    <script src="app/home/home.controller.js"></script>
 
     <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/dashboard/dashboard.state.js"></script>
