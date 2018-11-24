@@ -1,11 +1,16 @@
 'use strict';
 
 angular.module('jhipsterbankApp')
-    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth) {
+    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth, Principal, ENV) {
         $scope.user = {};
         $scope.errors = {};
         $scope.rememberMe = true;
         $timeout(function (){angular.element('[ng-model="username"]').focus();});
+
+        $scope.isAuthenticated = Principal.isAuthenticated;
+        $scope.$state = $state;
+        $scope.inProduction = ENV === 'prod';
+
 
         $scope.login = function (event) {
             event.preventDefault();
@@ -20,6 +25,7 @@ angular.module('jhipsterbankApp')
                     $state.go('login');
                 } else {
                     $rootScope.back();
+                    //$state.go('home');
                 }
             }).catch(function () {
                 $scope.authenticationError = true;

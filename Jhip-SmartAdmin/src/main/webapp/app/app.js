@@ -96,26 +96,8 @@ angular.module('jhipsterbankApp', [
         //Cache everything except rest api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
 
-        $urlRouterProvider.otherwise('/');
-        $stateProvider.state('site', {
-            'abstract': true,
-            views: {
-                'navbar@': {
-                    templateUrl: 'app/layout/navbar/loginNavbar.html',
-                    controller: 'NavbarController'
-                }
-            },
-            resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ],
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('global');
-                }]
-            }
-        });
+
+
 
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
