@@ -32,10 +32,6 @@
         <link rel="stylesheet" type="text/css" media="screen" href="styles/css/myTooltips.css">
         <link rel="stylesheet" type="text/css" media="screen" href="styles/css/bootstrap-dialog.css">
 
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/angular-datatables.css">
-
         <!-- #FAVICONS -->
         <link rel="shortcut icon" href="styles/img/favicon/favicon.ico" type="image/x-icon">
 
@@ -65,12 +61,12 @@
           data-smart-device-detect
           data-smart-fast-click
           data-smart-layout
-          data-smart-page-title="BigData Enterprise">
+          data-smart-page-title="BigData SmartAdmin">
 
         <!-- ui-view container -->
-        <div data-ui-view="root"  ng-cloak=""></div>
+        <div data-ui-view="root"  data-autoscroll="false"></div>
         <!--<div ui-view="navbar" ng-cloak=""></div>-->
-       <!-- <div data-ui-view="content"  data-autoscroll="false"></div>-->
+       <!-- <div data-ui-view="content" data-autoscroll="false"></div>-->
 
 
          <!--[if lt IE 7]>
@@ -92,30 +88,34 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>-->
 
+        <!--Use for production after building the project with grunt -->
+        <!--<script src="build/vendor.js"></script>-->
+
         <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-translate/angular-translate.js"></script>
-        <script src="bower_components/messageformat/messageformat.js"></script>
-        <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-        <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/json3/lib/json3.js"></script>
-        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-        <script src="bower_components/messageformat/locale/en.js"></script>
-        <script src="bower_components/messageformat/locale/fr.js"></script>
+        <script src="plugin/jquery/dist/jquery-2.2.4.min.js"></script>
+        <script src="plugin/angular/angular.js"></script>
+        <script src="plugin/angular-aria/angular-aria.js"></script>
+        <script src="plugin/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="plugin/angular-cache-buster/angular-cache-buster.js"></script>
+        <script src="plugin/angular-cookies/angular-cookies.js"></script>
+        <script src="plugin/ngstorage/ngStorage.js"></script>
+        <script src="plugin/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+        <script src="plugin/angular-local-storage/dist/angular-local-storage.js"></script>
+        <script src="plugin/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="plugin/angular-resource/angular-resource.js"></script>
+        <script src="plugin/angular-sanitize/angular-sanitize.js"></script>
+        <script src="plugin/angular-translate/angular-translate.js"></script>
+        <script src="plugin/messageformat/messageformat.js"></script>
+        <script src="plugin/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+        <script src="plugin/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+        <script src="plugin/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+        <script src="plugin/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="plugin/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="plugin/json3/lib/json3.js"></script>
+        <script src="plugin/ng-file-upload/ng-file-upload.js"></script>
+        <script src="plugin/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+        <script src="plugin/messageformat/locale/en.js"></script>
+        <script src="plugin/messageformat/locale/fr.js"></script>
 
         <script src="plugin/jquery-ui/jquery-ui.min.js"></script>
         <script src="plugin/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -160,7 +160,7 @@
         <script src="plugin/jquery-validation/dist/jquery.validate.min.js"></script>
         <!--<script src="plugin/jquery-form/jquery.form"></script>-->
         <script src="plugin/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
-
+        <script src="plugin/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
         <script src="plugin/bootstrap3-fontawesome-timepicker/js/bootstrap-timepicker.min.js"></script>
         <script src="plugin/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
         <script src="plugin/nouislider/distribute/jquery.nouislider.7.0.9.min.js"></script>
@@ -195,8 +195,6 @@
         <script src="app/app.js"></script>
         <script src="app/app.constants.js"></script>
 
-        <script src="app/layout/layout.state.js"></script>
-        <script src="app/layout/layout.controller.js"></script>
 
     <script src="app/layout/navbar/navbar.state.js"></script>
     <script src="app/layout/navbar/navbar.directive.js"></script>
@@ -205,13 +203,14 @@
     <script src="app/account/login/login.js"></script>
     <script src="app/account/login/login.controller.js"></script>
 
-    <script src="app/main/main.js"></script>
-    <script src="app/main/main.controller.js"></script>
+   <!-- <script src="app/main/main.js"></script>
+    <script src="app/main/main.controller.js"></script>-->
 
     <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/dashboard/dashboard.state.js"></script>
-
-
+    <script src="app/dashboard/activities/activities-controller.js"></script>
+    <script src="app/dashboard/activities/activities-service.js"></script>
+    <script src="app/dashboard/activities/activities-dropdown-toggle-directive.js"></script>
 
     <script src="app/components/auth/auth.service.js"></script>
     <script src="app/components/auth/principal.service.js"></script>
