@@ -5,7 +5,7 @@ angular.module('jhipsterbankApp')
         $stateProvider
             .state('home', {
                 parent: 'site',
-                url: '/',
+                url: '/home',
                 data: {
                     authorities: []
                 },

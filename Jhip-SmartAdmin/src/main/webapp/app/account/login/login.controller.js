@@ -25,7 +25,7 @@ angular.module('jhipsterbankApp')
                     $state.go('login');
                 } else {
                     //$rootScope.back();
-                    $state.go('dashboard');
+                    $state.go('home');
                 }
             }).catch(function () {
                 $scope.authenticationError = true;
