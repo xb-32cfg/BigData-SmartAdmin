@@ -11,7 +11,7 @@ angular.module('jhipsterbankApp')
                     pageTitle: 'login.title'
                 },
                 views: {
-                    'content@': {
+                    'root@': {
                         templateUrl: 'app/account/login/login.html',
                         controller: 'LoginController'
                     }

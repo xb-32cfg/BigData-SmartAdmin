@@ -7,15 +7,16 @@
 angular.module('jhipsterbankApp')
     .config(function ($urlRouterProvider, $stateProvider) {
 
-        $stateProvider.state('site', {
+        $stateProvider
+            .state('site', {
             'abstract': true,
             views: {
                 /*'navbar@': {
-                 templateUrl: 'app/layout/navbar/loginNavbar.html',
+                 templateUrl: 'app/layout/navbar/navbar.html',
                  controller: 'NavbarController'
                  }*/
                 'root@': {
-                    templateUrl: 'app/layout/navbar/loginNavbar.html',
+                    templateUrl: 'app/layout/navbar/navbar.html',
                     controller: 'NavbarController'
                 }
             },

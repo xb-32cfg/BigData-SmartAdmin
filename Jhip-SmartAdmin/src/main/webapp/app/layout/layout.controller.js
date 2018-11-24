@@ -3,14 +3,14 @@
  */
 'use strict';
 
-angular.module('app.layout').controller('LayoutController', function ($scope, $state, Auth) {
+angular.module('jhipsterbankApp').controller('LayoutController', function ($scope, $state, Principal, ENV) {
 
+console.log('Layout Controller ');
 
-    $scope.logout = function () {
-        console.log('LayoutController page ');
-        Auth.logout();
-        $state.go('login');
-    };
+    $scope.isAuthenticated = Principal.isAuthenticated;
+    $scope.$state = $state;
+    $scope.inProduction = ENV === 'prod';
+
 
 });
 
