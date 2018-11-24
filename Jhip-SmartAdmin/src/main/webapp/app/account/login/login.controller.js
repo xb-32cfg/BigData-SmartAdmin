@@ -24,8 +24,8 @@ angular.module('jhipsterbankApp')
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('login');
                 } else {
-                    $rootScope.back();
-                    //$state.go('home');
+                    //$rootScope.back();
+                    $state.go('dashboard');
                 }
             }).catch(function () {
                 $scope.authenticationError = true;

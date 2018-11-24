@@ -42,7 +42,7 @@ angular.module('jhipsterbankApp')
 
                         // an authenticated user can't access to login and register pages
                         if (isAuthenticated && $rootScope.toState.parent === 'account' && ($rootScope.toState.name === 'login' || $rootScope.toState.name === 'register')) {
-                            $state.go('home');
+                            $state.go('dashboard');
                         }
 
                         if ($rootScope.toState.data.authorities && $rootScope.toState.data.authorities.length > 0 && !Principal.hasAnyAuthority($rootScope.toState.data.authorities)) {

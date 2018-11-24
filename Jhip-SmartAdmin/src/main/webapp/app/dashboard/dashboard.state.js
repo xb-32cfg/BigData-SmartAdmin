@@ -5,7 +5,7 @@ angular.module('jhipsterbankApp')
         $stateProvider
             .state('dashboard', {
                 parent: 'site',
-                url: '/',
+                url: '/dashboard',
                 data: {
                     authorities: []
                 },
@@ -14,6 +14,13 @@ angular.module('jhipsterbankApp')
                         templateUrl: 'app/dashboard/dashboard.html',
                         controller: 'DashboardController'
                     }
+                },
+                resolve: {
+                    mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                        $translatePartialLoader.addPart('dashboard');
+                        return $translate.refresh();
+                    }]
                 }
+
             });
     });

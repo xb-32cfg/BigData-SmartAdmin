@@ -6,7 +6,7 @@
 
 angular.module('jhipsterbankApp')
     .config(function ($urlRouterProvider, $stateProvider) {
-        $urlRouterProvider.otherwise('/');
+
         $stateProvider.state('site', {
             'abstract': true,
             views: {
@@ -30,5 +30,7 @@ angular.module('jhipsterbankApp')
                 }]
             }
         });
+
+        $urlRouterProvider.otherwise('/login');
 
     });
