@@ -76,7 +76,7 @@
 
       /*datatables*/
       .dataTables_filter .input-group-addon {
-        height: 30px !important; }
+        height: 26px !important; }
 
       .bootstrap-timepicker-widget table td input {
         width: 40px;
@@ -118,10 +118,3 @@
 
       .menu-on-top aside#left-panel .collapse-sign {
         display: none; }
-
-@media (max-width: 979px){
-  .dropzone .dz-default.dz-message {
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-  }
-}
