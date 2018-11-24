@@ -11,4 +11,5 @@ angular.module('jhipsterbankApp')
             Auth.logout();
             $state.go('login');
         };
+
     });

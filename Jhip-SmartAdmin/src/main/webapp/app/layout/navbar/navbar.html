@@ -1,86 +1,48 @@
-<header id="header">
-    <div id="logo-group">
-        <!-- PLACE YOUR LOGO HERE -->
-        <span id="logo"> <img src="styles/img/logo.png" alt="SmartAdmin"> </span>
-    </div>
+<!-- HEADER -->
+<div data-smart-include="app/layout/partials/header.tpl.html" class="placeholder-header"></div>
+<!-- END HEADER -->
 
-    <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
-        <ul class="nav navbar-nav navbar-right">
-            <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="login" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-in"></span>
-                <span translate="global.menu.account.login">Sign in</span></a></li>
-            <li ui-sref-active="active" ng-switch-when="false"><a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-plus-sign"></span>
-                <span translate="global.menu.account.register">Register</span></a></li>
-            <li ui-sref-active="active" ng-switch-when="true"><a href="" ng-click="logout()" id="logout" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-log-out"></span>
-                <span translate="global.menu.account.logout">Sign out</span></a></li>
-        </ul>
-    </div>
 
-    <!-- pulled right: nav area -->
-    <div class="pull-right">
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<div data-smart-include="app/layout/partials/navigation.tpl.html" class="placeholder-left-panel"></div>
 
-        <!-- collapse menu button -->
-        <div id="hide-menu" class="btn-header pull-right">
-            <span> <a toggle-menu title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
-        </div>
+<!-- END NAVIGATION -->
 
-        <!-- fullscreen button -->
-        <div id="fullscreen" class="btn-header transparent pull-right">
-            <span> <a full-screen title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
-        </div>
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+    <demo-states></demo-states>
 
-        <!-- search mobile button (this is hidden till mobile view port) -->
-        <div id="search-mobile" class="btn-header transparent pull-right" data-search-mobile>
-            <span> <a href="#" title="Search"><i class="fa fa-search"></i></a> </span>
-        </div>
-        <!-- input: search field -->
-        <form action="#/search" class="header-search pull-right">
-            <input id="search-fld" type="text" name="param" placeholder="Find reports and more" data-autocomplete='[
-					"ActionScript",
-					"AppleScript",
-					"Asp",
-					"BASIC",
-					"C",
-					"C++",
-					"Clojure",
-					"COBOL",
-					"ColdFusion",
-					"Erlang",
-					"Fortran",
-					"Groovy",
-					"Haskell",
-					"Java",
-					"JavaScript",
-					"Lisp",
-					"Perl",
-					"PHP",
-					"Python",
-					"Ruby",
-					"Scala",
-					"Scheme"]'>
-            <button type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-            <a href="$" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-        </form>
+    <!-- RIBBON -->
+    <div id="ribbon">
 
-        <!--    LanguageController  -->
-        <ul class="header-dropdown-list hidden-xs ng-cloak" ng-controller="LanguageController">
-            <li class="dropdown" dropdown>
-                <a class="dropdown-toggle"  data-toggle="dropdown" href>
-                    <span class="glyphicon glyphicon-flag"></span>
-                    <span class="hidden-sm" translate="global.menu.language">Language</span>
-                    <i class="fa fa-angle-down"></i> </a>
-                <ul class="dropdown-menu pull-right">
-                    <li active-menu="{{language}}" ng-repeat="language in languages">
-                        <a href="" ng-click="changeLanguage(language)" data-toggle="collapse" data-target=".navbar-collapse.in">{{language | findLanguageFromKey}}</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" reset-widgets
+                          tooltip-placement="bottom"
+                          smart-tooltip-html="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings.">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+
+        <!-- breadcrumb -->
+        <state-breadcrumbs></state-breadcrumbs>
+        <!-- end breadcrumb -->
 
 
     </div>
-</header>
+    <!-- END RIBBON -->
 
+    <div data-ui-view="content" data-autoscroll="false"></div>
+
+
+</div>
+<!-- END MAIN PANEL -->
+
+<!-- PAGE FOOTER -->
+<div data-smart-include="app/layout/partials/footer.tpl.html"></div>
+
+<div data-smart-include="app/layout/shortcut/shortcut.tpl.html"></div>
+
+<!-- END PAGE FOOTER -->
 
 

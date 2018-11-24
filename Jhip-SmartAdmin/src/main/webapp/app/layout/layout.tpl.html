@@ -1,25 +1,48 @@
-<div class="container">
-    <div class="well">
-        <div ng-cloak>
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="hipster img-responsive img-rounded"></span>
-                </div>
+<!-- HEADER -->
+<div data-smart-include="app/layout/partials/header.tpl.html" class="placeholder-header"></div>
+<!-- END HEADER -->
 
-                <div class="col-md-8">
-                    <h1>Welcome, LAYOUT  </h1>
-                    <p class="lead">This is your LAYOUT</p>
 
-                    <!-- After Login -->
-                    <div ng-switch="isAuthenticated()">
-                        <div class="alert alert-success" ng-switch-when="true" translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
-                            You are logged in as user "{{account.login}}".
-                        </div>
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<div data-smart-include="app/layout/partials/navigation.tpl.html" class="placeholder-left-panel"></div>
 
-                    </div>
+<!-- END NAVIGATION -->
 
-                </div>
-            </div>
-        </div>
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+    <demo-states></demo-states>
+
+    <!-- RIBBON -->
+    <div id="ribbon">
+
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" reset-widgets
+                          tooltip-placement="bottom"
+                          smart-tooltip-html="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings.">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+
+        <!-- breadcrumb -->
+        <state-breadcrumbs></state-breadcrumbs>
+        <!-- end breadcrumb -->
+
+
     </div>
+    <!-- END RIBBON -->
+
+
+    <div data-smart-router-animation-wrap="content content@app" data-wrap-for="#content">
+        <div data-ui-view="content" data-autoscroll="false"></div>
+    </div>
+
 </div>
+<!-- END MAIN PANEL -->
+
+<!-- PAGE FOOTER -->
+<div data-smart-include="app/layout/partials/footer.tpl.html"></div>
+
+<div data-smart-include="app/layout/shortcut/shortcut.tpl.html"></div>
+
+<!-- END PAGE FOOTER -->

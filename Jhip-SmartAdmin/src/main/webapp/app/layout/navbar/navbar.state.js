@@ -11,10 +11,6 @@ angular.module('jhipsterbankApp')
             .state('site', {
             'abstract': true,
             views: {
-                /*'navbar@': {
-                 templateUrl: 'app/layout/navbar/navbar.html',
-                 controller: 'NavbarController'
-                 }*/
                 'root@': {
                     templateUrl: 'app/layout/navbar/navbar.html',
                     controller: 'NavbarController'
