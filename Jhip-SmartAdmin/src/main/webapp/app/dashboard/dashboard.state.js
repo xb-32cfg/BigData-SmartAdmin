@@ -10,7 +10,7 @@ angular.module('jhipsterbankApp')
                     authorities: []
                 },
                 views: {
-                    'content@app': {
+                    'content': {
                         templateUrl: 'app/dashboard/dashboard.html',
                         controller: 'DashboardController'
                     }
