@@ -2,7 +2,6 @@
 
 angular.module('SmartAdmin.Layout').directive('stateBreadcrumbs', function ($rootScope, $state) {
 
-
     return {
         restrict: 'EA',
         replace: true,
