@@ -14,7 +14,7 @@ describe('Controller Tests', function() {
             MockOperation = jasmine.createSpy('MockOperation');
             MockBankAccount = jasmine.createSpy('MockBankAccount');
             MockLabel = jasmine.createSpy('MockLabel');
-            
+
 
             var locals = {
                 '$scope': $scope,
@@ -32,7 +32,7 @@ describe('Controller Tests', function() {
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'jhipsterbankApp:operationUpdate';
+                var eventType = 'SmartAdminWebapp:operationUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

@@ -2,7 +2,7 @@
 
 describe('Controller Tests', function () {
 
-    beforeEach(module('jhipsterbankApp'));
+    beforeEach(module('SmartAdminWebapp'));
 
     describe('LoginController', function () {
         var $scope;
