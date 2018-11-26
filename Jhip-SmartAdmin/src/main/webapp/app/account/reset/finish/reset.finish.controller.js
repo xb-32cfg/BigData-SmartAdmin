@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('ResetFinishController', function ($scope, $stateParams, $timeout, Auth) {
 
         $scope.keyMissing = $stateParams.key === undefined;

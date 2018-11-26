@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('LayoutController', function ($scope, $location, $state, Auth, Principal, ENV) {
 
         $scope.isAuthenticated = Principal.isAuthenticated;

@@ -538,7 +538,7 @@
 
     }
 
-    angular.module('app.chat').directive('asideChatWidget', function (ChatApi) {
+    angular.module('SmartAdminApp').directive('asideChatWidget', function (ChatApi) {
         return {
             restrict: 'A',
             replace: true,

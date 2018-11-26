@@ -1,7 +1,7 @@
     "use strict";
 
 
-angular.module('app.chat', ['ngSanitize'])
+angular.module('SmartAdminApp', ['ngSanitize'])
 .run(function ($templateCache) {
 
     $templateCache.put("template/popover/popover.html",

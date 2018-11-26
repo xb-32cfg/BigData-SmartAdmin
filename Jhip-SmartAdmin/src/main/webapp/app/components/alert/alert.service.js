@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .provider('AlertService', function () {
         this.toast = false;
 

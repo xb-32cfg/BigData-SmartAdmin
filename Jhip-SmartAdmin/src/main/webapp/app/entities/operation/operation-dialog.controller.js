@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp').controller('OperationDialogController',
+angular.module('SmartAdminApp').controller('OperationDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Operation', 'BankAccount', 'Label',
         function($scope, $stateParams, $uibModalInstance, entity, Operation, BankAccount, Label) {
 

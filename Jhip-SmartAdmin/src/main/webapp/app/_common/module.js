@@ -4,6 +4,6 @@
     angular.module('SmartAdmin', [
         "SmartAdmin.Forms",
         "SmartAdmin.Layout",
-        "SmartAdmin.UI",
+        "SmartAdmin.UI"
     ]);
 })();

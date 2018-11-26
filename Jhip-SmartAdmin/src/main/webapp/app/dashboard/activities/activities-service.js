@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('jhipsterbankApp').factory('activityService', function($http, $log, APP_CONFIG) {
+angular.module('SmartAdminApp').factory('activityService', function($http, $log, APP_CONFIG) {
 
 	function getActivities(callback){
 

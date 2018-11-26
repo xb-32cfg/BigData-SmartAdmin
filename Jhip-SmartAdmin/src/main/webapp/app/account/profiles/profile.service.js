@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('jhipsterbankApp')
+        .module('SmartAdminApp')
         .factory('ProfileService', ProfileService);
 
     ProfileService.$inject = ['$q', '$http'];

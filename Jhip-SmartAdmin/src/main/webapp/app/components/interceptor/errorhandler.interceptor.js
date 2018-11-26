@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .factory('errorHandlerInterceptor', function ($q, $rootScope) {
         return {
             'responseError': function (response) {

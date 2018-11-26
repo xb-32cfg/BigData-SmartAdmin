@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('jhipsterbankApp');
+var app = angular.module('SmartAdminApp');
 
 
     app.controller('RegisterController', function ($scope, $translate, $timeout, Auth) {

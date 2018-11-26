@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('jhipsterbankApp').directive('loginInfo', function(AuthLoginUser){
+angular.module('SmartAdminApp').directive('loginInfo', function(AuthLoginUser){
 
     return {
         restrict: 'A',

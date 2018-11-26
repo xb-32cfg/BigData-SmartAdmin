@@ -1,6 +1,6 @@
 "use strict";	
 
-angular.module('jhipsterbankApp').controller("ActivitiesCtrl", function ActivitiesCtrl($scope, $log, activityService){
+angular.module('SmartAdminApp').controller("ActivitiesCtrl", function ActivitiesCtrl($scope, $log, activityService){
 
 	$scope.activeTab = 'default';
 	$scope.currentActivityItems = [];

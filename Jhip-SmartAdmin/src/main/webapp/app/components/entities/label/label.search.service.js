@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .factory('LabelSearch', function ($resource) {
         return $resource('api/_search/labels/:query', {}, {
             'query': { method: 'GET', isArray: true}

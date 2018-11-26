@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app').controller('TodoCtrl', function ($scope, $timeout, Todo) {
+angular.module('SmartAdminApp').controller('TodoCtrl', function ($scope, $timeout, Todo) {
     $scope.newTodo = undefined;
 
     $scope.states = ['Critical', 'Important', 'Completed'];

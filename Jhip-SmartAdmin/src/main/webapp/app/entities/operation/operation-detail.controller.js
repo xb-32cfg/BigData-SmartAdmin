@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('OperationDetailController', function ($scope, $rootScope, $stateParams, entity, Operation, BankAccount, Label) {
         $scope.operation = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('jhipsterbankApp')
                 $scope.operation = result;
             });
         };
-        var unsubscribe = $rootScope.$on('jhipsterbankApp:operationUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('SmartAdminApp:operationUpdate', function(event, result) {
             $scope.operation = result;
         });
         $scope.$on('$destroy', unsubscribe);

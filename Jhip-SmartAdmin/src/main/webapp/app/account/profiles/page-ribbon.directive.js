@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('jhipsterbankApp')
+        .module('SmartAdminApp')
         .directive('pageRibbon', pageRibbon);
 
     function pageRibbon(ProfileService, $rootScope) {

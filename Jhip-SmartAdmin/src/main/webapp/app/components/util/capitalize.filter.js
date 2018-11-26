@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .filter('capitalize', function () {
         return function (input, scope) {
             if (input != null)

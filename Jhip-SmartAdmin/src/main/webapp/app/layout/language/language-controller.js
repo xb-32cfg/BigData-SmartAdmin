@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app').controller("LanguagesCtrl",  function LanguagesCtrl($scope, $rootScope, $log, Language){
+angular.module('SmartAdminApp').controller("LanguagesCtrl",  function LanguagesCtrl($scope, $rootScope, $log, Language){
 
     $rootScope.lang = {};
     

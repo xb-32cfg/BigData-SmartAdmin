@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, User, $http, APP_CONFIG) {
+angular.module('SmartAdminApp').factory('ChatApi', function ($q, $rootScope, User, $http, APP_CONFIG) {
     var dfd = $q.defer();
     var _user;
     var ChatSrv = {

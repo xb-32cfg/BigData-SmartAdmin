@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('MainController', function ($scope, Principal) {
 
         Principal.identity().then(function(account) {

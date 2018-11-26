@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .directive('jhAlert', function(AlertService) {
         return {
             restrict: 'E',

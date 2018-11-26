@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('BankAccountController', function ($scope, $state, BankAccount, BankAccountSearch, ParseLinks) {
 
         $scope.bankAccounts = [];

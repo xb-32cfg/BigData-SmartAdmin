@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .service('ParseLinks', function () {
         this.parse = function (header) {
             if (header.length == 0) {

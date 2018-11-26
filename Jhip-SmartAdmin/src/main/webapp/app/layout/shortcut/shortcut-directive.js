@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app').directive('toggleShortcut', function($log,$timeout) {
+angular.module('SmartAdminApp').directive('toggleShortcut', function($log,$timeout) {
 
 	var initDomEvents = function($element){
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('BankAccountDetailController', function ($scope, $rootScope, $stateParams, entity, BankAccount, Operation, User) {
         $scope.bankAccount = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('jhipsterbankApp')
                 $scope.bankAccount = result;
             });
         };
-        var unsubscribe = $rootScope.$on('jhipsterbankApp:bankAccountUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('SmartAdminApp:bankAccountUpdate', function(event, result) {
             $scope.bankAccount = result;
         });
         $scope.$on('$destroy', unsubscribe);

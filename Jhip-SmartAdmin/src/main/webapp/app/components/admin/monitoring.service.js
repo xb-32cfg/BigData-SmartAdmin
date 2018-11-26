@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

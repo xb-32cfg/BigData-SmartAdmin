@@ -1,6 +1,6 @@
 "use strict";
 
- angular.module('app').directive('todoList', function ($timeout, Todo) {
+ angular.module('SmartAdminApp').directive('todoList', function ($timeout, Todo) {
 
     return {
         restrict: 'E',

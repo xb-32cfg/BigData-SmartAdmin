@@ -1,6 +1,6 @@
  'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .factory('notificationInterceptor', function ($q, AlertService) {
         return {
             response: function(response) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('OperationController', function ($scope, $state, Operation, OperationSearch, ParseLinks) {
 
         $scope.operations = [];

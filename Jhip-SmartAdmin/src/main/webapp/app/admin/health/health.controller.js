@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('HealthController', function ($scope, MonitoringService, $uibModal) {
         $scope.updatingHealth = true;
         $scope.separator = '.';
@@ -76,7 +76,6 @@ angular.module('jhipsterbankApp')
                     subSystemName: function() {
                         return $scope.subSystemName;
                     }
-
                 }
             });
         };

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
     .controller('LabelController', function ($scope, $state, Label, LabelSearch) {
 
         $scope.labels = [];

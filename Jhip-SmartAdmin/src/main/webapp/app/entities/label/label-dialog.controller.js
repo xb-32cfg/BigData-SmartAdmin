@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterbankApp').controller('LabelDialogController',
+angular.module('SmartAdminApp').controller('LabelDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Label', 'Operation',
         function($scope, $stateParams, $uibModalInstance, entity, Label, Operation) {
 
@@ -13,7 +13,7 @@ angular.module('jhipsterbankApp').controller('LabelDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('jhipsterbankApp:labelUpdate', result);
+            $scope.$emit('SmartAdminApp:labelUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

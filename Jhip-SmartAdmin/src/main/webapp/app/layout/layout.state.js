@@ -4,7 +4,7 @@
  *!/
 
 "use strict";
-angular.module('jhipsterbankApp')
+angular.module('SmartAdminApp')
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
