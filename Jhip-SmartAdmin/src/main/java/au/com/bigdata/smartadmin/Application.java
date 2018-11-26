@@ -34,13 +34,10 @@ public class Application {
     private Environment env;
 
     /**
-     * Initializes jhipsterbank.
+     * Initializes BigData-SmartAdmin.
      * <p/>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p/>
-     * <p>
-     * You can find more information on how profiles work with JHipster on <a href="http://jhipster.github.io/profiles.html">http://jhipster.github.io/profiles.html</a>.
-     * </p>
      */
     @PostConstruct
     public void initApplication() throws IOException {
