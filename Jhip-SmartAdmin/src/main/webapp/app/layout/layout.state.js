@@ -1,12 +1,12 @@
-/**
+/*
+/!**
  * Created by Zaman on 11/25/2018.
- */
+ *!/
 
 "use strict";
 angular.module('jhipsterbankApp')
 
     .config(function ($stateProvider, $urlRouterProvider) {
-
         $stateProvider
             .state('site', {
                 abstract: true,
@@ -33,7 +33,7 @@ angular.module('jhipsterbankApp')
                     }
                 }
             });
-        /*  Specify startup page here  */
-        $urlRouterProvider.otherwise('/login');
-
+        /!*  Specify startup page here  *!/
+        $urlRouterProvider.otherwise('/');
     });
+*/

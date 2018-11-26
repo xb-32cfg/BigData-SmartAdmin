@@ -7,7 +7,8 @@ angular.module('jhipsterbankApp')
                 parent: 'site',
                 url: '/dashboard',
                 data: {
-                    authorities: []
+                    authorities: ['ROLE_USER'],
+                    title: 'Dashboard'
                 },
                 views: {
                     'content': {

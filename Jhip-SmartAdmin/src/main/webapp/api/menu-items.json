@@ -2,7 +2,7 @@
   "items": [
     {
         "title":"Dashboard",
-        "sref":"app.dashboard",
+        "sref":"dashboard",
         "icon":"home"
     },
     {

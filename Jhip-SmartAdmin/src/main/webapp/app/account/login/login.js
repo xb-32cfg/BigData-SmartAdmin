@@ -5,7 +5,7 @@ angular.module('jhipsterbankApp')
         $stateProvider
             .state('login', {
                 parent: 'account',
-                url: '/login',
+                url: '/',
                 data: {
                     authorities: [],
                     pageTitle: 'login.title'
