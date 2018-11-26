@@ -1,6 +1,5 @@
 'use strict';
 
-
 var appConfig = window.appConfig || {};
 
 appConfig.menu_speed = 200;
@@ -76,7 +75,6 @@ appConfig.debugStyle_red = 'font-weight: bold; color: #ed1c24;';
 appConfig.debugStyle_warning = 'background-color:yellow';
 appConfig.debugStyle_success = 'background-color:green; font-weight:bold; color:#fff;';
 appConfig.debugStyle_error = 'background-color:#ed1c24; font-weight:bold; color:#fff;';
-
 
 appConfig.voice_command = true;
 appConfig.voice_command_auto = false;
@@ -340,16 +338,12 @@ if (appConfig.voice_command) {
 }
 
 appConfig.apiRootUrl = '/json';
-appConfig.backEndUrl = 'http://localhost:8081/api';
-appConfig.loginUrl = 'http://localhost:8081/login';
-appConfig.logoutUrl = 'http://localhost:8081/logout';
 window.appConfig = appConfig;
 
 /*
  * END APP.appConfig
  */
 'use strict';
-
 $.sound_path = appConfig.sound_path;
 $.sound_on = appConfig.sound_on;
 
@@ -357,16 +351,11 @@ $.sound_on = appConfig.sound_on;
 $(function () {
     // moment.js default language
     moment.locale('en');
-    //angular.bootstrap(document, ['jhipsterbankApp']);
 });
 
 
 /**
- * @ngdoc overview
  * @name app [smartadminApp]
- * @description
- * # app [smartadminApp]
- *
  * Main module of the application.
  */
 'use strict';
@@ -394,7 +383,7 @@ angular.module('jhipsterbankApp', [
     'infinite-scroll',
     'angular-loading-bar',
 
-    // Smartadmin Angular Common Module
+    // Smartadmin Modules
     'SmartAdmin',
     'datatables',
     'datatables.columnfilter',
@@ -422,8 +411,7 @@ angular.module('jhipsterbankApp', [
     .constant('APP_CONFIG', window.appConfig)
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
-        // update the window title using params in the following
-        // precendence
+        // update the window title using params in the following precendence
         // 1. titleKey parameter
         // 2. $state.$current.data.pageTitle (current state page title)
         // 3. 'global.title'
@@ -475,9 +463,8 @@ angular.module('jhipsterbankApp', [
         // if the current translation changes, update the window title
         $rootScope.$on('$translateChangeSuccess', function() { updateTitle(); });
 
-
         $rootScope.back = function() {
-            // If previous state is 'activate' or do not exist go to 'home'
+            // If previous state is 'activate' or do not exist go to 'login'
             if ($rootScope.previousStateName === 'activate' || $state.get($rootScope.previousStateName) === null) {
                 $state.go('login');
             } else {
@@ -500,11 +487,41 @@ angular.module('jhipsterbankApp', [
 
 
 
+        $stateProvider
+            .state('site', {
+                abstract: true,
+                views: {
+                    'root@': {
+                        templateUrl: 'app/layout/layout.tpl.html',
+                        controller: 'LayoutController'
+                    }
+                },
+                resolve: {
+                    authorize: ['Auth',
+                        function (Auth) {
+                            return Auth.authorize();
+                        }
+                    ],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('global');
+                    }],
+                    scripts: function (lazyScript) {
+                        return lazyScript.register([
+                            'sparkline',
+                            'easy-pie'
+                        ]);
+                    }
+                }
+            });
+        /*  Specify startup page here  */
+        $urlRouterProvider.otherwise('/');
+
+
 
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
-        // jhipster-needle-angularjs-add-interceptor JHipster will add new application interceptor here
+        // jhipster-needle-angularjs-add-interceptor --> add new application interceptor here
 
         // Initialize angular-translate
         $translateProvider.useLoader('$translatePartialLoader', {
@@ -521,7 +538,7 @@ angular.module('jhipsterbankApp', [
         tmhDynamicLocaleProvider.storageKey('NG_TRANSLATE_LANG_KEY');
 
     })
-    // jhipster-needle-angularjs-add-config JHipster will add new application configuration here
+    // jhipster-needle-angularjs-add-config --> add new application configuration here
     .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {
         $urlMatcherFactory.type('boolean', {
             name : 'boolean',
@@ -676,9 +693,6 @@ angular.module('app.appViews', ['ui.router'])
                 }
             })
     });
-
-
-
 
 
 "use strict";
