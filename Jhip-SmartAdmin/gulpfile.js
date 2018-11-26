@@ -85,7 +85,7 @@ gulp.task('html', function () {
     return gulp.src(config.app + 'app/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(templateCache({
-            module: 'jhipsterbankApp',
+            module: 'SmartAdminApp',
             root: 'app/',
             moduleSystem: 'IIFE'
         }))
@@ -94,7 +94,7 @@ gulp.task('html', function () {
 
 gulp.task('ngconstant:dev', function () {
     return ngConstant({
-        name: 'jhipsterbankApp',
+        name: 'SmartAdminApp',
         constants: {
             VERSION: util.parseVersion(),
             DEBUG_INFO_ENABLED: true
@@ -108,7 +108,7 @@ gulp.task('ngconstant:dev', function () {
 
 gulp.task('ngconstant:prod', function () {
     return ngConstant({
-        name: 'jhipsterbankApp',
+        name: 'SmartAdminApp',
         constants: {
             VERSION: util.parseVersion(),
             DEBUG_INFO_ENABLED: false

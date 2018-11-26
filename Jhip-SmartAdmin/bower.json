@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "name": "jhipsterbank",
+  "name": "BigData-SmartAdmin",
   "appPath": "src/main/webapp/",
   "testPath": "src/test/javascript/spec",
   "dependencies": {

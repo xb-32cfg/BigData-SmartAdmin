@@ -1,7 +1,7 @@
 {
-  "name": "jhipsterbank",
+  "name": "BigData-SmartAdmin",
   "version": "0.0.0",
-  "description": "Description for jhipsterbank",
+  "description": "Description for BigData-SmartAdmin",
   "private": true,
   "cacheDirectories": [
     "node_modules",

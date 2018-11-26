@@ -1,6 +1,6 @@
-# jhipsterbank
+# BigData-SmartAdmin
 
-This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
+This application was generated using JHipster.
 
 ## Development
 
@@ -31,7 +31,7 @@ Add the `-h` flag on any command to see how you can use it. For example, `bower 
 
 ## Building for production
 
-To optimize the jhipsterbank client for production, run:
+To optimize the BigData-SmartAdmin client for production, run:
 
     ./mvnw -Pprod clean package
 
@@ -56,9 +56,9 @@ Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in
 
 To setup this project in Jenkins, use the following configuration:
 
-* Project name: `jhipsterbank`
+* Project name: `BigData-SmartAdmin`
 * Source Code Management
-    * Git Repository: `git@github.com:xxxx/jhipsterbank.git`
+    * Git Repository: `git@github.com:xxxx/BigData-SmartAdmin.git`
     * Branches to build: `*/master`
     * Additional Behaviours: `Wipe out repository & force clone`
 * Build Triggers
@@ -68,7 +68,6 @@ To setup this project in Jenkins, use the following configuration:
 * Post-build Actions
     * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml`
 
-[JHipster]: https://jhipster.github.io/
 [Node.js]: https://nodejs.org/
 [Bower]: http://bower.io/
 [Gulp]: http://gulpjs.com/
