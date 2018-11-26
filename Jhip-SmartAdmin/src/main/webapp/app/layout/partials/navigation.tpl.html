@@ -4,70 +4,77 @@
     <div login-info></div>
     <!-- end user info -->
 
-    <nav>
-        <!-- NOTE: Notice the gaps after each icon usage <i></i>..
-        Please note that these links work a bit different than
-        traditional href="" links. See documentation for details.
-        -->
+    <div id="navbar-collapse" ng-switch="isAuthenticated()">
+        <nav>
+            <!-- NOTE: Notice the gaps after each icon usage <i></i>..
+            Please note that these links work a bit different than
+            traditional href="" links. See documentation for details.
+            -->
 
-        <ul data-smart-menu>
-            <li>
-                <a data-ui-sref="home" title="Home"><i class="fa fa-lg fa-fw fa-home"></i> <span
-                        class="menu-item-parent">Home</span></a>
-            </li>
-            <!--  DASHBOARD MODULE  -->
-            <li data-menu-collapse>
-                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span
-                        class="menu-item-parent"> Dashboard</span></a>
-                <ul>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="dashboard"><i class="fa fa-dashboard"></i> Analytics Dashboard</a>
-                    </li>
-                </ul>
-            </li>
+            <ul data-smart-menu>
+                <li>
+                    <a data-ui-sref="home" title="Home"><i class="fa fa-lg fa-fw fa-home"></i> <span
+                            class="menu-item-parent">Home</span></a>
+                </li>
+                <!--  DASHBOARD MODULE  -->
+                <li data-menu-collapse>
+                    <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span
+                            class="menu-item-parent"> Dashboard</span></a>
+                    <ul>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="dashboard"><i class="fa fa-dashboard"></i> Analytics Dashboard</a>
+                        </li>
+                    </ul>
+                </li>
 
-            <!--  MANAGEMENT MODULES  -->
-            <li data-menu-collapse>
-                <a href="#"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent"> Management Modules</span></a>
-                <ul>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.management.school"><i class="fa fa-language"></i> School Management</a>
-                    </li>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.management.merchant"><i class="fa fa-male"></i> Merchant Management</a>
-                    </li>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.management.parents"><i class="fa fa-female"></i> Parents Management</a>
-                    </li>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.management.carduser"><i class="fa fa-graduation-cap"></i> Student Management</a>
-                    </li>
-                </ul>
-            </li>
+                <!--  MANAGEMENT MODULES  -->
+                <li  data-menu-collapse ng-switch="true" has-authority="ROLE_ADMIN">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent"> Management Modules</span></a>
+                    <ul>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.management.school"><i class="fa fa-language"></i> School Management</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.management.merchant"><i class="fa fa-male"></i> Merchant Management</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.management.parents"><i class="fa fa-female"></i> Parents Management</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.management.carduser"><i class="fa fa-graduation-cap"></i> Student Management</a>
+                        </li>
+                    </ul>
+                </li>
 
-            <!--  SYSTEM SETTING MODULES  -->
-            <li data-menu-collapse>
-                <a href="#"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent"> System Setting Modules</span></a>
-                <ul>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="app.management.terminal"><i class="fa fa-terminal"></i> Terminal Management</a>
-                    </li>
-                </ul>
+                <!--  SYSTEM SETTING MODULES  -->
+                <li  data-menu-collapse ng-switch="true" has-authority="ROLE_ADMIN">
+                    <a href="#" title="System Setting Modules"><i class="fa fa-lg fa-fw fa-user-md"></i><span class="menu-item-parent"> System Setting Modules</span></a>
+                    <ul>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="user-management"><i class="fa fa-user"></i> User Management</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="terminal"><i class="fa fa-terminal"></i> Terminal Management</a>
+                        </li>
 
-            </li>
+                    </ul>
+
+                </li>
 
 
-            <!--<li data-menu-collapse class="chat-users top-menu-invisible">
-                <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i>
-                    <span class="menu-item-parent">Smart Chat <sup>beta</sup></span></a>
-                <div aside-chat-widget></div>
-            </li>-->
 
-        </ul>
+                <!--<li data-menu-collapse class="chat-users top-menu-invisible">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i>
+                        <span class="menu-item-parent">Smart Chat <sup>beta</sup></span></a>
+                    <div aside-chat-widget></div>
+                </li>-->
 
-        <!-- NOTE: This allows you to pull menu items from server -->
-        <!-- <ul data-smart-menu-items="/api/menu-items.json"></ul> -->
-    </nav>
+            </ul>
+
+            <!-- NOTE: This allows you to pull menu items from server -->
+            <!-- <ul data-smart-menu-items="/api/menu-items.json"></ul> -->
+        </nav>
+    </div>
 
   <span class="minifyme" data-action="minifyMenu" minify-menu>
     <i class="fa fa-arrow-circle-left hit"></i>

@@ -13,7 +13,7 @@ angular.module('SmartAdminApp')
                 views: {
                     'content': {
                         templateUrl: 'app/home/home.html',
-                        controller: 'MainController'
+                        controller: 'HomeController'
                     }
                 },
                 resolve: {

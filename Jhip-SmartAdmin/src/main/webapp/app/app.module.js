@@ -485,39 +485,6 @@ angular.module('SmartAdminApp', [
         //Cache everything except rest api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
 
-
-
-        $stateProvider
-            .state('site', {
-                abstract: true,
-                views: {
-                    'root@': {
-                        templateUrl: 'app/layout/layout.tpl.html',
-                        controller: 'LayoutController'
-                    }
-                },
-                resolve: {
-                    authorize: ['Auth',
-                        function (Auth) {
-                            return Auth.authorize();
-                        }
-                    ],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('global');
-                    }],
-                    scripts: function (lazyScript) {
-                        return lazyScript.register([
-                            'sparkline',
-                            'easy-pie'
-                        ]);
-                    }
-                }
-            });
-        /*  Specify startup page here  */
-        $urlRouterProvider.otherwise('/');
-
-
-
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');

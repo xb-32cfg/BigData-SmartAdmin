@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('SmartAdminApp')
-    .controller('MainController', function ($scope, Principal) {
+    .controller('HomeController', function ($scope, Principal) {
 
         Principal.identity().then(function(account) {
             $scope.account = account;

@@ -4,14 +4,14 @@ angular.module('SmartAdminApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('user-management', {
-                parent: 'admin',
+                parent: 'site',
                 url: '/user-management',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    pageTitle: 'user-management.home.title'
+                    title: 'User Management'
                 },
                 views: {
-                    'content@': {
+                    'content': {
                         templateUrl: 'app/admin/user-management/user-management.html',
                         controller: 'UserManagementController'
                     }
@@ -24,14 +24,14 @@ angular.module('SmartAdminApp')
                 }
             })
             .state('user-management-detail', {
-                parent: 'admin',
+                parent: 'site',
                 url: '/user/:login',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    pageTitle: 'user-management.detail.title'
+                    title: 'User Management Detail'
                 },
                 views: {
-                    'content@': {
+                    'content': {
                         templateUrl: 'app/admin/user-management/user-management-detail.html',
                         controller: 'UserManagementDetailController'
                     }

@@ -1,7 +1,6 @@
-/*
-/!**
+/**
  * Created by Zaman on 11/25/2018.
- *!/
+ */
 
 "use strict";
 angular.module('SmartAdminApp')
@@ -33,7 +32,6 @@ angular.module('SmartAdminApp')
                     }
                 }
             });
-        /!*  Specify startup page here  *!/
+        /*  Specify startup page here  */
         $urlRouterProvider.otherwise('/');
     });
-*/
