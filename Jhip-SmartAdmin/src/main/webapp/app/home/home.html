@@ -1,37 +1,3 @@
-<!--
-<div class="container">
-    <div class="well">
-    <div ng-cloak>
-        <div class="row">
-            <div class="col-md-4">
-                <span class="hipster img-responsive img-rounded"></span>
-            </div>
-
-            <div class="col-md-8">
-                <h1>Welcome, Java Hipster HOME </h1>
-                <p class="lead" translate="main.subtitle">This is your homepage</p>
-
-                &lt;!&ndash; After Login &ndash;&gt;
-                <div ng-switch="isAuthenticated()">
-                    <div class="alert alert-success" ng-switch-when="true" translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
-                        You are logged in as user "{{account.login}}".
-                    </div>
-
-                    <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated">
-                        If you want to <a class="alert-link" href="#/login">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                    </div>
-
-                    <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.register">
-                        You don't have an account yet? <a class="alert-link" href="#/register">Register a new account</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
--->
 <div id="content">
     <div class="shadowPanel">
         <section id="home-widget-grid" data-widget-grid>
@@ -41,12 +7,12 @@
                     <span class="hipster img-responsive img-rounded"></span>
                 </div>
                 <div class="col-md-8">
-                    <h1>Welcome, DEMO System</h1>
-                    <p class="lead">This is Homepage for D E M O System </p>
+                    <h1>Welcome, BigData SmartAdmin DEMO System</h1>
+                    <p class="lead">This is Homepage </p>
 
                     <div ng-switch="isAuthenticated()">
                         <div class="alert alert-success" ng-switch-when="true">
-                            You are logged in as user "{{account.login}}".
+                            You are logged in as user: "{{account.login}}".
                         </div>
 
                     </div>
