@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('bankAccount', {
@@ -8,7 +8,7 @@ angular.module('SmartAdminApp')
                 url: '/bankAccounts',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.bankAccount.home.title'
+                    pageTitle: 'SmartAdminWebapp.bankAccount.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('SmartAdminApp')
                 url: '/bankAccount/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.bankAccount.detail.title'
+                    pageTitle: 'SmartAdminWebapp.bankAccount.detail.title'
                 },
                 views: {
                     'content@': {
@@ -51,7 +51,7 @@ angular.module('SmartAdminApp')
                 parent: 'bankAccount',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -78,7 +78,7 @@ angular.module('SmartAdminApp')
                 parent: 'bankAccount',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -101,7 +101,7 @@ angular.module('SmartAdminApp')
                 parent: 'bankAccount',
                 url: '/{id}/delete',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({

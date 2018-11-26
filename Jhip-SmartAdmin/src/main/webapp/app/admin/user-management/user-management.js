@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('user-management', {
-                parent: 'site',
+                parent: 'admin',
                 url: '/user-management',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    title: 'User Management'
+                    pageTitle: 'user-management.home.title'
                 },
                 views: {
-                    'content': {
+                    'content@': {
                         templateUrl: 'app/admin/user-management/user-management.html',
                         controller: 'UserManagementController'
                     }
@@ -24,14 +24,14 @@ angular.module('SmartAdminApp')
                 }
             })
             .state('user-management-detail', {
-                parent: 'site',
+                parent: 'admin',
                 url: '/user/:login',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    title: 'User Management Detail'
+                    pageTitle: 'user-management.detail.title'
                 },
                 views: {
-                    'content': {
+                    'content@': {
                         templateUrl: 'app/admin/user-management/user-management-detail.html',
                         controller: 'UserManagementDetailController'
                     }
@@ -47,7 +47,7 @@ angular.module('SmartAdminApp')
                 parent: 'user-management',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_ADMIN']
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -75,7 +75,7 @@ angular.module('SmartAdminApp')
                 parent: 'user-management',
                 url: '/{login}/edit',
                 data: {
-                    authorities: ['ROLE_ADMIN']
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -98,7 +98,7 @@ angular.module('SmartAdminApp')
                 parent: 'user-management',
                 url: '/{login}/delete',
                 data: {
-                    authorities: ['ROLE_ADMIN']
+                    authorities: ['ROLE_ADMIN'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({

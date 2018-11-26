@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .filter('characters', function () {
         return function (input, chars, breakOnWord) {
             if (isNaN(chars)) {

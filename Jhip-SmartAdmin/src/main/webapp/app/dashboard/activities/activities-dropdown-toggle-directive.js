@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').directive('activitiesDropdownToggle', function($log) {
+angular.module('SmartAdminWebapp').directive('activitiesDropdownToggle', function($log) {
 
 	var link = function($scope,$element, attrs){
 		var ajax_dropdown = null;

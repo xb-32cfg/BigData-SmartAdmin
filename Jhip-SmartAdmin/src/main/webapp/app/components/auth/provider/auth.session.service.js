@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .factory('AuthServerProvider', function loginService($http, localStorageService, $window) {
         return {
             login: function(credentials) {

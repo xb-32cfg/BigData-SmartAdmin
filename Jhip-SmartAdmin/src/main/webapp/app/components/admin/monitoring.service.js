@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

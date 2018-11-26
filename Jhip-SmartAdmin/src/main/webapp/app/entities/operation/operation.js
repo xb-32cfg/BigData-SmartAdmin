@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('operation', {
@@ -8,7 +8,7 @@ angular.module('SmartAdminApp')
                 url: '/operations',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.operation.home.title'
+                    pageTitle: 'SmartAdminWebapp.operation.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('SmartAdminApp')
                 url: '/operation/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.operation.detail.title'
+                    pageTitle: 'SmartAdminWebapp.operation.detail.title'
                 },
                 views: {
                     'content@': {

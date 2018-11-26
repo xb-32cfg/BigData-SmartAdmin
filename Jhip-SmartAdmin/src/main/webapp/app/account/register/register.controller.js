@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('SmartAdminApp');
+var app = angular.module('SmartAdminWebapp');
 
 
     app.controller('RegisterController', function ($scope, $translate, $timeout, Auth) {

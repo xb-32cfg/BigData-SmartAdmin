@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('SmartAdminApp')
+        .module('SmartAdminWebapp')
         .factory('ProfileService', ProfileService);
 
     ProfileService.$inject = ['$q', '$http'];

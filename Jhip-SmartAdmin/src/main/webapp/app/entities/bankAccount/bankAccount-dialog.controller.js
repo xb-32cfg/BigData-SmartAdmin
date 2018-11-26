@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp').controller('BankAccountDialogController',
+angular.module('SmartAdminWebapp').controller('BankAccountDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'BankAccount', 'Operation', 'User',
         function($scope, $stateParams, $uibModalInstance, entity, BankAccount, Operation, User) {
 
@@ -14,7 +14,7 @@ angular.module('SmartAdminApp').controller('BankAccountDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('SmartAdminApp:bankAccountUpdate', result);
+            $scope.$emit('SmartAdminWebapp:bankAccountUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

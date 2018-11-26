@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function (uibPagerConfig) {
         uibPagerConfig.itemsPerPage = 20;
         uibPagerConfig.previousText = '«';

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('SmartAdminApp')
+        .module('SmartAdminWebapp')
         .directive('pageRibbon', pageRibbon);
 
     function pageRibbon(ProfileService, $rootScope) {

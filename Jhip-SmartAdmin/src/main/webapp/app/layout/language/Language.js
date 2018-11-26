@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').factory('Language', function($http, APP_CONFIG){
+angular.module('app').factory('Language', function($http, APP_CONFIG){
 
 	function getLanguage(key, callback) {
 

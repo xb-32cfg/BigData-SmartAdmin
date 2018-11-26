@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').directive('recentProjects', function(Project){
+angular.module('SmartAdminWebapp').directive('recentProjects', function(Project){
     return {
         restrict: "EA",
         replace: true,

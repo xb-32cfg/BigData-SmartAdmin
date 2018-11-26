@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').directive('languageSelector', function(Language){
+angular.module('app').directive('languageSelector', function(Language){
     return {
         restrict: "EA",
         replace: true,

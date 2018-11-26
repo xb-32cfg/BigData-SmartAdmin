@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('SmartAdminApp')
-    .factory('BankAccount', function ($resource, DateUtils) {
-        return $resource('api/bankAccounts/:id', {}, {
+angular.module('SmartAdminWebapp')
+    .factory('Operation', function ($resource, DateUtils) {
+        return $resource('api/operations/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
+                    data.date = DateUtils.convertDateTimeFromServer(data.date);
                     return data;
                 }
             },

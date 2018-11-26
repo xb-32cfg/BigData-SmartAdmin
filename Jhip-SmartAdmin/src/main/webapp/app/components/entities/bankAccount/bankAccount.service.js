@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('SmartAdminApp')
-    .factory('Label', function ($resource, DateUtils) {
-        return $resource('api/labels/:id', {}, {
+angular.module('SmartAdminWebapp')
+    .factory('BankAccount', function ($resource, DateUtils) {
+        return $resource('api/bankAccounts/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',

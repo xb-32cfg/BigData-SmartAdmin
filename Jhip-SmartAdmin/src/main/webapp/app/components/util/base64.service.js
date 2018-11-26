@@ -1,7 +1,7 @@
 /*jshint bitwise: false*/
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .service('Base64', function () {
         var keyStr = 'ABCDEFGHIJKLMNOP' +
             'QRSTUVWXYZabcdef' +

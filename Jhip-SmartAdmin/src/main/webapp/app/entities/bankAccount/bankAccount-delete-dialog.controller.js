@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
 	.controller('BankAccountDeleteController', function($scope, $uibModalInstance, entity, BankAccount) {
 
         $scope.bankAccount = entity;

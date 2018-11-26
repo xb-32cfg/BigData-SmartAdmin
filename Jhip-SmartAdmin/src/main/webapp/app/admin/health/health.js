@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('health', {

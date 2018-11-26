@@ -3,9 +3,10 @@
  */
 
 "use strict";
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
 
     .config(function ($stateProvider, $urlRouterProvider) {
+
         $stateProvider
             .state('site', {
                 abstract: true,
@@ -33,5 +34,6 @@ angular.module('SmartAdminApp')
                 }
             });
         /*  Specify startup page here  */
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/login');
+
     });

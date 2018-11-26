@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .service('DateUtils', function ($filter) {
 
     this.convertLocaleDateToServer = function(date) {

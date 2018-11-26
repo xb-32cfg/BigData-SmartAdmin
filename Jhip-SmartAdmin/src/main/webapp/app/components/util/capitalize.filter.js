@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .filter('capitalize', function () {
         return function (input, scope) {
             if (input != null)

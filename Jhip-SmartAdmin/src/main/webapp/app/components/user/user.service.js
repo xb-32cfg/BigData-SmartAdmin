@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .factory('User', function ($resource) {
         return $resource('api/users/:login', {}, {
                 'query': {method: 'GET', isArray: true},

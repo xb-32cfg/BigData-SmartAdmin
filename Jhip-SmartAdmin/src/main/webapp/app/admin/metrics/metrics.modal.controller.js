@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('MetricsModalController', function($scope, $uibModalInstance, threadDump) {
 
         $scope.threadDump = threadDump;

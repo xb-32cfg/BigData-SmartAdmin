@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp').controller('UserManagementDialogController',
+angular.module('SmartAdminWebapp').controller('UserManagementDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'User', 'Language',
         function($scope, $stateParams, $uibModalInstance, entity, User, Language) {
 

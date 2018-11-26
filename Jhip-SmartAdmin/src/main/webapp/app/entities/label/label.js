@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('label', {
@@ -8,7 +8,7 @@ angular.module('SmartAdminApp')
                 url: '/labels',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.label.home.title'
+                    pageTitle: 'SmartAdminWebapp.label.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('SmartAdminApp')
                 url: '/label/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'SmartAdminApp.label.detail.title'
+                    pageTitle: 'SmartAdminWebapp.label.detail.title'
                 },
                 views: {
                     'content@': {
@@ -51,7 +51,7 @@ angular.module('SmartAdminApp')
                 parent: 'label',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -77,7 +77,7 @@ angular.module('SmartAdminApp')
                 parent: 'label',
                 url: '/{id}/edit',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
@@ -100,7 +100,7 @@ angular.module('SmartAdminApp')
                 parent: 'label',
                 url: '/{id}/delete',
                 data: {
-                    authorities: ['ROLE_USER']
+                    authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({

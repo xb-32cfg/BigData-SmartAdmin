@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('UserManagementController', function ($scope, Principal, User, ParseLinks, Language) {
         $scope.users = [];
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];

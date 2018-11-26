@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').directive('chatWidget', function (ChatApi) {
+angular.module('SmartAdminWebapp').directive('chatWidget', function (ChatApi) {
     return {
         replace: true,
         restrict: 'E',

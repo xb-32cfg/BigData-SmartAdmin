@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
 	.controller('user-managementDeleteController', function($scope, $uibModalInstance, entity, User) {
 
         $scope.user = entity;

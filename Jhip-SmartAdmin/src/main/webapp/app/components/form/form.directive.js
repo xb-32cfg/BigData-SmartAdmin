@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .directive('showValidation', function() {
         return {
             restrict: 'A',

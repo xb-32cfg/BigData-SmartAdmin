@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .factory('LogsService', function ($resource) {
         return $resource('api/logs', {}, {
             'findAll': { method: 'GET', isArray: true},

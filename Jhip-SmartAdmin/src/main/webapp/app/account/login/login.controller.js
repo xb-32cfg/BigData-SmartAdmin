@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth, Principal, ENV) {
         $scope.user = {};
         $scope.errors = {};

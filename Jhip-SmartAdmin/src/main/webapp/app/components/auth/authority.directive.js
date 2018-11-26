@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .directive('hasAnyAuthority', ['Principal', function (Principal) {
         return {
             restrict: 'A',

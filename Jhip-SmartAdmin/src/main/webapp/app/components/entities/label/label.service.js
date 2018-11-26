@@ -1,14 +1,13 @@
 'use strict';
 
-angular.module('SmartAdminApp')
-    .factory('Operation', function ($resource, DateUtils) {
-        return $resource('api/operations/:id', {}, {
+angular.module('SmartAdminWebapp')
+    .factory('Label', function ($resource, DateUtils) {
+        return $resource('api/labels/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
-                    data.date = DateUtils.convertDateTimeFromServer(data.date);
                     return data;
                 }
             },

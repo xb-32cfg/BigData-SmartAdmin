@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('PasswordController', function ($scope, Auth, Principal) {
         Principal.identity().then(function(account) {
             $scope.account = account;

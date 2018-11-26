@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('RequestResetController', function ($rootScope, $scope, $state, $timeout, Auth) {
 
         $scope.success = null;

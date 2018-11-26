@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('LabelController', function ($scope, $state, Label, LabelSearch) {
 
         $scope.labels = [];

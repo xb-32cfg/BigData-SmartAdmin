@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('HomeController', function ($scope, Principal) {
 
         Principal.identity().then(function(account) {

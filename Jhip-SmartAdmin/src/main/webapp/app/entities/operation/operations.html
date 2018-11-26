@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="jhipsterbankApp.operation.home.title">Operations</h2>
+    <h2 translate="SmartAdminWebapp.operation.home.title">Operations</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="operation.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-class="hidden-xs"                        translate="jhipsterbankApp.operation.home.createLabel">Create new Operation
+                    <span
+class="hidden-xs"                        translate="SmartAdminWebapp.operation.home.createLabel">Create new Operation
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'jhipsterbankApp.operation.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'SmartAdminWebapp.operation.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -31,10 +31,10 @@ class="hidden-xs"                        translate="jhipsterbankApp.operation.ho
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="date"><span translate="jhipsterbankApp.operation.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="amount"><span translate="jhipsterbankApp.operation.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span translate="jhipsterbankApp.operation.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bankAccount.name"><span translate="jhipsterbankApp.operation.bankAccount">bankAccount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="SmartAdminWebapp.operation.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="SmartAdminWebapp.operation.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="SmartAdminWebapp.operation.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bankAccount.name"><span translate="SmartAdminWebapp.operation.bankAccount">bankAccount</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -51,7 +51,7 @@ class="hidden-xs"                        translate="jhipsterbankApp.operation.ho
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="operation.detail({id:operation.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -63,7 +63,7 @@ class="hidden-xs"                        translate="jhipsterbankApp.operation.ho
                             </button>
                             <button type="submit"
                                     ui-sref="operation.delete({id:operation.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

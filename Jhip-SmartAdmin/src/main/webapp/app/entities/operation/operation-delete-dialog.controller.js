@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
 	.controller('OperationDeleteController', function($scope, $uibModalInstance, entity, Operation) {
 
         $scope.operation = entity;

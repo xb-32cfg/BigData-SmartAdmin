@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp').controller('LabelDialogController',
+angular.module('SmartAdminWebapp').controller('LabelDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Label', 'Operation',
         function($scope, $stateParams, $uibModalInstance, entity, Label, Operation) {
 
@@ -13,7 +13,7 @@ angular.module('SmartAdminApp').controller('LabelDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('SmartAdminApp:labelUpdate', result);
+            $scope.$emit('SmartAdminWebapp:labelUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

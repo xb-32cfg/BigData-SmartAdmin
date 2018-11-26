@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('DashboardController', function ($scope, $state, Principal, ENV) {
 
         Principal.identity().then(function(account) {

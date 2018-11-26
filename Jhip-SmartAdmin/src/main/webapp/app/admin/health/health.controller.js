@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('HealthController', function ($scope, MonitoringService, $uibModal) {
         $scope.updatingHealth = true;
         $scope.separator = '.';
@@ -76,6 +76,7 @@ angular.module('SmartAdminApp')
                     subSystemName: function() {
                         return $scope.subSystemName;
                     }
+
                 }
             });
         };

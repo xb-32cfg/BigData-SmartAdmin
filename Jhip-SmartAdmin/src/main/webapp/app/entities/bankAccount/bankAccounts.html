@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="jhipsterbankApp.bankAccount.home.title">BankAccounts</h2>
+    <h2 translate="SmartAdminWebapp.bankAccount.home.title">BankAccounts</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="bankAccount.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-class="hidden-xs"                        translate="jhipsterbankApp.bankAccount.home.createLabel">Create new BankAccount
+                    <span
+class="hidden-xs"                        translate="SmartAdminWebapp.bankAccount.home.createLabel">Create new BankAccount
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'jhipsterbankApp.bankAccount.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'SmartAdminWebapp.bankAccount.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -31,9 +31,9 @@ class="hidden-xs"                        translate="jhipsterbankApp.bankAccount.
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="jhipsterbankApp.bankAccount.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="balance"><span translate="jhipsterbankApp.bankAccount.balance">Balance</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.login"><span translate="jhipsterbankApp.bankAccount.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="SmartAdminWebapp.bankAccount.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="balance"><span translate="SmartAdminWebapp.bankAccount.balance">Balance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="SmartAdminWebapp.bankAccount.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -49,7 +49,7 @@ class="hidden-xs"                        translate="jhipsterbankApp.bankAccount.
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="bankAccount.detail({id:bankAccount.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -61,7 +61,7 @@ class="hidden-xs"                        translate="jhipsterbankApp.bankAccount.
                             </button>
                             <button type="submit"
                                     ui-sref="bankAccount.delete({id:bankAccount.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('MetricsController', function ($scope, MonitoringService, $uibModal) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;

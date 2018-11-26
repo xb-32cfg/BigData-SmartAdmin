@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('SmartAdminApp').factory('Todo', function (Restangular, APP_CONFIG, $httpBackend) {
+angular.module('SmartAdminWebapp').factory('Todo', function (Restangular, APP_CONFIG, $httpBackend) {
 
     var normalize = function(todo) {
         if(!todo._id){

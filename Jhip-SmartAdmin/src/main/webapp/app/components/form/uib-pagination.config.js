@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .config(function (uibPaginationConfig) {
         uibPaginationConfig.itemsPerPage = 20;
         uibPaginationConfig.maxSize = 5;

@@ -1,7 +1,7 @@
 
 
 'use strict';
-angular.module('SmartAdminApp').factory('AuthLoginUser', function ($http, $q, APP_CONFIG, $cookies) {
+angular.module('SmartAdminWebapp').factory('AuthLoginUser', function ($http, $q, APP_CONFIG, $cookies) {
     var dfd = $q.defer();
     var UserModel = {
         initialized: dfd.promise,

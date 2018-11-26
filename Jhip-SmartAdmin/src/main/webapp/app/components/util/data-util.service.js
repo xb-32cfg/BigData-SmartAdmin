@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .service('DataUtils', function ($filter) {
     this.byteSize = function (base64String) {
         if (!angular.isString(base64String)) {

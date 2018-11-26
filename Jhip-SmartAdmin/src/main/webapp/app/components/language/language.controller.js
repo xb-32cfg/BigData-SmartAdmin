@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('SmartAdminApp')
+angular.module('SmartAdminWebapp')
     .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale) {
         $scope.changeLanguage = function (languageKey) {
             $translate.use(languageKey);
