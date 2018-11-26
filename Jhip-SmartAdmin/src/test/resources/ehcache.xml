@@ -12,27 +12,27 @@
             overflowToDisk="false"
             />
 
-    <cache name="net.webapp.jhipsterbank.domain.User"
+    <cache name="au.com.bigdata.smartadmin.domain.User"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="net.webapp.jhipsterbank.domain.Authority"
+    <cache name="au.com.bigdata.smartadmin.domain.Authority"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="net.webapp.jhipsterbank.domain.User.authorities"
+    <cache name="au.com.bigdata.smartadmin.domain.User.authorities"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="net.webapp.jhipsterbank.domain.PersistentToken"
+    <cache name="au.com.bigdata.smartadmin.domain.PersistentToken"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="net.webapp.jhipsterbank.domain.User.persistentTokens"
+    <cache name="au.com.bigdata.smartadmin.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="net.webapp.jhipsterbank.domain.PersistentAuditEvent"
+    <cache name="au.com.bigdata.smartadmin.domain.PersistentAuditEvent"
            timeToLiveSeconds="3600">
     </cache>
 </ehcache>

@@ -12,17 +12,17 @@
 
 spring:
     application:
-        name: jhipsterbank
+        name: BigData-SmartAdmin
     jackson:
         serialization.write_dates_as_timestamps: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:jhipsterbank;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:bigdatasmartadmin;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
     jpa:
-        database-platform: net.webapp.jhipsterbank.domain.util.FixedH2Dialect
+        database-platform: au.com.bigdata.smartadmin.domain.util.FixedH2Dialect
         database: H2
         open-in-view: false
         show-sql: true
@@ -63,7 +63,7 @@ server:
     address: localhost
 
 # ===================================================================
-# JHipster specific properties
+# SmartAdmin specific properties
 # ===================================================================
 
 jhipster:
@@ -78,8 +78,8 @@ jhipster:
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
-        title: jhipsterbank API
-        description: jhipsterbank API documentation
+        title: SmartAdmin API
+        description: SmartAdmin API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contactName:
