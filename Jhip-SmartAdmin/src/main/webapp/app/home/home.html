@@ -1,3 +1,4 @@
+<!--
 <div class="container">
     <div class="well">
     <div ng-cloak>
@@ -10,7 +11,7 @@
                 <h1>Welcome, Java Hipster HOME </h1>
                 <p class="lead" translate="main.subtitle">This is your homepage</p>
 
-                <!-- After Login -->
+                &lt;!&ndash; After Login &ndash;&gt;
                 <div ng-switch="isAuthenticated()">
                     <div class="alert alert-success" ng-switch-when="true" translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
                         You are logged in as user "{{account.login}}".
@@ -30,3 +31,31 @@
     </div>
     </div>
 </div>
+-->
+<div id="content">
+    <div class="shadowPanel">
+        <section id="home-widget-grid" data-widget-grid>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="hipster img-responsive img-rounded"></span>
+                </div>
+                <div class="col-md-8">
+                    <h1>Welcome, DEMO System</h1>
+                    <p class="lead">This is Homepage for D E M O System </p>
+
+                    <div ng-switch="isAuthenticated()">
+                        <div class="alert alert-success" ng-switch-when="true">
+                            You are logged in as user "{{account.login}}".
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+

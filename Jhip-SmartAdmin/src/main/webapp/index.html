@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Big Data Enterprise</title>
+        <title>Big Data SmartAdmin</title>
         <meta name="description" content="">
         <meta name="google" value="notranslate">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -31,6 +31,10 @@
         <link rel="stylesheet" type="text/css" media="screen" href="styles/css/myApplicationStyle.css">
         <link rel="stylesheet" type="text/css" media="screen" href="styles/css/myTooltips.css">
         <link rel="stylesheet" type="text/css" media="screen" href="styles/css/bootstrap-dialog.css">
+
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.1/css/jquery.dataTables.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/css/angular-datatables.css">
 
         <!-- #FAVICONS -->
         <link rel="shortcut icon" href="styles/img/favicon/favicon.ico" type="image/x-icon">
@@ -87,7 +91,7 @@
         </script>-->
 
         <!--Use for production after building the project with grunt -->
-       <!-- <script src="build/vendor.js"></script>-->
+        <!--<script src="build/vendor.js"></script>-->
 
         <!-- bower:js -->
         <script src="plugin/jquery/dist/jquery-2.2.4.min.js"></script>
@@ -199,6 +203,9 @@
 
     <script src="app/account/login/login.js"></script>
     <script src="app/account/login/login.controller.js"></script>
+    <script src="app/account/profiles/loginInfo.js"></script>
+    <script src="app/account/profiles/profile.service.js"></script>
+    <script src="app/account/profiles/page-ribbon.directive.js"></script>
 
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
@@ -259,6 +266,7 @@
     <script src="app/account/reset/request/reset.request.js"></script>
     <script src="app/account/sessions/sessions.js"></script>
     <script src="app/account/sessions/sessions.controller.js"></script>
+
 
     <script src="app/admin/admin.js"></script>
     <script src="app/admin/audits/audits.js"></script>
