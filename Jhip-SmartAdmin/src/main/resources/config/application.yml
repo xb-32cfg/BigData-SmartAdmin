@@ -62,7 +62,7 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: BigdataSmartAdmin@localhost
+        from: Bigdata-SmartAdmin@localhost
     swagger:
         title: Bigdata SmartAdmin API
         description: Bigdata SmartAdmin API documentation
