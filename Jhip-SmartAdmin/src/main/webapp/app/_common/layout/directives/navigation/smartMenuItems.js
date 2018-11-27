@@ -8,7 +8,7 @@
             
 
             function createItem(item, parent, level){
-                var li = $('<li />' ,{'ui-sref-active': "active"})
+                var li = $('<li />' ,{'ui-sref-active': "active"});
                 var a = $('<a />');
                 var i = $('<i />');
 
@@ -48,10 +48,10 @@
             $http.get(attrs.smartMenuItems).then(function(res){
                 var ul = $('<ul />', {
                     'smart-menu': ''
-                })
+                });
                 _.forEach(res.data.items, function(item) {
                     createItem(item, ul, 1);
-                })
+                });
                 
                 var $scope = $rootScope.$new();
                 var html = $('<div>').append(ul).html(); 
