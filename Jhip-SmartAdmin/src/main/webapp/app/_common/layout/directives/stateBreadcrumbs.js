@@ -1,5 +1,36 @@
 'use strict';
 
+angular.module('SmartAdmin.Layout').directive('stateBreadcrumbs', function ($rootScope, $state, $translate) {
+
+    return {
+        restrict: 'EA',
+        replace: true,
+        template: '<ol class="breadcrumb"><li>Home</li></ol>',
+        link: function (scope, element) {
+
+            var title = "Home";
+            setBreadcrumbs(title);
+
+            $rootScope.$on('$stateChangeStart', function (event, state) {
+                var titleKey = "";
+                titleKey = state.data.pageTitle;
+                $translate(titleKey).then(function (title) {
+                    setBreadcrumbs(title)
+                });
+            })
+
+            function setBreadcrumbs(crumb) {
+                var html = '<li>' + crumb + '</li>'
+                element.html(html)
+            }
+
+        }
+    }
+});
+
+/*
+'use strict';
+
 angular.module('SmartAdmin.Layout').directive('stateBreadcrumbs', function ($rootScope, $state) {
 
     return {
@@ -50,3 +81,4 @@ angular.module('SmartAdmin.Layout').directive('stateBreadcrumbs', function ($roo
         }
     }
 });
+*/

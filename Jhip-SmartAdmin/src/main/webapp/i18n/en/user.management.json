@@ -1,10 +1,8 @@
 {
     "user-management": {
-        "home": {
-            "title": "Users",
-            "createLabel": "Create a new user",
-            "createOrEditLabel": "Create or edit a user"
-        },
+        "title": "User Management",
+        "createLabel": "Create a new user",
+        "createOrEditLabel": "Create or edit a user",
         "created": "A new user is created with identifier {{ param }}",
         "updated": "An user is updated with identifier {{ param }}",
         "deleted": "An user is deleted with identifier {{ param }}",
@@ -12,7 +10,7 @@
             "question": "Are you sure you want to delete user {{ login }}?"
         },
         "detail": {
-            "title": "User"
+            "title": "User Detail"
         },
         "login": "Login",
         "firstName": "First name",

@@ -8,7 +8,7 @@ angular.module('SmartAdminWebapp')
                 url: '/home',
                 data: {
                     authorities: ['ROLE_USER'],
-                    title: 'Home'
+                    pageTitle: 'global.menu.home'
                 },
                 views: {
                     'content': {
@@ -18,7 +18,7 @@ angular.module('SmartAdminWebapp')
                 },
                 resolve: {
                     mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                        $translatePartialLoader.addPart('main');
+                        $translatePartialLoader.addPart('dashboard');
                         return $translate.refresh();
                     }]
                 }

@@ -8,7 +8,7 @@ angular.module('SmartAdminWebapp')
                 url: '/user-management',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    pageTitle: 'user-management.home.title'
+                    pageTitle: 'user-management.title'
                 },
                 views: {
                     'content': {
@@ -28,7 +28,7 @@ angular.module('SmartAdminWebapp')
                 url: '/user/:login',
                 data: {
                     authorities: ['ROLE_ADMIN'],
-                    pageTitle: 'user-management.detail.title'
+                    title: 'user-management.detail.title'
                 },
                 views: {
                     'content': {

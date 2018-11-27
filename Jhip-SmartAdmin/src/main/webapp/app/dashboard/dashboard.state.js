@@ -8,7 +8,7 @@ angular.module('SmartAdminWebapp')
                 url: '/dashboard',
                 data: {
                     authorities: ['ROLE_USER'],
-                    title: 'Dashboard'
+                    pageTitle: 'dashboard.title'
                 },
                 views: {
                     'content': {

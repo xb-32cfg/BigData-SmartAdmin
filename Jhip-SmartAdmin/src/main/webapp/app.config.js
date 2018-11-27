@@ -185,7 +185,7 @@ if (appConfig.voice_command) {
     };
 }
 
-appConfig.apiRootUrl = '/api';
+appConfig.apiRootUrl = '/json';
 
 window.appConfig = appConfig;
 
