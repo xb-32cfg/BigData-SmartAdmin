@@ -1,74 +1,45 @@
-<div>
-    <h2 translate="user-management.home.title">Users</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-              <button class="btn btn-primary" ui-sref="user-management.new">
-                  <span class="glyphicon glyphicon-flash"></span> <span translate="user-management.home.createLabel">Create a new User</span>
-              </button>
-          </div>
-        </div>
-    </div>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th translate="global.field.id">ID</th>
-                <th translate="user-management.login">Login</th>
-                <th translate="user-management.email">Email</th>
-                <th></th>
-                <th translate="user-management.langKey">LangKey</th>
-                <th translate="user-management.profiles">Profiles</th>
-                <th translate="user-management.createdDate">CreatedDate</th>
-                <th translate="user-management.lastModifiedBy">LastModifiedBy</th>
-                <th translate="user-management.lastModifiedDate">LastModifiedDate</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="user in users track by user.id">
-                <td><a ui-sref="user-management-detail({login:user.login})">{{user.id}}</a></td>
-                <td>{{user.login}}</td>
-                <td>{{user.email}}</td>
-                <td>
-                    <span class="label label-danger" ng-click="setActive(user, true)" ng-show="!user.activated"
-                          translate="user-management.deactivated" style="cursor: pointer;">Desactivated</span>
-                    <span class="label label-success" ng-click="setActive(user, false)" ng-show="user.activated"
-                          translate="user-management.activated" style="cursor: pointer;">Activated</span>
-                </td>
-                <td>{{user.langKey}}</td>
-                <td>
-                    <div ng-repeat="authority in user.authorities">
-                        <span class="label label-info">{{ authority }}</span>
+<div id="content">
+    <div class="shadowPanel">
+        <section id="home-widget-grid" data-widget-grid>
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div id="user-wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false"
+                 data-widget-deletebutton="false" data-widget-custombutton="false" data-jarvis-widget >
+                <header>
+                    <span class="widget-icon"><i class="glyphicon glyphicon-user"></i></span>
+                    <h2 translate="user-management.title"> User Management </h2>
+
+                    <div class="widget-toolbar">
+                        <div class="badge bg-color-green" data-tooltip="Create"
+                             ng-click="AddUserForm()"><span class="widget-icon"><i class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="badge bg-color-green" data-tooltip="Update"
+                             ng-click="UpdateUserForm()"><span class="widget-icon"><i class="fa fa-edit"></i></span>
+                        </div>
+                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
+                             ng-click="ListOfUserAccountForm()"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
+                        </div>
                     </div>
-                </td>
-                <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td>{{user.lastModifiedBy}}</td>
-                <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td class="text-right">
-                    <button type="submit"
-                            ui-sref="user-management-detail({login:user.login})"
-                            class="btn btn-info btn-sm">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </button>
-                    <button type="submit"
-                            ui-sref="user-management.edit({login:user.login})"
-                            class="btn btn-primary btn-sm">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                    <button type="submit"
-                            ui-sref="user-management.delete({login:user.login})"
-                            class="btn btn-danger btn-sm"
-                            ng-disabled="currentAccount.login==user.login">
-                        <span class="glyphicon glyphicon-remove-circle"></span>
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="text-center">
-        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+                </header>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="widget-body" ng-show="showListOfUserForm">
+                                <list-of-users-form></list-of-users-form>
+                            </div>
+                            <div class="widget-body" ng-show="showAddUserForm">
+                                <user-mgt-add-form></user-mgt-add-form>
+                            </div>
+                            <div class="widget-body" ng-show="showUpdateUserForm">
+                                <user-mgt-update-form></user-mgt-update-form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!-- /.modal-body -->
+
+            </div>
+
+        </section>
     </div>
 </div>

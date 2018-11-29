@@ -387,7 +387,7 @@ angular.module('SmartAdminWebapp', [
     // Smartadmin Angular Common Module
     'SmartAdmin',
     'datatables',
-    'datatables.columnfilter',
+    'datatables.bootstrap',
 
     // App
    // 'app.layout',

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('SmartAdminWebapp')
-    .controller('UserManagementController', function ($scope, Principal, User, ParseLinks, Language) {
+    .controller('UserManagementController', function ($scope, Principal, User, ParseLinks, Language, DTOptionsBuilder, DTColumnBuilder) {
         $scope.users = [];
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
         Language.getAll().then(function (languages) {
@@ -44,4 +44,22 @@ angular.module('SmartAdminWebapp')
             $scope.editForm.$setPristine();
             $scope.editForm.$setUntouched();
         };
+
+        $scope.showListOfUserForm= true;
+        var vm = this;
+        vm.dtOptions = DTOptionsBuilder
+            .fromSource('app/admin/user-management/data.json')
+            // Add Bootstrap compatibility
+            .withBootstrap();
+        vm.dtColumns = [
+            DTColumnBuilder.newColumn('id').withTitle('ID').withClass('text-danger'),
+            DTColumnBuilder.newColumn('firstName').withTitle('First name'),
+            DTColumnBuilder.newColumn('lastName').withTitle('Last name')
+        ];
+
+
+
+
+
+
     });
