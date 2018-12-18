@@ -24,13 +24,7 @@ angular.module('SmartAdminWebapp')
                     ],
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('global');
-                    }],
-                    scripts: function (lazyScript) {
-                        return lazyScript.register([
-                            'sparkline',
-                            'easy-pie'
-                        ]);
-                    }
+                    }]
                 }
             });
         /*  Specify startup page here  */

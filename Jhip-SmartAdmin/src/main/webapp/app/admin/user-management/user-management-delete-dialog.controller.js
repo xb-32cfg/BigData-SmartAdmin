@@ -1,17 +1,25 @@
 'use strict';
 
 angular.module('SmartAdminWebapp')
-	.controller('user-managementDeleteController', function($scope, $uibModalInstance, entity, User) {
+	.controller('UserManagementDeleteController', function($scope, $stateParams, User) {
 
-        $scope.user = entity;
-        $scope.clear = function() {
-            $uibModalInstance.dismiss('cancel');
+        $scope.user = {};
+        $scope.loadDeleteForm = function () {
+            var login = $stateParams.login;
+            User.get({login: login}, function(result) {
+                $scope.user = result;
+                $scope.deleteUserForm = result;
+            });
         };
-        $scope.confirmDelete = function (login) {
+        //$scope.load($stateParams.login);
+        $scope.loadDeleteForm();
+
+        $scope.confirmDeleteUser = function (login) {
             User.delete({login: login},
                 function () {
-                    $uibModalInstance.close(true);
+                    console.log("deleted");
                 });
         };
+
 
     });

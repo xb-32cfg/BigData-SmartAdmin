@@ -15,7 +15,7 @@
 
             } else {
 
-                $body.hasClass('mobile-view-activated');
+                $body.hasClass('mobile-view-activated')
 
                 // toggle open
                 $this.toggleClass('open');
@@ -71,7 +71,7 @@ angular.module('SmartAdmin.Layout').directive('smartMenu', function ($state, $ro
                         $li.find('li.active').parents('li').addClass('active');
                     }
                 });
-            };
+            }
             bindEvents();
 
 

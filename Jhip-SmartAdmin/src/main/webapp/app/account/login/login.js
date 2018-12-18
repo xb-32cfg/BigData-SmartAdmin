@@ -21,6 +21,12 @@ angular.module('SmartAdminWebapp')
                         $translatePartialLoader.addPart('login');
                         return $translate.refresh();
                     }]
+                },
+                srcipts: function(lazyScript){
+                    return lazyScript.register([
+                        'build/vendor.ui.js'
+                    ])
+
                 }
             });
     });

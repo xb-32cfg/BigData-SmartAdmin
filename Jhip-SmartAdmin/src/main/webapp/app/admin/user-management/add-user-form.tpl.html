@@ -1,0 +1,221 @@
+<form id="addUserForm" role="form" ng-controller="UserManagementController" class="form-horizontal"
+      novalidate ng-submit="saveUser()" show-validation>
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- 1st column -->
+            <div class="col-md-6">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">SEQ ID</label>
+                        <div class="col-md-4">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-key"></i>
+                                <input class="form-control input-sm" type="text" name="id" ng-model="addUserForm.id" hidden readonly>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Login ID</label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-user"></i>
+                                <input class="form-control input-sm" placeholder="Login User ID" type="text" name="login"
+                                       ng-model="addUserForm.login" uppercase="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">User Full Name </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-user"></i>
+                                <input class="form-control input-sm" placeholder="User Full Name" type="text" name="userName"
+                                       ng-model="addUserForm.userName" capitalize-each-word>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">National ID </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-android"></i>
+                                <input class="form-control input-sm" placeholder="IC or Passport Number" type="text"
+                                       name="nationalId" ng-model="addUserForm.nationalId" uppercase="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Role ID </label>
+                        <div class="col-md-5 selectContainer">
+                            <div class="input-icon-right">
+                                <select class="form-control input-sm" name="createRoleId" ng-model="addUserForm.roleId">
+                                    <option value=""></option>
+                                    <option value="Super Admin">Super Admin</option>
+                                    <option value="Accounts">Accounts</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Terminal Manager">Terminal Manager</option>
+                                    <option value="Terminal User">Terminal User</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Email Address </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-envelope-o"></i>
+                                <input class="form-control input-sm" placeholder="Email" type="text" name="email"
+                                       ng-model="addUserForm.email" lowercase="">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Password </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input class="form-control input-sm" placeholder="Password" type="password"
+                                       name="password" ng-model="addUserForm.password">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Re-confirm Password </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input class="form-control input-sm" placeholder="Re-enter Password" type="password" name="repassword">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Mobile </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-phone"></i>
+                                <input class="form-control input-sm" placeholder="Mobile Number" type="text"
+                                       data-smart-masked-input="(999) 999-9999" data-mask-placeholder= "X"
+                                       name="phone" ng-model="addUserForm.phone">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+
+            <!-- 2nd column -->
+            <div class="col-md-6">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Password Expiration Date </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-calendar"></i>
+                                <input class="form-control input-sm" placeholder="Date of Password Expiration" type="date"
+                                       name="passwordExpDate" ng-model="addUserForm.passwordExpDate">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Max. Login Allow</label>
+                        <div class="col-md-5">
+                            <div class="input-icon-right">
+                                <i class="icon-append"></i>
+                                <input class="form-control input-sm" placeholder="Number of Times Login" type="number"
+                                       name="maxLogin" ng-model="addUserForm.maxLogin">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Max. Fail Login Attempts Allow </label>
+                        <div class="col-md-5">
+                            <div class="input-icon-right">
+                                <i class="icon-append"></i>
+                                <input class="form-control input-sm" placeholder="Number of Login Attempts" type="number"
+                                       name="maxFailAttemptsAllow" ng-model="addUserForm.maxFailAttemptsAllow">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Status of Account </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <span class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="createUserst1" ng-model="addUserForm.accountStatus">
+                                    <label class="onoffswitch-label" for="createUserst1">
+                                        <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            <!--    http://formvalidation.io/validators/date/   -->
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Account Activation Date </label>
+                        <div class="col-md-6 date">
+                            <div class="input-icon-right date">
+                                <i class="icon-append fa fa-calendar"></i>
+                                <input class="form-control input-sm" placeholder="Account Activation Date" type="date"
+                                       name="accActivationDate" ng-model="addUserForm.accActivationDate">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Comment </label>
+                        <div class="col-md-7">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-comments-o"></i>
+                                <textarea class="form-control input-sm" placeholder="Admin Message" rows="2"
+                                          name="comments" ng-model="addUserForm.comments" sentence-case=""></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="widget-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="">
+                    <i class="fa fa-refresh"></i> Reset</button>
+                <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit" ng-click="">
+                    <i class="fa fa-save"></i> Save</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+

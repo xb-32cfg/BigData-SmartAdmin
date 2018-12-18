@@ -7,17 +7,17 @@
                  data-widget-deletebutton="false" data-widget-custombutton="false" data-jarvis-widget >
                 <header>
                     <span class="widget-icon"><i class="glyphicon glyphicon-user"></i></span>
-                    <h2 translate="user-management.title"> User Management </h2>
+                    <h2 translate="{{headerText}}"> User Management </h2>
 
                     <div class="widget-toolbar">
+                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
+                             ng-click="ListOfUserAccountForm()"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
+                        </div>
                         <div class="badge bg-color-green" data-tooltip="Create"
                              ng-click="AddUserForm()"><span class="widget-icon"><i class="fa fa-plus"></i></span>
                         </div>
                         <div class="badge bg-color-green" data-tooltip="Update"
                              ng-click="UpdateUserForm()"><span class="widget-icon"><i class="fa fa-edit"></i></span>
-                        </div>
-                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
-                             ng-click="ListOfUserAccountForm()"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
                         </div>
                     </div>
                 </header>
@@ -29,10 +29,10 @@
                                 <list-of-users-form></list-of-users-form>
                             </div>
                             <div class="widget-body" ng-show="showAddUserForm">
-                                <user-mgt-add-form></user-mgt-add-form>
+                                <add-user-form></add-user-form>
                             </div>
                             <div class="widget-body" ng-show="showUpdateUserForm">
-                                <user-mgt-update-form></user-mgt-update-form>
+                                <update-user-form></update-user-form>
                             </div>
                         </div>
                     </div>
