@@ -1,176 +1,163 @@
 {
-  "prebuild": [
-    "jquery",
-    "jquery-ui",
-    "lodash",
-    "bootstrap",
-    "angular",
-    "angular-sanitize",
-    "angular-animate",
-    "angular-ui-router",
-    "angular-resource",
-    "angular-bootstrap",
-    "restangular",
-    "fastclick",
-    "moment",
-    "moment-timezone",
-    "fullcalendar",
-    "notification",
-    "smartwidgets",
-    "easy-pie"
-  ],
+  "chunks": {
+    "vendor": [
+      "jquery",
+      "jquery-ui",
+      "lodash",
+      "bootstrap",
+      "angular",
+      "angular-sanitize",
+      "angular-animate",
+      "angular-ui-router",
+      "angular-resource",
+      "angular-bootstrap",
+      "angular-simple-logger",
+      "angular-google-maps",
+      "restangular",
+      "fastclick",
+      "moment",
+      "moment-timezone",
+      "fullcalendar",
+      "notification",
+      "smartwidgets",
+      "easy-pie",
+      "sparkline",
+      "jquery-jvectormap",
+      "jquery-jvectormap-world-mill-en",
+      "flot",
+      "flot-resize",
+      "flot-fillbetween",
+      "flot-orderBar",
+      "flot-pie",
+      "flot-time",
+      "flot-tooltip",
+      "datatables",
+      "angular-datatables",
+      "angular-datatables.bootstrap"
+
+    ],
+    "vendor.ui": [
+      "select2",
+      "summernote",
+      "markdown",
+      "he",
+      "to-markdown",
+      "bootstrap-markdown",
+      "bootstrap-slider",
+      "bootstrap-progressbar",
+      "jquery-validation",
+      "jquery-maskedinput",
+      "bootstrap-validator",
+      "ionslider",
+      "nouislider",
+      "bootstrap-duallistbox",
+      "bootstrap-timepicker",
+      "clockpicker",
+      "bootstrap-colorpicker",
+      "bootstrap-tagsinput",
+      "jquery-knob",
+      "x-editable",
+      "fuelux-wizard",
+      "dropzone",
+      "jquery-nestable",
+      "jquery-color",
+      "jcrop"
+    ],
+    "vendor.datatables": [
+      "datatables",
+      "datatables-bootstrap",
+      "datatables-tools",
+      "datatables-colvis",
+      "datatables-responsive"
+
+    ],
+    "vendor.graphs": [
+      "raphael",
+      "morris",
+      "dygraphs",
+      "chartjs",
+      "highcharts",
+      "highchartTable"
+    ]
+  },
   "paths": {
-
-    "jquery": "plugin/jquery/dist/jquery.min.js",
-    "jquery-ui": "plugin/jquery-ui/jquery-ui.min.js",
-
-    "bootstrap": "plugin/bootstrap/dist/js/bootstrap.min.js",
-
-    "angular": "plugin/angular/angular.min.js",
-    "angular-resource": "plugin/angular-resource/angular-resource.min.js",
-    "restangular": "plugin/restangular/dist/restangular.min.js",
-    "angular-sanitize": "plugin/angular-sanitize/angular-sanitize.min.js",
-    "angular-animate": "plugin/angular-animate/angular-animate.min.js",
-    "angular-ui-router": "plugin/angular-ui-router/release/angular-ui-router.min.js",
-
-    "angular-google-maps": "plugin/angular-google-maps/dist/angular-google-maps.2.0.5.min.js",
-
+    "jquery": "bower_components/jquery/dist/jquery.min.js",
+    "jquery-ui": "bower_components/jquery-ui/jquery-ui.min.js",
+    "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min.js",
+    "angular": "bower_components/angular/angular.min.js",
+    "angular-resource": "bower_components/angular-resource/angular-resource.min.js",
+    "restangular": "bower_components/restangular/dist/restangular.min.js",
+    "angular-sanitize": "bower_components/angular-sanitize/angular-sanitize.min.js",
+    "angular-animate": "bower_components/angular-animate/angular-animate.min.js",
+    "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js",
     "google-maps": "https://maps.googleapis.com/maps/api/js?v=3.exp",
-
-    "angular-bootstrap": "plugin/angular-bootstrap/ui-bootstrap-tpls.min.js",
-
-    "angular-easyfb": "plugin/angular-easyfb/angular-easyfb.min.js",
-    "angular-google-plus": "plugin/angular-google-plus/dist/angular-google-plus.min.js",
-
-    "pace":"plugin/pace/pace.min.js",
-
-    "fastclick": "plugin/fastclick/lib/fastclick.js",
-
-    "jquery-color": "plugin/jquery-color/jquery.color.js",
-
-    "select2": "plugin/select2/select2.3.5.1.min.js",
-
-    "summernote": "plugin/summernote/dist/summernote.min.js",
-
-    "he": "plugin/he/he.js",
-    "to-markdown": "plugin/to-markdown/src/to-markdown.js",
-    "markdown": "plugin/markdown/lib/markdown.js",
-    "bootstrap-markdown": "plugin/bootstrap-markdown/js/bootstrap-markdown.js",
-
-    "ckeditor": "plugin/ckeditor/ckeditor.js",
-
-    "moment": "plugin/moment/min/moment-with-locales.min.js",
-    "moment-timezone": "plugin/moment-timezone/builds/moment-timezone.min.js",
-
-    "sparkline": "plugin/relayfoods-jquery.sparkline/dist/jquery.sparkline.min.js",
-    "easy-pie": "plugin/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js",
-
-    "flot": "plugin/flot/jquery.flot.cust.min.js",
-    "flot-resize": "plugin/flot/jquery.flot.resize.min.js",
-    "flot-fillbetween": "plugin/flot/jquery.flot.fillbetween.min.js",
-    "flot-orderBar": "plugin/flot/jquery.flot.orderBar.min.js",
-    "flot-pie": "plugin/flot/jquery.flot.pie.min.js",
-    "flot-time": "plugin/flot/jquery.flot.time.min.js",
-    "flot-tooltip": "plugin/flot/jquery.flot.tooltip.min.js",
-
-    "raphael": "plugin/morris/raphael.min.js",
-    "morris": "plugin/morris/morris.min.js",
-
-    "dygraphs": "plugin/dygraphs/dygraph-combined.min.js",
-
-    "chartjs": "plugin/chartjs/chart.min.js",
-
-    "datatables": "plugin/datatables/media/js/jquery.dataTables.min.js",
-    "datatables-bootstrap": "plugin/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js",
-    "datatables-tools": "plugin/datatables-tabletools/js/dataTables.tableTools.js",
-    "datatables-colvis": "plugin/datatables-colvis/js/dataTables.colVis.js",
-    "datatables-responsive": "plugin/datatables-responsive/files/1.10/js/datatables.responsive.js",
-
-
-    "jqgrid":"plugin/jqgrid/js/minified/jquery.jqGrid.min.js",
-    "jqgrid-locale-en":"plugin/jqgrid/js/i18n/grid.locale-en.js",
-
-
-    "jquery-maskedinput": "plugin/jquery-maskedinput/dist/jquery.maskedinput.min.js",
-    "jquery-validation": "plugin/jquery-validation/dist/jquery.validate.min.js",
-    "jquery-form": "plugin/jquery-form/jquery.form",
-
-    "bootstrap-validator": "plugin/bootstrapvalidator/dist/js/bootstrapValidator.min.js",
-
-    "bootstrap-timepicker": "plugin/bootstrap3-fontawesome-timepicker/js/bootstrap-timepicker.min.js",
-    "clockpicker": "plugin/clockpicker/dist/bootstrap-clockpicker.min.js",
-    "nouislider": "plugin/nouislider/distribute/jquery.nouislider.7.0.9.min.js",
-    "ionslider": "plugin/ion.rangeSlider/js/ion.rangeSlider.1.9.3.min.js",
-    "bootstrap-duallistbox": "plugin/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js",
-    "bootstrap-colorpicker": "plugin/bootstrap-colorpicker/js/bootstrap-colorpicker.js",
-    "jquery-knob": "plugin/jquery-knob/dist/jquery.knob.min.js",
-    "bootstrap-slider": "plugin/seiyria-bootstrap-slider/dist/bootstrap-slider.4.0.7.min.js",
-    "bootstrap-tagsinput": "plugin/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
-    "x-editable": "plugin/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js",
-
-    "fuelux-wizard": "plugin/fuelux/js/wizard.js",
-
-    "dropzone": "plugin/dropzone/downloads/dropzone.min.js",
-
-    "jcrop": "plugin/jcrop/js/jquery.Jcrop.min.js",
-
-
-    "bootstrap-progressbar": "plugin/bootstrap-progressbar/bootstrap-progressbar.min.js",
-    "jquery-nestable": "plugin/jquery-nestable/jquery.nestable.js",
-
-    "superbox": "plugin/superbox/superbox.min.js",
-
-
-    "jquery-jvectormap": "plugin/vectormap/jquery-jvectormap-1.2.2.min.js",
-    "jquery-jvectormap-world-mill-en": "plugin/vectormap/jquery-jvectormap-world-mill-en.js",
-
-
-    "lodash": "plugin/lodash/lodash.min.js",
-
-
-    "magnific-popup": "plugin/magnific-popup/dist/jquery.magnific-popup.js",
-
+    "angular-bootstrap": "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+    "angular-google-maps": "bower_components/angular-google-maps/dist/angular-google-maps.min.js",
+    "angular-simple-logger": "bower_components/angular-simple-logger/dist/angular-simple-logger.min.js",
+    "angular-easyfb": "bower_components/angular-easyfb/angular-easyfb.min.js",
+    "angular-google-plus": "bower_components/angular-google-plus/dist/angular-google-plus.min.js",
+    "angular-datatables": "bower_components/angular-datatables/dist/angular-datatables.min.js",
+    "angular-datatables.bootstrap":"bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js",
+    "pace": "bower_components/pace/pace.min.js",
+    "fastclick": "bower_components/fastclick/lib/fastclick.js",
+    "jquery-color": "bower_components/jquery-color/jquery.color.js",
+    "select2": "bower_components/select2/select2.min.js",
+    "summernote": "bower_components/summernote/dist/summernote.min.js",
+    "he": "bower_components/he/he.js",
+    "to-markdown": "bower_components/to-markdown/dist/to-markdown.js",
+    "markdown": "bower_components/markdown/lib/markdown.js",
+    "bootstrap-markdown": "bower_components/bootstrap-markdown/js/bootstrap-markdown.js",
+    "ckeditor": "bower_components/ckeditor/ckeditor.js",
+    "moment": "bower_components/moment/min/moment-with-locales.min.js",
+    "moment-timezone": "bower_components/moment-timezone/builds/moment-timezone.min.js",
+    "sparkline": "bower_components/relayfoods-jquery.sparkline/dist/jquery.sparkline.min.js",
+    "easy-pie": "bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js",
+    "flot": "smartadmin-plugin/legacy/flot/jquery.flot.cust.min.js",
+    "flot-resize": "smartadmin-plugin/legacy/flot/jquery.flot.resize.min.js",
+    "flot-fillbetween": "smartadmin-plugin/legacy/flot/jquery.flot.fillbetween.min.js",
+    "flot-orderBar": "smartadmin-plugin/legacy/flot/jquery.flot.orderBar.min.js",
+    "flot-pie": "smartadmin-plugin/legacy/flot/jquery.flot.pie.min.js",
+    "flot-time": "smartadmin-plugin/legacy/flot/jquery.flot.time.min.js",
+    "flot-tooltip": "smartadmin-plugin/legacy/flot/jquery.flot.tooltip.min.js",
+    "raphael": "bower_components/raphael/raphael-min.js",
+    "morris": "bower_components/morris.js/morris.min.js",
+    "dygraphs": "bower_components/dygraphs/dygraph-combined.js",
+    "chartjs": "bower_components/Chart.js/Chart.min.js",
+    "highcharts": "bower_components/highcharts/highcharts.js",
+    "highchartTable": "bower_components/highchartTable/jquery.highchartTable.js",
+    "datatables": "bower_components/datatables/media/js/jquery.dataTables.min.js",
+    "datatables-bootstrap": "bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js",
+    "datatables-tools": "bower_components/datatables-tabletools/js/dataTables.tableTools.js",
+    "datatables-colvis": "bower_components/datatables-colvis/js/dataTables.colVis.js",
+    "datatables-responsive": "bower_components/datatables-responsive/files/1.10/js/datatables.responsive.js",
+    "jqgrid": "smartadmin-plugin/legacy/jqgrid/js/minified/jquery.jqGrid.min.js",
+    "jqgrid-locale-en": "smartadmin-plugin/legacy/jqgrid/js/i18n/grid.locale-en.js",
+    "jquery-maskedinput": "bower_components/jquery-maskedinput/dist/jquery.maskedinput.min.js",
+    "jquery-validation": "bower_components/jquery-validation/dist/jquery.validate.min.js",
+    "jquery-form": "bower_components/jquery-form/jquery.form",
+    "bootstrap-validator": "bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js",
+    "bootstrap-timepicker": "bower_components/bootstrap3-fontawesome-timepicker/js/bootstrap-timepicker.min.js",
+    "clockpicker": "bower_components/clockpicker/dist/bootstrap-clockpicker.min.js",
+    "nouislider": "bower_components/nouislider/distribute/jquery.nouislider.min.js",
+    "ionslider": "bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js",
+    "bootstrap-duallistbox": "bower_components/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js",
+    "bootstrap-colorpicker": "bower_components/bootstrap-colorpicker/js/bootstrap-colorpicker.js",
+    "jquery-knob": "bower_components/jquery-knob/dist/jquery.knob.min.js",
+    "bootstrap-slider": "bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
+    "bootstrap-tagsinput": "bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
+    "x-editable": "bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js",
+    "fuelux-wizard": "bower_components/fuelux/js/wizard.js",
+    "dropzone": "bower_components/dropzone/dist/min/dropzone.min.js",
+    "jcrop": "bower_components/jcrop/js/jquery.Jcrop.min.js",
+    "bootstrap-progressbar": "bower_components/bootstrap-progressbar/bootstrap-progressbar.min.js",
+    "jquery-nestable": "bower_components/jquery-nestable/jquery.nestable.js",
+    "superbox": "smartadmin-plugin/legacy/superbox/superbox.min.js",
+    "jquery-jvectormap": "bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js",
+    "jquery-jvectormap-world-mill-en": "bower_components/bower-jvectormap/jquery-jvectormap-world-mill-en.js",
+    "lodash": "bower_components/lodash/lodash.min.js",
+    "magnific-popup": "bower_components/magnific-popup/dist/jquery.magnific-popup.js",
     "fullcalendar": "smartadmin-plugin/fullcalendar/jquery.fullcalendar.min.js",
     "smartwidgets": "smartadmin-plugin/smartwidgets/jarvis.widget.min.js",
-
-    "notification": "smartadmin-plugin/notification/SmartNotification.min.js",
-
-    "bootstrap3-dialog": "plugin/bootstrap3-dialog/bootstrap-dialog.js",
-
-    "iCheck": "plugin/iCheck/icheck.min.js"
-
-  },
-  "shim": {
-    "to-markdown": {"deps": ["he"]},
-
-    "bootstrap-markdown": { "deps": ["markdown", "to-markdown"]},
-
-    "moment-timezone": { "deps": ["moment"]},
-    "moment-timezone-data": { "deps": ["moment"]},
-    "moment-helper": { "deps": ["moment-timezone-data"]},
-    "bootstrap-daterangepicker": { "deps": ["moment"]},
-
-    "flot-resize": { "deps": ["flot"]},
-    "flot-fillbetween": { "deps": ["flot"]},
-    "flot-orderBar": { "deps": ["flot"]},
-    "flot-pie": { "deps": ["flot"]},
-    "flot-time": { "deps": ["flot"]},
-    "flot-tooltip": { "deps": ["flot"]},
-
-    "morris": {"deps": ["raphael"]},
-
-    "datatables-colvis":{"deps": ["datatables"]},
-    "datatables-tools":{"deps": ["datatables"]},
-    "datatables-bootstrap":{"deps": ["datatables"]},
-    "datatables-responsive": {"deps": ["datatables"]},
-
-    "jqgrid-locale-en" : {"deps": ["jqgrid"]},
-
-    "jcrop":{"deps": ["jquery-color"]},
-
-    "jquery-jvectormap-world-mill-en": { "deps": ["jquery-jvectormap"]},
-
-    "smartwidgets": { "deps": ["jquery-ui"]}
-
+    "notification": "smartadmin-plugin/notification/SmartNotification.min.js"
   }
-}   
+}

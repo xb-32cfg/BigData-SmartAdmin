@@ -1,16 +1,27 @@
 {
     "user-management": {
         "title": "User Management",
+        "addForm":"Add New User",
+        "updateForm":"Update User",
+        "deleteForm":"Delete User",
+        "listForm":"List of Users",
+        "detail":"User Detail",
         "createLabel": "Create a new user",
-        "createOrEditLabel": "Create or edit a user",
         "created": "A new user is created with identifier {{ param }}",
         "updated": "An user is updated with identifier {{ param }}",
         "deleted": "An user is deleted with identifier {{ param }}",
         "delete": {
             "question": "Are you sure you want to delete user {{ login }}?"
         },
-        "detail": {
-            "title": "User Detail"
+        "button": {
+            "save": "Save",
+            "update": "Update",
+            "delete": "Delete",
+            "reset": "Reset",
+            "confirm": "Confirm",
+            "confirmDel": "Confirm Delete",
+            "cancel": "Cancel",
+            "back": "Back"
         },
         "login": "Login",
         "firstName": "First name",

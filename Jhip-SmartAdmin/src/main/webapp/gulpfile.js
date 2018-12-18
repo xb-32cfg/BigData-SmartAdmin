@@ -5,6 +5,8 @@ var connect = require('gulp-connect');
 var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
+var fs = require('fs');
+var _ = require('lodash');
 
 
 var scripts = require('./app.scripts.json');
@@ -23,11 +25,10 @@ var source = {
             'app/app.js',
 
             // module files
-
             'app/**/module.js',
 
             // other js files [controllers, services, etc.]
-            'app/**/!(module)*.js',
+            'app/**/!(module)*.js'
         ],
         tpl: 'app/**/*.tpl.html'
     }
@@ -40,28 +41,22 @@ var destinations = {
 
 gulp.task('build', function(){
     return es.merge(gulp.src(source.js.src) , getTemplateStream())
-        // .pipe(ngAnnotate())
-        // .pipe(uglify())
+         .pipe(ngAnnotate())
+         .pipe(uglify())
         .pipe(concat('app.js'))
         .pipe(gulp.dest(destinations.js));
 });
 
-gulp.task('vendor', function(){
-    var paths = [];
-    scripts.prebuild.forEach(function(script){
-        paths.push(scripts.paths[script]);
-    });
-    gulp.src(paths)
-        .pipe(concat('vendor.js'))
-        //.on('error', swallowError)
-        .pipe(gulp.dest(destinations.js))
+gulp.task('js', function(){
+    return es.merge(gulp.src(source.js.src) , getTemplateStream())
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest(destinations.js));
 });
 
 gulp.task('watch', function(){
-    gulp.watch(source.js.src, ['build']);
-    gulp.watch(source.js.tpl, ['build']);
+    gulp.watch(source.js.src, ['js']);
+    gulp.watch(source.js.tpl, ['js']);
 });
-
 
 gulp.task('connect', function() {
     connect.server({
@@ -69,7 +64,29 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('default', ['vendor', 'build', 'watch', 'connect']);
+gulp.task('vendor', function(){
+    _.forIn(scripts.chunks, function(chunkScripts, chunkName){
+        var paths = [];
+        chunkScripts.forEach(function(script){
+            var scriptFileName = scripts.paths[script];
+
+            if (!fs.existsSync(__dirname + '/' + scriptFileName)) {
+
+                throw console.error('Required path doesn\'t exist: ' + __dirname + '/' + scriptFileName, script)
+            }
+            paths.push(scriptFileName);
+        });
+        gulp.src(paths)
+            .pipe(concat(chunkName + '.js'))
+            //.on('error', swallowError)
+            .pipe(gulp.dest(destinations.js))
+    })
+
+});
+
+gulp.task('prod', ['vendor', 'build']);
+gulp.task('dev', ['vendor', 'js', 'watch', 'connect']);
+gulp.task('default', ['dev']);
 
 var swallowError = function(error){
     console.log(error.toString());
