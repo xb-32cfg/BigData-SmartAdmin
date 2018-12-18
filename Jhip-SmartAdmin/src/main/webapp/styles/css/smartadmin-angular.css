@@ -118,3 +118,10 @@
 
       .menu-on-top aside#left-panel .collapse-sign {
         display: none; }
+
+@media (max-width: 979px){
+  .dropzone .dz-default.dz-message {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+}
