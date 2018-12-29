@@ -1,18 +1,18 @@
 
-<form id="updateUserForm" role="form" ng-controller="UserManagementController"
-      novalidate ng-submit="updateUser()" show-validation class="form-horizontal">
+<form id="updateUserForm" role="form" ng-controller="UserManagementController" class="form-horizontal"
+      novalidate ng-submit="updateUser()" show-validation >
     <div class="row">
         <div class="col-md-12">
 
             <!-- 1st column -->
             <div class="col-md-6">
-                <fieldset>
+                <fieldset hidden>
                     <div class="form-group">
                         <label class="col-md-4 control-label">SEQ ID</label>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-key"></i>
-                                <input class="form-control input-sm" type="text" name="id" ng-model="updateUserForm.id" hidden readonly>
+                                <input class="form-control input-sm" type="text" name="id" ng-model="updateUserForm.id" readonly>
                             </div>
                         </div>
                     </div>
@@ -20,11 +20,11 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Login ID</label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="Login User ID" type="text" name="login"
-                                       ng-model="updateUserForm.login">
+                                <i class="icon-append fa fa-key"></i>
+                                <input class="form-control input-sm" placeholder="" type="text" name="login"
+                                       ng-model="updateUserForm.login" lowercase>
                             </div>
                         </div>
                     </div>
@@ -32,10 +32,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">User First Name </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="User First Name" type="text" name="firstName"
+                                <input class="form-control input-sm" placeholder="" type="text" name="firstName"
                                        ng-model="updateUserForm.firstName" capitalize-each-word>
                             </div>
                         </div>
@@ -43,11 +43,23 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-md-4 control-label">User Last Name </label>
-                        <div class="col-md-7">
+                        <label class="col-md-4 control-label">User Middle Name </label>
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="User Last Name" type="text" name="lastName"
+                                <input class="form-control input-sm" placeholder="" type="text" name="middleName"
+                                       ng-model="updateUserForm.middleName" capitalize-each-word>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">User Last Name </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-user"></i>
+                                <input class="form-control input-sm" placeholder="" type="text" name="lastName"
                                        ng-model="updateUserForm.lastName" capitalize-each-word>
                             </div>
                         </div>
@@ -56,10 +68,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">National ID </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-android"></i>
-                                <input class="form-control input-sm" placeholder="IC or Passport Number" type="text"
+                                <i class="icon-append fa fa-id-card-o"></i>
+                                <input class="form-control input-sm" placeholder="" type="text"
                                        name="nationalId" ng-model="updateUserForm.nationalId" uppercase="">
                             </div>
                         </div>
@@ -68,10 +80,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Email Address </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-envelope-o"></i>
-                                <input class="form-control input-sm" placeholder="Email" type="text" name="email"
+                                <input class="form-control input-sm" placeholder="" type="text" name="email"
                                        ng-model="updateUserForm.email" lowercase="">
                             </div>
                         </div>
@@ -80,10 +92,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Password </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="Password" type="password"
+                                <input class="form-control input-sm" placeholder="" type="password"
                                        name="password" ng-model="updateUserForm.password">
                             </div>
                         </div>
@@ -92,10 +104,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Re-confirm Password </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="Re-enter Password" type="password" name="repassword">
+                                <input class="form-control input-sm" placeholder="" type="password" name="repassword">
                             </div>
                         </div>
                     </div>
@@ -103,61 +115,20 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Mobile </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-phone"></i>
-                                <input class="form-control input-sm" placeholder="Mobile Number" type="text"
-                                       data-smart-masked-input="(999) 999-9999" data-mask-placeholder= "X"
+                                <input class="form-control input-sm" placeholder="" type="text"
+                                       data-smart-masked-input="(99) 999-9999-999" data-mask-placeholder= "X"
                                        name="phone" ng-model="updateUserForm.phone">
                             </div>
                         </div>
                     </div>
                 </fieldset>
-
-            </div>
-
-            <!-- 2nd column -->
-            <div class="col-md-6">
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Password Expiration Date </label>
+                        <label class="col-md-4 control-label">Account Status</label>
                         <div class="col-md-6">
-                            <div class="input-icon-right">
-                                <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="Date of Password Expiration" type="date"
-                                       name="passwordExpDate" ng-model="updateUserForm.passwordExpDate">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Max. Login Allow</label>
-                        <div class="col-md-5">
-                            <div class="input-icon-right">
-                                <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="Number of Times Login" type="number"
-                                       name="maxLogin" ng-model="updateUserForm.maxLogin">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Max. Fail Login Attempts Allow </label>
-                        <div class="col-md-5">
-                            <div class="input-icon-right">
-                                <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="Number of Login Attempts" type="number"
-                                       name="maxFailAttemptsAllow" ng-model="updateUserForm.maxFailAttemptsAllow">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Status of Account </label>
-                        <div class="col-md-7">
                             <div class="input-icon-right">
                                 <span class="onoffswitch">
                                     <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="updateUserActivation" ng-model="updateUserForm.activated">
@@ -170,6 +141,46 @@
                         </div>
                     </div>
                 </fieldset>
+            </div>
+
+            <!-- 2nd column -->
+            <div class="col-md-6">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Password Expiration Date </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <i class="icon-append fa fa-calendar"></i>
+                                <input class="form-control input-sm" placeholder="" type="date"
+                                       name="passwordExpDate" ng-model="updateUserForm.passwordExpDate">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Max. Login Allow</label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <i class="icon-append"></i>
+                                <input class="form-control input-sm" placeholder="" type="number"
+                                       name="maxLogin" ng-model="updateUserForm.maxLogin">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Max. Fail Login Attempts Allow </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <i class="icon-append"></i>
+                                <input class="form-control input-sm" placeholder="" type="number"
+                                       name="maxFailAttemptsAllow" ng-model="updateUserForm.maxFailAttemptsAllow">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
 
             <!--    http://formvalidation.io/validators/date/   -->
                 <fieldset>
@@ -178,7 +189,7 @@
                         <div class="col-md-6 date">
                             <div class="input-icon-right date">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="Account Activation Date" type="date"
+                                <input class="form-control input-sm" placeholder="" type="date"
                                        name="accActivationDate" ng-model="updateUserForm.accActivationDate">
                             </div>
                         </div>
@@ -187,10 +198,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Language </label>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="Language" type="text"
+                                <i class="icon-append fa fa-language"></i>
+                                <input class="form-control input-sm" placeholder="en" type="text"
                                        name="langKey" ng-model="updateUserForm.langKey">
                             </div>
                         </div>
@@ -199,7 +210,7 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">User Role </label>
-                        <div class="col-md-5 selectContainer">
+                        <div class="col-md-6 selectContainer">
                             <div class="input-icon-right">
                                 <select class="form-control input-sm" multiple name="authority" ng-model="updateUserForm.authorities"
                                         ng-options="authority for authority in authorities">
@@ -211,10 +222,10 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Comment </label>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-comments-o"></i>
-                                <textarea class="form-control input-sm" placeholder="Admin Message" rows="2"
+                                <textarea class="form-control input-sm" placeholder="" rows="3"
                                           name="comments" ng-model="updateUserForm.comments" sentence-case=""></textarea>
                             </div>
                         </div>

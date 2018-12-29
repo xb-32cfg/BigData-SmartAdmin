@@ -10,3 +10,4 @@ angular.module('SmartAdminWebapp')
                 'delete': { method: 'DELETE' }
             });
         });
+

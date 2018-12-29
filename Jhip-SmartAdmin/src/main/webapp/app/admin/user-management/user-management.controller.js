@@ -5,9 +5,11 @@ angular.module('SmartAdminWebapp')
     function ($scope, $state, Principal, User, ParseLinks, Language, $compile, $filter, DTOptionsBuilder, DTColumnBuilder) {
         var vm = this;
         vm.entity = {};
+        $scope.page = 1;
+        $scope.isSaving = false;
         $scope.users = [];
         $scope.addUserForm = {};
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_STUDENT", "ROLE_PARENTS", "ROLE_DEFAULT"];
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });
@@ -15,8 +17,8 @@ angular.module('SmartAdminWebapp')
 		Principal.identity().then(function(account) {
             $scope.currentAccount = account;
         });
-        $scope.page = 1;
-        $scope.loadAll = function () {
+
+        function loadAll () {
             User.query({page: $scope.page - 1, size: 20}, function (result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.totalItems = headers('X-Total-Count');
@@ -26,31 +28,22 @@ angular.module('SmartAdminWebapp')
 
         $scope.loadPage = function (page) {
             $scope.page = page;
-            $scope.loadAll();
+            loadAll();
         };
-        $scope.loadAll();
+        loadAll();
 
-        $scope.setActive = function (user, isActivated) {
-            user.activated = isActivated;
-            User.update(user, function () {
-                $scope.loadAll();
-                $scope.clear();
-            });
-        };
 
+        /*********************************************
+         *           RESET                           *
+         *********************************************/
         $scope.clear = function () {
-            $scope.user = {
-                id: null, login: null, firstName: null, lastName: null, email: null,
-                activated: null, langKey: null, createdBy: null, createdDate: null,
-                lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
-                resetKey: null, authorities: null
-            };
-            $scope.editForm.$setPristine();
-            $scope.editForm.$setUntouched();
+            $scope.isSaving = false;
+            $scope.addUserForm = {};
+            $scope.updateUserForm = {};
         };
 
         vm.manageUserHeaderText = "user-management.title";
-        vm.createHeaderText = "user-management.createForm";
+        vm.createHeaderText = "user-management.addForm";
         vm.updateHeaderText = "user-management.updateForm";
         vm.deleteHeaderText = "user-management.deleteForm";
         vm.detailHeaderText = "user-management.detail";
@@ -59,6 +52,8 @@ angular.module('SmartAdminWebapp')
 
         /*  Show List of User Form    */
         $scope.ListOfUserAccountForm = function(){
+            $state.go('user-management', null, { reload: true });
+
             $scope.headerText = vm.manageUserHeaderText;
             $scope.showAddUserForm = false;
             $scope.showUpdateUserForm = false;
@@ -83,6 +78,9 @@ angular.module('SmartAdminWebapp')
         };
 
 
+        /*********************************************
+         *           TABLE LIST                      *
+         *********************************************/
         vm.dtOptions = DTOptionsBuilder.newOptions().withOption('ajax', {
             url: '/api/users/',
             type: 'GET'
@@ -97,11 +95,10 @@ angular.module('SmartAdminWebapp')
             .withColReorderOption('iFixedColumnsRight', 1) // Fix last right column
             .withOption('responsive', true)
             //.withDOM('frtip') // disable select [10,20,30,50]
-            .withButtons([
+            /*.withButtons([
                 'print',
-                'csv',
-                'pdf'
-            ])
+                'csv'
+            ])*/
             .withBootstrap();
 
         vm.dtColumns = [
@@ -110,10 +107,10 @@ angular.module('SmartAdminWebapp')
             DTColumnBuilder.newColumn('firstName'),
             DTColumnBuilder.newColumn('lastName'),
             DTColumnBuilder.newColumn('email'),
-            DTColumnBuilder.newColumn('createdDate').renderWith(function (data, type, full) {
-                return $filter('date')(data, 'dd/MM/yyyy'); }), //date filter
             DTColumnBuilder.newColumn('authorities'),
             DTColumnBuilder.newColumn('activated'),
+            DTColumnBuilder.newColumn('createdDate').renderWith(function (data, type, full) {
+                return $filter('date')(data, 'dd/MM/yyyy'); }), //date filter
             DTColumnBuilder.newColumn('langKey').withTitle('Lang').withClass('none'),
             DTColumnBuilder.newColumn('lastModifiedBy').withTitle('Modified By').withClass('none'),
             DTColumnBuilder.newColumn('lastModifiedDate').renderWith(function (data, type, full) {
@@ -142,11 +139,13 @@ angular.module('SmartAdminWebapp')
          *        CREATE NEW USER                    *
          *********************************************/
         $scope.saveUser = function () {
-            $scope.isSaving = true;
-            console.log('---> '+ JSON.stringify($scope.addUserForm));
-            var id = $scope.addUserForm.id;
-            if (id == null) {
-                User.save($scope.addUserForm, onSaveSuccess, onSaveError);
+            //console.log('---> '+ JSON.stringify($scope.addUserForm));
+            if ( $('#addUserForm').data('bootstrapValidator').isValid() ) {
+                BootstrapDialog.save('', function (result) {
+                    if (result) {
+                        User.save($scope.addUserForm, onSaveSuccess, onSaveError);
+                    }
+                });
             }
         };
 
@@ -161,19 +160,31 @@ angular.module('SmartAdminWebapp')
             });
         };
         $scope.updateUser = function () {
-            $scope.isSaving = true;
+            //console.log('---> '+ JSON.stringify($scope.updateUserForm));
             var id = $scope.updateUserForm.id;
             if (id != null) {
-                User.update($scope.updateUserForm, onSaveSuccess, onSaveError);
+                BootstrapDialog.save('', function(result){
+                    if(result) {
+                        User.update($scope.updateUserForm, onUpdateSuccess, onSaveError);
+                    }
+                });
             }
         };
 
+
+        /*********************************************
+         *       DISPLAY CONFIRMATION MESSAGE        *
+         *********************************************/
         var onSaveSuccess = function (result) {
-            $scope.isSaving = false;
+            SuccessMessageDisplay(result);
+            $scope.isSaving = true;
+        };
+        var onUpdateSuccess = function (result) {
+            UpdatedMessageDisplay(result);
+            $scope.isSaving = true;
         };
         var onSaveError = function (result) {
             $scope.isSaving = false;
         };
-
 
     });

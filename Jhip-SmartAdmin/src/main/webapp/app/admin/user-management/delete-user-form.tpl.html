@@ -1,3 +1,6 @@
+<form id="deleteUserForm" role="form" ng-controller="UserManagementDeleteController" class="form-horizontal"
+      novalidate ng-submit="confirmDeleteUser(login)" show-validation >
+
 <div id="content">
     <div class="shadowPanel">
         <section id="user-detail-widget-grid" data-widget-grid>
@@ -22,20 +25,17 @@
 
                 <div class="modal-body">
 
-                    <form id="deleteUserForm" role="form" ng-controller="UserManagementDeleteController"
-                          novalidate ng-submit="confirmDeleteUser()" show-validation class="form-horizontal">
-
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- 1st column -->
                                 <div class="col-md-6">
-                                    <fieldset>
+                                    <fieldset hidden>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">SEQ ID</label>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-key"></i>
-                                                    <input class="form-control input-sm" type="text" name="id" ng-model="deleteUserForm.id" hidden readonly>
+                                                    <input class="form-control input-sm" type="text" name="id" ng-model="deleteUserForm.id" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -43,10 +43,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Login ID</label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
-                                                    <input class="form-control input-sm" placeholder="Login User ID" type="text" name="login"
+                                                    <input class="form-control input-sm" placeholder="" type="text" name="login"
                                                            ng-model="deleteUserForm.login">
                                                 </div>
                                             </div>
@@ -55,10 +55,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">User First Name </label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
-                                                    <input class="form-control input-sm" placeholder="User First Name" type="text" name="firstName"
+                                                    <input class="form-control input-sm" placeholder="" type="text" name="firstName"
                                                            ng-model="deleteUserForm.firstName" capitalize-each-word>
                                                 </div>
                                             </div>
@@ -66,11 +66,23 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">User Last Name </label>
-                                            <div class="col-md-7">
+                                            <label class="col-md-4 control-label">User Middle Name </label>
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
-                                                    <input class="form-control input-sm" placeholder="User Last Name" type="text" name="lastName"
+                                                    <input class="form-control input-sm" placeholder="" type="text" name="middleName"
+                                                           ng-model="deleteUserForm.middleName" capitalize-each-word>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">User Last Name </label>
+                                            <div class="col-md-6">
+                                                <div class="input-icon-right">
+                                                    <i class="icon-append fa fa-user"></i>
+                                                    <input class="form-control input-sm" placeholder="" type="text" name="lastName"
                                                            ng-model="deleteUserForm.lastName" capitalize-each-word>
                                                 </div>
                                             </div>
@@ -79,10 +91,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">National ID </label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
-                                                    <i class="icon-append fa fa-android"></i>
-                                                    <input class="form-control input-sm" placeholder="IC or Passport Number" type="text"
+                                                    <i class="icon-append fa fa-id-card-o"></i>
+                                                    <input class="form-control input-sm" placeholder="" type="text"
                                                            name="nationalId" ng-model="deleteUserForm.nationalId" uppercase="">
                                                 </div>
                                             </div>
@@ -91,10 +103,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Email Address </label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-envelope-o"></i>
-                                                    <input class="form-control input-sm" placeholder="Email" type="text" name="email"
+                                                    <input class="form-control input-sm" placeholder="" type="text" name="email"
                                                            ng-model="deleteUserForm.email" lowercase="">
                                                 </div>
                                             </div>
@@ -102,41 +114,33 @@
                                     </fieldset>
                                     <fieldset>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">Password </label>
-                                            <div class="col-md-7">
-                                                <div class="input-icon-right">
-                                                    <i class="icon-append fa fa-lock"></i>
-                                                    <input class="form-control input-sm" placeholder="Password" type="password"
-                                                           name="password" ng-model="deleteUserForm.password">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">Re-confirm Password </label>
-                                            <div class="col-md-7">
-                                                <div class="input-icon-right">
-                                                    <i class="icon-append fa fa-lock"></i>
-                                                    <input class="form-control input-sm" placeholder="Re-enter Password" type="password" name="repassword">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group">
                                             <label class="col-md-4 control-label">Mobile </label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-phone"></i>
-                                                    <input class="form-control input-sm" placeholder="Mobile Number" type="text"
-                                                           data-smart-masked-input="(999) 999-9999" data-mask-placeholder= "X"
+                                                    <input class="form-control input-sm" placeholder="" type="text"
+                                                           data-smart-masked-input="(99) 999-9999-999" data-mask-placeholder= "X"
                                                            name="phone" ng-model="deleteUserForm.phone">
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
-
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Account Status</label>
+                                            <div class="col-md-6">
+                                                <div class="input-icon-right">
+                                                    <span class="onoffswitch">
+                                                        <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="deleteUserActivation" ng-model="deleteUserForm.activated">
+                                                        <label class="onoffswitch-label" for="deleteUserActivation">
+                                                            <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
                                 </div>
 
                                 <!-- 2nd column -->
@@ -147,7 +151,7 @@
                                             <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-calendar"></i>
-                                                    <input class="form-control input-sm" placeholder="Date of Password Expiration" type="date"
+                                                    <input class="form-control input-sm" placeholder="" type="date"
                                                            name="passwordExpDate" ng-model="deleteUserForm.passwordExpDate">
                                                 </div>
                                             </div>
@@ -156,10 +160,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Max. Login Allow</label>
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append"></i>
-                                                    <input class="form-control input-sm" placeholder="Number of Times Login" type="number"
+                                                    <input class="form-control input-sm" placeholder="" type="number"
                                                            name="maxLogin" ng-model="deleteUserForm.maxLogin">
                                                 </div>
                                             </div>
@@ -168,27 +172,11 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Max. Fail Login Attempts Allow </label>
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
                                                     <i class="icon-append"></i>
-                                                    <input class="form-control input-sm" placeholder="Number of Login Attempts" type="number"
+                                                    <input class="form-control input-sm" placeholder="" type="number"
                                                            name="maxFailAttemptsAllow" ng-model="deleteUserForm.maxFailAttemptsAllow">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">Status of Account </label>
-                                            <div class="col-md-7">
-                                                <div class="input-icon-right">
-                                    <span class="onoffswitch">
-                                        <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="updateUserActivation" ng-model="updateUserForm.activated">
-                                        <label class="onoffswitch-label" for="updateUserActivation">
-                                            <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,7 +189,7 @@
                                             <div class="col-md-6 date">
                                                 <div class="input-icon-right date">
                                                     <i class="icon-append fa fa-calendar"></i>
-                                                    <input class="form-control input-sm" placeholder="Account Activation Date" type="date"
+                                                    <input class="form-control input-sm" placeholder="" type="date"
                                                            name="accActivationDate" ng-model="deleteUserForm.accActivationDate">
                                                 </div>
                                             </div>
@@ -210,10 +198,10 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Language </label>
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right">
-                                                    <i class="icon-append"></i>
-                                                    <input class="form-control input-sm" placeholder="Language" type="text"
+                                                    <i class="icon-append fa fa-language"></i>
+                                                    <input class="form-control input-sm" placeholder="en" type="text"
                                                            name="langKey" ng-model="deleteUserForm.langKey">
                                                 </div>
                                             </div>
@@ -222,7 +210,7 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">User Role </label>
-                                            <div class="col-md-5 selectContainer">
+                                            <div class="col-md-6 selectContainer">
                                                 <div class="input-icon-right">
                                                     <select class="form-control input-sm" multiple name="authority" ng-model="deleteUserForm.authorities"
                                                             ng-options="authority for authority in authorities">
@@ -234,9 +222,9 @@
                                     <fieldset>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label">Comment </label>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                 <div class="input-icon-right"><i class="icon-append fa fa-comments-o"></i>
-                                                    <textarea class="form-control input-sm" placeholder="Admin Message" rows="2"
+                                                    <textarea class="form-control input-sm" placeholder="" rows="3"
                                                               name="comments" ng-model="deleteUserForm.comments" sentence-case=""></textarea>
                                                 </div>
                                             </div>
@@ -246,25 +234,23 @@
 
                             </div>
                         </div>
-
-                        <!-- Footer -->
-                        <div class="widget-footer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="btn btn-sm txt-color-white bg-color-blueDark" type="reset" ui-sref="user-management">
-                                        <i class="fa fa-backward"></i> <span translate="user-management.button.back">back</span></button>
-                                    <button class="btn btn-sm txt-color-white bg-color-red" type="submit" ng-disabled="deleteUserForm.$invalid || isSaving">
-                                        <i class="fa fa-trash-o"></i> <span translate="user-management.button.confirmDel">Confirm Delete</span></button>
-                                </div>
+                    <!-- Footer -->
+                    <div class="widget-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--<button class="btn btn-sm txt-color-white bg-color-blueDark" type="reset" ui-sref="user-management">
+                                    <i class="fa fa-backward"></i> <span translate="user-management.button.back">back</span></button>-->
+                                <button class="btn btn-sm txt-color-white bg-color-red" type="submit" ng-disabled="deleteUserForm.$invalid || isSaving">
+                                    <i class="fa fa-trash-o"></i> <span translate="user-management.button.confirmDel">Confirm Delete</span></button>
                             </div>
                         </div>
-                    </form>
+                    </div>
 
                 </div>  <!-- /.modal-body -->
-
             </div>
 
         </section>
     </div>
 </div>
 
+</form>

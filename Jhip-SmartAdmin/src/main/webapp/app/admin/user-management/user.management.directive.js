@@ -101,7 +101,7 @@ angular.module('SmartAdminWebapp').directive('addUserForm', function(){
                 }  //.fields
             }).on('success.form.bv', function(e) {
                 e.preventDefault();
-            }).on('change', '[name="login"]', function(e) {
+            }).on('change', function(e) {
                 form.data('bootstrapValidator').resetForm();
             });
         }
@@ -154,7 +154,7 @@ angular.module('SmartAdminWebapp').directive('updateUserForm', function(){
                 }  //.fields
             }).on('success.form.bv', function(e) {
                 e.preventDefault();
-            }).on('change', '[name="login"]', function(e) {
+            }).on('change', function(e) {
                 form.data('bootstrapValidator').resetForm();
             });
         }

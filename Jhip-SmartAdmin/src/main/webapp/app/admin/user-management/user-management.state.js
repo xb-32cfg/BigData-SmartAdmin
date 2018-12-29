@@ -22,7 +22,7 @@ angular.module('SmartAdminWebapp')
                         return $translate.refresh();
                     }]
                 },
-                srcipts: function(lazyScript){
+                scripts: function(lazyScript){
                     return lazyScript.register([
                         'build/vendor.ui.js',
                         'bootstrap-validator'
