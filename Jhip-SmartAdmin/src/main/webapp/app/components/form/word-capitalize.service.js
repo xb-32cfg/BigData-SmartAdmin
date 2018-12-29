@@ -54,7 +54,7 @@ angular.module('SmartAdminWebapp').directive('lowercase', function (uppercaseFil
 });
 
 "use strict";
-angular.module('SmartAdminWebapp').directive('sentenceCase', function(uppercaseFilter, $parse) {
+angular.module('SmartAdminWebapp').directive('sentencecase', function(uppercaseFilter, $parse) {
     return {
         require: 'ngModel',
         link: function(scope, element, attrs, modelCtrl) {

@@ -55,7 +55,7 @@ appConfig.skins = [
 ];
 
 appConfig.sound_path = "sound/";
-appConfig.sound_on = true; 
+appConfig.sound_on = true;
 
 
 /*
@@ -75,9 +75,9 @@ appConfig.voice_command = true;
 appConfig.voice_command_auto = false;
 
 /*
- *  Sets the language to the default 'en-US'. (supports over 50 languages 
+ *  Sets the language to the default 'en-US'. (supports over 50 languages
  *  by google)
- * 
+ *
  *  Afrikaans         ['af-ZA']
  *  Bahasa Indonesia  ['id-ID']
  *  Bahasa Melayu     ['ms-MY']
@@ -144,16 +144,16 @@ appConfig.voice_command_auto = false;
 appConfig.voice_command_lang = 'en-US';
 /*
  *  Use localstorage to remember on/off (best used with HTML Version)
- */ 
+ */
 appConfig.voice_localStorage = false;
 /*
  * Voice Commands
  * Defines all voice command variables and functions
- */ 
+ */
 if (appConfig.voice_command) {
-        
+
      	appConfig.commands = {
-                
+
         'show dashboard' : function() { window.location.hash = "dashboard" },
         'show inbox' : function() {  window.location.hash = "inbox/" },
         'show graphs' : function() {  window.location.hash = "graphs/flot" },
@@ -187,21 +187,21 @@ if (appConfig.voice_command) {
         'show widgets' : function() { window.location.hash = "widgets" },
         'show gallery' : function() { window.location.hash = "gallery" },
         'show maps' : function() { window.location.hash = "gmap-xml" },
-        'go back' :  function() { history.back(1); }, 
+        'go back' :  function() { history.back(1); },
         'scroll up' : function () { $('html, body').animate({ scrollTop: 0 }, 100); },
         'scroll down' : function () { $('html, body').animate({ scrollTop: $(document).height() }, 100);},
-        'hide navigation' : function() { 
+        'hide navigation' : function() {
             if ($( ":root" ).hasClass("container") && !$( ":root" ).hasClass("menu-on-top")){
                 $('span.minifyme').trigger("click");
             } else {
-                $('#hide-menu > span > a').trigger("click"); 
+                $('#hide-menu > span > a').trigger("click");
             }
         },
-        'show navigation' : function() { 
+        'show navigation' : function() {
             if ($( ":root" ).hasClass("container") && !$( ":root" ).hasClass("menu-on-top")){
                 $('span.minifyme').trigger("click");
             } else {
-                $('#hide-menu > span > a').trigger("click"); 
+                $('#hide-menu > span > a').trigger("click");
             }
         },
         'mute' : function() {
@@ -248,10 +248,10 @@ if (appConfig.voice_command) {
                 $('#speech-btn .popover').fadeOut(250);
             }
 
-        },      
+        },
         'got it' : function() {
             $('#voiceModal').modal('hide');
-        },  
+        },
         'logout' : function() {
             $.speechApp.stop();
             window.location = $('#logout > span > a').attr("href");
@@ -503,7 +503,7 @@ angular.module('app.appViews', ['ui.router'])
                         }
                     }
                 }
-            }, 
+            },
             resolve: {
                 scripts: function(lazyScript){
                     return lazyScript.register([
@@ -534,7 +534,7 @@ angular.module('app.appViews', ['ui.router'])
                 "content@app": {
                     templateUrl: 'app/app-views/views/gallery-demo.html'
                 }
-            }, 
+            },
             resolve: {
                 scripts: function(lazyScript){
                     return lazyScript.register([
@@ -577,7 +577,7 @@ angular.module('app.appViews', ['ui.router'])
                 "content@app": {
                     templateUrl: 'app/app-views/views/forum-post-demo.html'
                 }
-            }, 
+            },
             resolve: {
                 scripts: function(lazyScript){
                     return lazyScript.register([
@@ -698,7 +698,7 @@ angular.module('app.eCommerce', ['ui.router'])
                         }
                     }
                 }
-            }, 
+            },
             resolve: {
                 scripts: function(lazyScript){
                     return lazyScript.register([
@@ -1053,7 +1053,7 @@ angular.module('app.inbox', [
     'ngResource'
 ])
 .config(function ($stateProvider) {
-    
+
     $stateProvider
         .state('app.inbox', {
             url: '/inbox',
@@ -2400,8 +2400,77 @@ angular.module('app.calendar').controller('CalendarCtrl', function ($scope, $log
 
 });
 
+/*  DIRECTIVE - FILE UPLOAD MODEL   */
 "use strict";
+angular.module('SmartAdminWebapp').directive("ngFileSelect", function (fileReader, $timeout) {
+    return {
+        scope: {
+            ngModel: '=' },
 
+        link: function ($scope, el) {
+            function getFile(file) {
+                fileReader.readAsDataUrl(file, $scope).
+                    then(function (result) {
+                        $timeout(function () {
+                            $scope.ngModel = result;
+                        });
+                    });
+            }
+            el.bind("change", function (e) {
+                var file = (e.srcElement || e.target).files[0];
+                getFile(file);
+            });
+        } };
+
+});
+
+/*    IMAGE FILE READER   */
+"use strict";
+angular.module('SmartAdminWebapp').factory("fileReader", function ($q, $log) {
+    var onLoad = function (reader, deferred, scope) {
+        return function () {
+            scope.$apply(function () {
+                deferred.resolve(reader.result);
+            });
+        };
+    };
+
+    var onError = function (reader, deferred, scope) {
+        return function () {
+            scope.$apply(function () {
+                deferred.reject(reader.result);
+            });
+        };
+    };
+
+    var onProgress = function (reader, scope) {
+        return function (event) {
+            scope.$broadcast("fileProgress", {
+                total: event.total,
+                loaded: event.loaded });
+        };
+    };
+
+    var getReader = function (deferred, scope) {
+        var reader = new FileReader();
+        reader.onload = onLoad(reader, deferred, scope);
+        reader.onerror = onError(reader, deferred, scope);
+        reader.onprogress = onProgress(reader, scope);
+        return reader;
+    };
+
+    var readAsDataURL = function (file, scope) {
+        var deferred = $q.defer();
+        var reader = getReader(deferred, scope);
+        reader.readAsDataURL(file);
+        return deferred.promise;
+    };
+
+    return {
+        readAsDataUrl: readAsDataURL };
+});
+
+"use strict";
 angular.module('app.calendar').directive('dragableEvent', function ($log) {
     return {
         restrict: 'A',
@@ -2467,20 +2536,20 @@ angular.module('app.calendar').directive('fullCalendar', function (CalendarEvent
 
                         // retrieve the dropped element's stored Event Object
                         var originalEventObject = $(this).data('eventObject');
-            
+
                         // we need to copy it, so that multiple events don't have a reference to the same object
                         var copiedEventObject = $.extend({}, originalEventObject);
-            
+
                         // assign it the date that was reported
                         copiedEventObject.start = date;
                         copiedEventObject.allDay = allDay;
 
                         // $log.log(scope);
-            
+
                         // render the event on the calendar
                         // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
                         $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-            
+
                         // is the "remove after drop" checkbox checked?
                         if ($('#drop-remove').is(':checked')) {
 
@@ -2493,7 +2562,7 @@ angular.module('app.calendar').directive('fullCalendar', function (CalendarEvent
                             $(this).remove();
 
                         }
-            
+
                     },
 
                     select: function (start, end, allDay) {
@@ -2564,18 +2633,18 @@ angular.module('app.calendar').directive('fullCalendar', function (CalendarEvent
 angular.module('app.calendar').factory('CalendarEvent', function($resource, APP_CONFIG){
     return $resource( APP_CONFIG.apiRootUrl + '/events.json', {_id:'@id'})
 });
-"use strict";	
+"use strict";
 
 angular.module('SmartAdminWebapp').controller("ActivitiesCtrl", function ActivitiesCtrl($scope, $log, activityService){
 
 	$scope.activeTab = 'default';
 	$scope.currentActivityItems = [];
-	
+
 	// Getting different type of activites
 	activityService.get(function(data){
 
 		$scope.activities = data.activities;
-		
+
 	});
 
 
@@ -2621,9 +2690,9 @@ angular.module('SmartAdminWebapp').directive('activitiesDropdownToggle', functio
 
 			}
 			 else {
-				
+
 				ajax_dropdown.fadeOut(150);
-				
+
 				$(this).removeClass('active');
 
 			}
@@ -2637,7 +2706,7 @@ angular.module('SmartAdminWebapp').directive('activitiesDropdownToggle', functio
 			}
 		});
 	}
-	
+
 	return{
 		restrict:'EA',
 		link:link
@@ -2652,7 +2721,7 @@ angular.module('SmartAdminWebapp').factory('activityService', function($http, $l
 		$http.get(APP_CONFIG.apiRootUrl + '/activities/activity.json').success(function(data){
 
 			callback(data);
-				
+
 		}).error(function(){
 
 			$log.log('Error');
@@ -2667,7 +2736,7 @@ angular.module('SmartAdminWebapp').factory('activityService', function($http, $l
 		$http.get(APP_CONFIG.apiRootUrl + '/activities/activity-' + type + '.json').success(function(data){
 
 			callback(data);
-				
+
 		}).error(function(){
 
 			$log.log('Error');
@@ -2676,7 +2745,7 @@ angular.module('SmartAdminWebapp').factory('activityService', function($http, $l
 		});
 
 	}
-	
+
 	return{
 		get:function(callback){
 			getActivities(callback);
@@ -2779,7 +2848,7 @@ angular.module('app.forms').controller('FormLayoutsCtrl', function($scope, $moda
     $scope.openModal = function () {
         var modalInstance = $modal.open({
             templateUrl: 'app/forms/views/form-layout-modal.html',
-            controller: 'ModalDemoCtrl' 
+            controller: 'ModalDemoCtrl'
         });
 
         modalInstance.result.then(function () {
@@ -2872,7 +2941,7 @@ angular.module('app.forms').controller('FormXeditableCtrl', function($scope, $lo
     $scope.comments = 'awesome user!';
     $scope.state2 = 'California';
     $scope.fruits = 'peach<br/>apple';
-    
+
 
     $scope.fruits_data = [
         {value: 'banana', text: 'banana'},
@@ -2896,7 +2965,7 @@ angular.module('app.forms').controller('FormXeditableCtrl', function($scope, $lo
         {value: 'Operator', text: 'Operator'},
         {value: 'Support', text: 'Support'},
         {value: 'Admin', text: 'Admin'}
-    ]; 
+    ];
 
 });
 "use strict";
@@ -4419,7 +4488,7 @@ angular.module('app.ui').directive('smartJquiDialogLauncher', function () {
 
 angular.module('app.ui').directive('smartJquiDynamicTabs', function ($timeout) {
 
-	
+
 	function addDomEvents(element){
 
 		$('#tabs2').tabs();
@@ -4720,23 +4789,23 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
 
 });
 (function() {
-        
+
    'use strict';
 
     /*
     * SMARTCHAT PLUGIN ARRAYS & CONFIG
-    * Dependency: js/plugin/moment/moment.min.js 
-    *             js/plugin/cssemotions/jquery.cssemoticons.min.js 
+    * Dependency: js/plugin/moment/moment.min.js
+    *             js/plugin/cssemotions/jquery.cssemoticons.min.js
     *             js/smart-chat-ui/smart.chat.ui.js
-    * (DO NOT CHANGE) 
-    */ 
+    * (DO NOT CHANGE)
+    */
         var boxList = [],
         showList = [],
         nameList = [],
         idList = [];
     /*
     * Width of the chat boxes, and the gap inbetween in pixel (minus padding)
-    */ 
+    */
         var chatbox_config = {
             width: 200,
             gap: 35,
@@ -4966,7 +5035,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
             if (!self.options.hidden) {
                 uiChatbox.show();
             }
-            
+
             $(".ui-chatbox [rel=tooltip]").tooltip();
             //console.log("tooltip created");
         },
@@ -5063,7 +5132,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
       "[+=..]":  { cssClass: "no-rotate nintendo-controller" }
       //"OwO":  { cssClass: "no-rotate" }, // these emoticons overflow and look weird even if they're made even smaller, could probably fix this with some more css trickery
       //"O-O":  { cssClass: "no-rotate" },
-      //"O=)":    { cssClass: "small-emoticon" } 
+      //"O=)":    { cssClass: "small-emoticon" }
     }
 
     var specialRegex = new RegExp( '(\\' + escapeCharacters.join('|\\') + ')', 'g' );
@@ -5096,15 +5165,15 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
       var container = $(this);
       var cssClass = 'css-emoticon'
       if(opts.animate){ cssClass += ' un-transformed-emoticon animated-emoticon'; }
-      
+
       for( var emoticon in specialEmoticons ){
         var specialCssClass = cssClass + " " + specialEmoticons[emoticon].cssClass;
         container.html(container.html().replace(specialEmoticons[emoticon].regexp,"$1<span class='" + specialCssClass + "'>$2</span>"));
       }
       $(threeCharacterEmoticons).each(function(){
         container.html(container.html().replace(this,"$1<span class='" + cssClass + "'>$2</span>"));
-      });                                                          
-      $(twoCharacterEmoticons).each(function(){                    
+      });
+      $(twoCharacterEmoticons).each(function(){
         container.html(container.html().replace(this,"$1<span class='" + cssClass + " spaced-emoticon'>$2</span>"));
       });
       // fix emoticons that got matched more then once (where one emoticon is a subset of another emoticon), and thus got nested spans
@@ -5128,7 +5197,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
         var span = $(this);
         if(opts.animate){
           span.addClass('un-transformed-emoticon');
-          setTimeout(function(){span.replaceWith(span.text());}, opts.delay); 
+          setTimeout(function(){span.replaceWith(span.text());}, opts.delay);
         }else{
           span.replaceWith(span.text());
         }
@@ -5140,7 +5209,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
     })(jQuery);
 
     var chatboxManager = function () {
-        
+
     var init = function (options) {
         $.extend(chatbox_config, options)
     };
@@ -5241,7 +5310,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
 
 
                 chatboxManager.addBox(temp_chat_id, {
-                    // dest:"dest" + counter, 
+                    // dest:"dest" + counter,
                     // not used in demo
                     title: "username" + temp_chat_id,
                     first_name: fname,
@@ -5268,7 +5337,7 @@ angular.module('app.chat').factory('ChatApi', function ($q, $rootScope, AuthLogi
         }
     });
 
-})(); 
+})();
 "use strict";
 
 angular.module('app.chat').directive('chatUsers', function(ChatApi){
@@ -5362,7 +5431,7 @@ angular.module('app.chat').directive('chatWidget', function (ChatApi) {
                     } else {
                         console.log('Wat', todo, state);
                     }
-                    
+
                 }
             }).disableSelection();
 
@@ -8234,7 +8303,7 @@ angular.module('SmartAdmin.Layout').directive('smartDeviceDetect', function () {
             tElement.removeAttr('smart-device-detect data-smart-device-detect');
 
             var isMobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
-            
+
             tElement.toggleClass('desktop-detected', !isMobile);
             tElement.toggleClass('mobile-detected', isMobile);
 
@@ -8325,7 +8394,7 @@ angular.module('SmartAdmin.Layout').directive('smartInclude', function () {
 'use strict';
 
 angular.module('SmartAdmin.Layout').directive('smartLayout', function ($rootScope, $timeout, $interval, $q, SmartCss, APP_CONFIG) {
-    
+
     var _debug = 0;
 
     function getDocHeight() {
@@ -8337,7 +8406,7 @@ angular.module('SmartAdmin.Layout').directive('smartLayout', function ($rootScop
         );
     }
 
-    var initialized = false, 
+    var initialized = false,
            initializedResolver = $q.defer();
     initializedResolver.promise.then(function () {
         initialized = true;
@@ -8561,7 +8630,7 @@ angular.module('SmartAdmin.Layout').directive('smartRouterAnimationWrap', functi
                         height: 'auto',
                         overflow: 'visible'
                     }).removeClass('active');
-                    
+
 
                     $(animateElementSelector).addClass('animated faster fadeInUp');
 
@@ -9214,7 +9283,7 @@ angular.module('SmartAdmin.Layout').factory('lazyScript', function($q, $http){
             el.src = scriptName;
             var x = document.getElementsByTagName('script')[0];
             x.parentNode.insertBefore(el, x);
-            
+
         }
         return cache[scriptName].promise;
 
@@ -9233,13 +9302,13 @@ angular.module('SmartAdmin.Layout').factory('lazyScript', function($q, $http){
                 dfd.resolve(scriptName);
             });
 
-            return dfd.promise; 
+            return dfd.promise;
 
         }
     }
     return {
         register: function (scripts) {
-            
+
             var dfd = $q.defer();
             var promises = [];
             if (angular.isString(scripts))
@@ -9847,7 +9916,7 @@ angular.module('SmartAdmin.Forms').directive('smartEditSummernote', function () 
             tElement.on('click', function(){
                 angular.element(tAttributes.smartEditSummernote).summernote({
                     focus : true
-                });  
+                });
             });
         }
     }
@@ -9896,7 +9965,7 @@ angular.module('SmartAdmin.Forms').directive('smartSummernoteEditor', function (
             }
 
             lazyScript.register('build/vendor.ui.js').then(function(){
-                tElement.summernote(options);                
+                tElement.summernote(options);
             });
         }
     }
@@ -10657,7 +10726,7 @@ angular.module('SmartAdmin.Forms').directive('smartMaskedInput', function(lazySc
 	            var options = {};
 	            if(tAttributes.maskPlaceholder) options.placeholder =  tAttributes.maskPlaceholder;
 	            tElement.mask(tAttributes.smartMaskedInput, options);
-        	})	            
+        	})
         }
     }
 });
@@ -10688,7 +10757,7 @@ angular.module('SmartAdmin.Forms').directive('smartNouislider', function ($parse
 
                 if(tAttributes.update) tElement.on('slide', function(){
                     $(tAttributes.update).text(JSON.stringify(tElement.val()));
-                });                
+                });
             })
         }
     }
@@ -10769,7 +10838,7 @@ angular.module('SmartAdmin.Forms').directive('smartUislider', function ($parse, 
             lazyScript.register('build/vendor.ui.js').then(function(){
 			    tElement.bootstrapSlider();
 
-			    $(tElement.data('bootstrapSlider').sliderElem).prepend(tElement);      	
+			    $(tElement.data('bootstrapSlider').sliderElem).prepend(tElement);
             })
 
         }
@@ -10820,7 +10889,7 @@ angular.module('SmartAdmin.Forms').directive('smartXeditable', function($timeout
         scope: {
             options: "="
         },
-    	link: link 
+    	link: link
 
     }
 });
@@ -11273,7 +11342,7 @@ angular.module('SmartAdmin.Layout').directive('smartMenu', function ($state, $ro
     return {
         restrict: 'A',
         compile: function (element, attrs) {
-            
+
 
             function createItem(item, parent, level){
                 var li = $('<li />' ,{'ui-sref-active': "active"})
@@ -11292,7 +11361,7 @@ angular.module('SmartAdmin.Layout').directive('smartMenu', function ($state, $ro
                 }
                 if(item.title){
                     a.attr('title', item.title);
-                    if(level == 1){ 
+                    if(level == 1){
                         a.append(' <span class="menu-item-parent">' + item.title + '</span>');
                     } else {
                         a.append(' ' + item.title);
@@ -11307,9 +11376,9 @@ angular.module('SmartAdmin.Layout').directive('smartMenu', function ($state, $ro
                     _.forEach(item.items, function(child) {
                         createItem(child, ul, level+1);
                     })
-                } 
+                }
 
-                parent.append(li); 
+                parent.append(li);
             }
 
 
@@ -11320,14 +11389,14 @@ angular.module('SmartAdmin.Layout').directive('smartMenu', function ($state, $ro
                 _.forEach(res.data.items, function(item) {
                     createItem(item, ul, 1);
                 })
-                
+
                 var $scope = $rootScope.$new();
-                var html = $('<div>').append(ul).html(); 
+                var html = $('<div>').append(ul).html();
                 var linkingFunction = $compile(html);
-                
+
                 var _element = linkingFunction($scope);
 
-                element.replaceWith(_element);                
+                element.replaceWith(_element);
             })
         }
     }
@@ -11366,7 +11435,7 @@ angular.module('SmartAdmin.Layout').directive('jarvisWidget', function($rootScop
     }
 });
  "use strict";
- 
+
  angular.module('SmartAdmin.Layout').directive('widgetGrid', function ($rootScope, $compile, $q, $state, $timeout) {
 
     var jarvisWidgetsDefaults = {

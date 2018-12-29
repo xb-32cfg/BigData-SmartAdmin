@@ -140,6 +140,16 @@
                         </div>
                     </div>
                 </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Upload User Photo </label>
+                        <div class="col-md-6">
+                            <input type="file" ng-file-select="onFileSelect($files)" ng-model="addUserForm.files" accept="image/*" ngf-max-size="2MB">
+                            <img class="thumbUserImage" ng-src="{{addUserForm.files}}" />
+                        </div>
+                    </div>
+                </fieldset>
+
             </div>
 
             <!-- 2nd column -->
@@ -248,4 +258,3 @@
     </div>
 
 </form>
-

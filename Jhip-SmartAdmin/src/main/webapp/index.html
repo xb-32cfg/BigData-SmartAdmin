@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" class="no-js">
 	<head>
-	
+
 		<meta charset="utf-8">
 		<title>BigData SmartAdmin</title>
 		<meta name="description" content="">
@@ -120,7 +120,7 @@
 			<script src="plugin/json3/lib/json3.min.js"></script>
 		<![endif]-->
 
-		<!-- Use for production after building the project with grunt --> 
+		<!-- Use for production after building the project with grunt -->
 		<script src="build/vendor.js"></script>
 
 		<!-- bower:js -->
@@ -130,7 +130,7 @@
 		<script src="plugin/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="plugin/angular-cache-buster/angular-cache-buster.js"></script>
 		<script src="plugin/angular-cookies/angular-cookies.js"></script>
-		<script src="plugin/ngstorage/ngStorage.js"></script>
+		<script src="plugin/ngstorage/ngStorage.min.js"></script>
 		<script src="plugin/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
 		<script src="plugin/angular-local-storage/dist/angular-local-storage.js"></script>
 		<script src="plugin/angular-loading-bar/build/loading-bar.js"></script>
@@ -141,7 +141,7 @@
 		<script src="plugin/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
 		<script src="plugin/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
 		<script src="plugin/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-		<script src="plugin/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="plugin/angular-ui-router/release/angular-ui-router.min.js"></script>
 		<script src="plugin/json3/lib/json3.js"></script>
 		<script src="plugin/ng-file-upload/ng-file-upload.js"></script>
 		<script src="plugin/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
@@ -267,15 +267,17 @@
 		<script src="app/components/interceptor/auth.interceptor.js"></script>
 		<script src="app/components/interceptor/errorhandler.interceptor.js"></script>
 		<script src="app/components/interceptor/notification.interceptor.js"></script>
+		<script src="app/components/alert/alert.service.js"></script>
+		<script src="app/components/alert/alert.directive.js"></script>
 		<script src="app/components/util/truncate.filter.js"></script>
 		<script src="app/components/util/base64.service.js"></script>
 		<script src="app/components/util/capitalize.filter.js"></script>
-		<script src="app/components/alert/alert.service.js"></script>
-		<script src="app/components/alert/alert.directive.js"></script>
 		<script src="app/components/util/parse-links.service.js"></script>
 		<script src="app/components/util/date-util.service.js"></script>
 		<script src="app/components/util/data-util.service.js"></script>
 		<script src="app/components/util/sort.directive.js"></script>
+		<script src="app/components/util/localforage.min.js"></script>
+		<!--<script src="app/components/util/filemodel.directive.js"></script>-->
 		<script src="app/components/language/language.service.js"></script>
 		<script src="app/components/language/language.controller.js"></script>
 		<script src="app/components/auth/services/sessions.service.js"></script>
@@ -344,5 +346,5 @@
 		<script src="app/components/entities/operation/operation.search.service.js"></script>
 
 		</body>
-	
+
 </html>
