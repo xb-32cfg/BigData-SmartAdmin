@@ -9,7 +9,7 @@ import au.com.bigdata.smartadmin.repository.UserRepository;
 import au.com.bigdata.smartadmin.security.SecurityUtils;
 import au.com.bigdata.smartadmin.service.MailService;
 import au.com.bigdata.smartadmin.service.UserService;
-import au.com.bigdata.smartadmin.service.dto.UserDTO;
+import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.util.HeaderUtil;
 import au.com.bigdata.smartadmin.web.rest.vm.KeyAndPasswordVM;
 import au.com.bigdata.smartadmin.web.rest.vm.ManagedUserVM;

@@ -9,6 +9,7 @@ import au.com.bigdata.smartadmin.repository.search.UserSearchRepository;
 import au.com.bigdata.smartadmin.security.AuthoritiesConstants;
 import au.com.bigdata.smartadmin.service.MailService;
 import au.com.bigdata.smartadmin.service.UserService;
+import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.util.HeaderUtil;
 import au.com.bigdata.smartadmin.web.rest.util.PaginationUtil;
 import au.com.bigdata.smartadmin.web.rest.vm.ManagedUserVM;
@@ -23,10 +24,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.inject.Inject;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -64,6 +74,8 @@ public class UserResource {
 
     private final Logger log = LoggerFactory.getLogger(UserResource.class);
 
+    private static String UPLOAD_DIR = System.getProperty("user.home") + "/upload";
+    
     @Inject
     private UserRepository userRepository;
 
@@ -77,12 +89,10 @@ public class UserResource {
     private UserSearchRepository userSearchRepository;
 
     /**
-     * POST  /users  : Creates a new user.
-     * <p>
+     * POST : Creates a new user.
      * Creates a new user if the login and email are not already used, and sends an
      * mail with an activation link.
      * The user needs to be activated on creation.
-     * </p>
      *
      * @param managedUserVM the user to create
      * @param request the HTTP request
@@ -219,4 +229,25 @@ public class UserResource {
             .stream(userSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
+    
+    
+    // Save Image Files
+    private String saveUploadedFiles(MultipartFile file, Long userId) throws IOException {
+        // Make sure directory exists!
+        File uploadDir = new File(UPLOAD_DIR);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdirs();
+        }
+ 
+        StringBuilder sb = new StringBuilder();
+        String uploadFilePath = UPLOAD_DIR + "/" + userId +".png";
+        
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(uploadFilePath);
+        Files.write(path, bytes);
+        sb.append(uploadFilePath).append(", ");
+    
+        return sb.toString();
+    }
+    
 }

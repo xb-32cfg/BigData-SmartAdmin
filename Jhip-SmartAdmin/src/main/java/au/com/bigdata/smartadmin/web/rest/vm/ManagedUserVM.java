@@ -7,8 +7,10 @@ import java.util.Set;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import au.com.bigdata.smartadmin.domain.User;
-import au.com.bigdata.smartadmin.service.dto.UserDTO;
+import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.
@@ -42,9 +44,9 @@ public class ManagedUserVM extends UserDTO {
         this.password = null;
     }
 
-    public ManagedUserVM(Long id, String login, String password, String firstName, String lastName,
-                          String email, boolean activated, String langKey, Set<String> authorities , ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate ) {
-        super(login, firstName, lastName, email, activated, langKey, authorities);
+    public ManagedUserVM(Long id, String login, String password, String firstName, String lastName, String email, String imageName, MultipartFile files, 
+    		boolean activated, String langKey, Set<String> authorities , ZonedDateTime createdDate, String lastModifiedBy, ZonedDateTime lastModifiedDate ) {
+        super(login, password, firstName, lastName, email, imageName, files, activated, langKey, authorities);
         this.id = id;
         this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;

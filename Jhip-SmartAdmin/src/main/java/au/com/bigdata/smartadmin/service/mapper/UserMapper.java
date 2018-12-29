@@ -4,7 +4,7 @@ import org.mapstruct.*;
 
 import au.com.bigdata.smartadmin.domain.Authority;
 import au.com.bigdata.smartadmin.domain.User;
-import au.com.bigdata.smartadmin.service.dto.UserDTO;
+import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 
 import java.util.List;
 import java.util.Set;

@@ -9,6 +9,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
 
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -59,6 +61,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 100, unique = true)
     private String email;
 
+    @Size(max = 50)
+    @Column(name="image_name", nullable=true)
+	private String imageName;
+    
     @NotNull
     @Column(nullable = false)
     private boolean activated = false;
@@ -93,6 +99,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
 
+    @Transient
+	private MultipartFile files;
+    
+    
     public Long getId() {
         return id;
     }
@@ -142,7 +152,23 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public boolean getActivated() {
+    public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public MultipartFile getFiles() {
+		return files;
+	}
+
+	public void setFiles(MultipartFile files) {
+		this.files = files;
+	}
+
+	public boolean getActivated() {
         return activated;
     }
 
