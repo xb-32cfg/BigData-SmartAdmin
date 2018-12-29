@@ -89,10 +89,8 @@ public class UserResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new user, or with status 400 (Bad Request) if the login or email is already in use
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/users",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/users", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<?> createUser(@RequestBody ManagedUserVM managedUserVM, HttpServletRequest request) throws URISyntaxException {
         log.debug("REST request to save User : {}", managedUserVM);
@@ -122,17 +120,15 @@ public class UserResource {
     }
 
     /**
-     * PUT  /users : Updates an existing User.
+     * UPDATE an existing User.
      *
      * @param managedUserVM the user to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated user,
      * or with status 400 (Bad Request) if the login or email is already in use,
      * or with status 500 (Internal Server Error) if the user couldn't be updated
      */
-    @RequestMapping(value = "/users",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/users", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<ManagedUserVM> updateUser(@RequestBody ManagedUserVM managedUserVM) {
         log.debug("REST request to update User : {}", managedUserVM);
@@ -162,10 +158,8 @@ public class UserResource {
      * @return the ResponseEntity with status 200 (OK) and with body all users
      * @throws URISyntaxException if the pagination headers couldn't be generated
      */
-    @RequestMapping(value = "/users",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ManagedUserVM>> getAllUsers(Pageable pageable)
         throws URISyntaxException {
         Page<User> page = userRepository.findAllWithAuthorities(pageable);
@@ -182,9 +176,8 @@ public class UserResource {
      * @param login the loginId of the user to find
      * @return the ResponseEntity with status 200 (OK) and with body the "loginId" user, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/loginUser/{login}",
-        method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/loginUser/{login}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ManagedUserVM> getUser(@PathVariable String login) {
         
         Optional<User> user = null; 
@@ -198,15 +191,13 @@ public class UserResource {
     }
 
     /**
-     * DELETE /users/:login : delete the "login" User.
+     * DELETE User by Id.
      *
      * @param login the login of the user to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/users/{login:" + Constants.LOGIN_REGEX + "}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/users/{login}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
@@ -221,10 +212,8 @@ public class UserResource {
      * @param query the query to search
      * @return the result of the search
      */
-    @RequestMapping(value = "/_search/users/{query}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @RequestMapping(value = "/_search/users/{query}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> search(@PathVariable String query) {
         return StreamSupport
             .stream(userSearchRepository.search(queryStringQuery(query)).spliterator(), false)
