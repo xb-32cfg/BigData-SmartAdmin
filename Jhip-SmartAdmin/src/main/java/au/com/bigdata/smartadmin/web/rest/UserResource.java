@@ -9,6 +9,7 @@ import au.com.bigdata.smartadmin.repository.search.UserSearchRepository;
 import au.com.bigdata.smartadmin.security.AuthoritiesConstants;
 import au.com.bigdata.smartadmin.service.MailService;
 import au.com.bigdata.smartadmin.service.UserService;
+import au.com.bigdata.smartadmin.web.rest.dto.UserParameter;
 import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.util.HeaderUtil;
 import au.com.bigdata.smartadmin.web.rest.util.PaginationUtil;
@@ -41,6 +42,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import java.net.MalformedURLException;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
 
@@ -98,13 +102,17 @@ public class UserResource {
      * @param request the HTTP request
      * @return the ResponseEntity with status 201 (Created) and with body the new user, or with status 400 (Bad Request) if the login or email is already in use
      * @throws URISyntaxException if the Location URI syntax is incorrect
+     * @throws IOException 
      */
     @Timed
-    @RequestMapping(value = "/users", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
     @Secured(AuthoritiesConstants.ADMIN)
-    public ResponseEntity<?> createUser(@RequestBody ManagedUserVM managedUserVM, HttpServletRequest request) throws URISyntaxException {
+    public ResponseEntity<?> createUser(@ModelAttribute UserParameter managedUserVM, UriComponentsBuilder ucBuilder, 
+    		HttpServletRequest request) throws URISyntaxException, IOException {
         log.debug("REST request to save User : {}", managedUserVM);
 
+        System.out.println("file size---> "+managedUserVM.getFiles().getSize() ); 
+        System.out.println("file name---> "+managedUserVM.getFiles().getOriginalFilename() ); 
         //Lowercase the user login before comparing with database
         if (userRepository.findOneByLogin(managedUserVM.getLogin().toLowerCase()).isPresent()) {
             return ResponseEntity.badRequest()
@@ -116,13 +124,22 @@ public class UserResource {
                 .body(null);
         } else {
             User newUser = userService.createUser(managedUserVM);
+            
+            String result = null;
+            if(managedUserVM.getFiles().getSize()>0){
+            	Long userId = newUser.getId(); 
+            	result = this.saveUploadedFiles(managedUserVM.getFiles(), userId);
+            	userRepository.saveImageUserById(result, newUser.getId()); 
+            }
+            
             String baseUrl = request.getScheme() + // "http"
             "://" +                                // "://"
-            request.getServerName() +              // "myhost"
+            request.getServerName() +              // "localhost"
             ":" +                                  // ":"
-            request.getServerPort() +              // "80"
+            request.getServerPort() +              // "8080"
             request.getContextPath();              // "/myContextPath" or "" if deployed in root context
-            mailService.sendCreationEmail(newUser, baseUrl);
+            //mailService.sendCreationEmail(newUser, baseUrl);
+            
             return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
                 .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
                 .body(newUser);
@@ -231,7 +248,7 @@ public class UserResource {
     }
     
     
-    // Save Image Files
+    /**	Save Image Files	*/
     private String saveUploadedFiles(MultipartFile file, Long userId) throws IOException {
         // Make sure directory exists!
         File uploadDir = new File(UPLOAD_DIR);
@@ -248,6 +265,19 @@ public class UserResource {
         sb.append(uploadFilePath).append(", ");
     
         return sb.toString();
+    }
+    
+    /**	 Download image file 	*/ 
+    @GetMapping("/rest/files/{filename:.+}")
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) throws MalformedURLException {
+        File file = new File(UPLOAD_DIR + "/" + filename);
+        if (!file.exists()) {
+            throw new RuntimeException("File not found");
+        }
+        Resource resource = new UrlResource(file.toURI());
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
+                .body(resource);
     }
     
 }

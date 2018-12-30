@@ -16,6 +16,7 @@ import au.com.bigdata.smartadmin.repository.search.UserSearchRepository;
 import au.com.bigdata.smartadmin.security.AuthoritiesConstants;
 import au.com.bigdata.smartadmin.security.SecurityUtils;
 import au.com.bigdata.smartadmin.service.util.RandomUtil;
+import au.com.bigdata.smartadmin.web.rest.dto.UserParameter;
 import au.com.bigdata.smartadmin.web.rest.vm.ManagedUserVM;
 
 import java.time.LocalDate;
@@ -115,7 +116,7 @@ public class UserService {
         return newUser;
     }
 
-    public User createUser(ManagedUserVM managedUserVM) {
+    public User createUser(UserParameter managedUserVM) {
         User user = new User();
         user.setLogin(managedUserVM.getLogin());
         user.setFirstName(managedUserVM.getFirstName());
@@ -127,20 +128,20 @@ public class UserService {
             user.setLangKey(managedUserVM.getLangKey());
         }
         if (managedUserVM.getAuthorities() != null) {
-            Set<Authority> authorities = new HashSet<>();
+            /*Set<Authority> authorities = new HashSet<>();
             managedUserVM.getAuthorities().stream().forEach(
                 authority -> authorities.add(authorityRepository.findOne(authority))
-            );
-            user.setAuthorities(authorities);
+            );*/
+            user.setAuthorities(managedUserVM.getAuthorities());
         }
         String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(ZonedDateTime.now());
-        user.setActivated(true);
+        user.setActivated(managedUserVM.isActivated());
         userRepository.save(user);
         userSearchRepository.save(user);
-        log.debug("Created Information for User: {}", user);
+
         return user;
     }
 

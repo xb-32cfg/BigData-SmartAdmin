@@ -9,6 +9,7 @@ import au.com.bigdata.smartadmin.repository.UserRepository;
 import au.com.bigdata.smartadmin.security.SecurityUtils;
 import au.com.bigdata.smartadmin.service.MailService;
 import au.com.bigdata.smartadmin.service.UserService;
+import au.com.bigdata.smartadmin.web.rest.dto.ManagedUserDTO;
 import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.util.HeaderUtil;
 import au.com.bigdata.smartadmin.web.rest.vm.KeyAndPasswordVM;
@@ -128,9 +129,9 @@ public class AccountResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<UserDTO> getAccount() {
+    public ResponseEntity<ManagedUserDTO> getAccount() {
         return Optional.ofNullable(userService.getUserWithAuthorities())
-            .map(user -> new ResponseEntity<>(new UserDTO(user), HttpStatus.OK))
+            .map(user -> new ResponseEntity<>(new ManagedUserDTO(user), HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
