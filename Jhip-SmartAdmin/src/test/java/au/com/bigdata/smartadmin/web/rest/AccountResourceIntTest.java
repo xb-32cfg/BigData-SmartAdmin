@@ -20,8 +20,8 @@ import au.com.bigdata.smartadmin.repository.UserRepository;
 import au.com.bigdata.smartadmin.security.AuthoritiesConstants;
 import au.com.bigdata.smartadmin.service.MailService;
 import au.com.bigdata.smartadmin.service.UserService;
-import au.com.bigdata.smartadmin.service.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.AccountResource;
+import au.com.bigdata.smartadmin.web.rest.dto.UserDTO;
 import au.com.bigdata.smartadmin.web.rest.vm.ManagedUserVM;
 
 import javax.inject.Inject;
@@ -149,6 +149,8 @@ public class AccountResourceIntTest {
             "Joe",                  // firstName
             "Shmoe",                // lastName
             "joe@example.com",      // e-mail
+            null,					// photo 
+            null, 					// multipart files
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -177,6 +179,8 @@ public class AccountResourceIntTest {
             "Funky",                // firstName
             "One",                  // lastName
             "funky@example.com",    // e-mail
+            null,					// photo 
+            null, 					// multipart files
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -205,6 +209,8 @@ public class AccountResourceIntTest {
             "Bob",              // firstName
             "Green",            // lastName
             "invalid",          // e-mail <-- invalid
+            null,				// photo 
+            null, 				// multipart files
             true,               // activated
             "en",               // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -233,6 +239,8 @@ public class AccountResourceIntTest {
             "Bob",              // firstName
             "Green",            // lastName
             "bob@example.com",  // e-mail
+            null,				// photo 
+            null, 				// multipart files
             true,               // activated
             "en",               // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -262,6 +270,8 @@ public class AccountResourceIntTest {
             "Alice",                // firstName
             "Something",            // lastName
             "alice@example.com",    // e-mail
+            null,				// photo 
+            null, 				// multipart files
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -272,7 +282,7 @@ public class AccountResourceIntTest {
 
         // Duplicate login, different e-mail
         ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), validUser.getLogin(), validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
-            "alicejr@example.com", true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
+            "alicejr@example.com", validUser.getImageName(), validUser.getFiles(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
         restMvc.perform(
@@ -303,6 +313,8 @@ public class AccountResourceIntTest {
             "John",                 // firstName
             "Doe",                  // lastName
             "john@example.com",     // e-mail
+            null,				// photo 
+            null, 				// multipart files
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER)),
@@ -313,7 +325,7 @@ public class AccountResourceIntTest {
 
         // Duplicate e-mail, different login
         ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), "johnjr", validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
-            validUser.getEmail(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
+            validUser.getEmail(), validUser.getImageName(), validUser.getFiles(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
         restMvc.perform(
@@ -343,6 +355,8 @@ public class AccountResourceIntTest {
             "Bad",                  // firstName
             "Guy",                  // lastName
             "badguy@example.com",   // e-mail
+            null,					// photo 
+            null, 					// multipart files
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.ADMIN)),
@@ -367,13 +381,16 @@ public class AccountResourceIntTest {
     @Transactional
     public void testSaveInvalidLogin() throws Exception {
         UserDTO invalidUser = new UserDTO(
-            "funky-log!n",          // login <-- invalid
+           /* "funky-log!n",          // login <-- invalid
+            null, 					// password 
             "Funky",                // firstName
             "One",                  // lastName
             "funky@example.com",    // e-mail
+            null,					// photo 
+            null, 					// multipart files
             true,                   // activated
             "en",                   // langKey
-            new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
+            new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))*/
         );
 
         restUserMockMvc.perform(
