@@ -144,13 +144,26 @@ angular.module('SmartAdminWebapp')
             $scope.progress = progress.loaded / progress.total;
         });
         $scope.saveUser = function () {
-            //console.log('upload imageName---> '+ file.name);
-            console.log('json ---> '+ JSON.stringify($scope.addUserForm.login));
-            //console.log('json ---> '+ JSON.stringify($scope.addUserForm.files));
+            console.log("file---> "+$scope.files[0].name);
+            console.log("name---> "+$scope.addUserForm.firstName);
             var data = new FormData();
             data.append("login", $scope.addUserForm.login);
             data.append("firstName", $scope.addUserForm.firstName);
-            data.append("files",  $scope.addUserForm.files);
+            data.append("middleName", $scope.addUserForm.middleName);
+            data.append("lastName", $scope.addUserForm.lastName);
+            data.append("nationalId", $scope.addUserForm.nationalId);
+            data.append("email", $scope.addUserForm.email);
+            data.append("password", $scope.addUserForm.password);
+            data.append("phone", $scope.addUserForm.phone);
+            data.append("activated", $scope.addUserForm.activated);
+            data.append("passwordExpDate", $scope.addUserForm.passwordExpDate);
+            data.append("maxLogin", $scope.addUserForm.maxLogin);
+            data.append("maxFailAttemptsAllow", $scope.addUserForm.maxFailAttemptsAllow);
+            data.append("accActivationDate", $scope.addUserForm.accActivationDate);
+            data.append("langKey", $scope.addUserForm.langKey);
+            data.append("authorities", $scope.addUserForm.authorities);
+            data.append("comments", $scope.addUserForm.comments);
+            data.append("files",  $scope.files[0]);
 
             var config = {
                 transformRequest: angular.identity,
@@ -158,24 +171,24 @@ angular.module('SmartAdminWebapp')
                 headers: {
                     'Content-Type': undefined
                 }
-            }
+            };
 
             if ( $('#addUserForm').data('bootstrapValidator').isValid() ) {
                 BootstrapDialog.save('', function (result) {
                     if (result) {
-                        User.save($scope.addUserForm, onSaveSuccess, onSaveError);
+                        //User.save($scope.addUserForm, onSaveSuccess, onSaveError);
+                        $http.post("http://localhost:8080/api/users", data, config).then(
+                            function(response) {
+                                console.log('User created successfully');
+                                onSaveSuccess(response);
+                            },
+                            function(errResponse) {
+                                console.error('Error while creating User');
+                                onSaveError(errResponse);
+                            });
                     }
                 });
             }
-            /*console.log('data ---> '+ data.login);
-            $http.post("http://localhost:8080/api/users", data, config).then(
-                function(response) {
-                    console.log('User created successfully');
-                },
-                function(errResponse) {
-                    console.error('Error while creating User');
-                });*/
-
         };
 
 

@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <span class="onoffswitch">
-                                    <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="createUserst1" ng-model="addUserForm.accountStatus">
+                                    <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="createUserst1" ng-model="addUserForm.activated">
                                     <label class="onoffswitch-label" for="createUserst1">
                                         <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
                                         <span class="onoffswitch-switch"></span>
@@ -144,7 +144,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label">Upload User Photo </label>
                         <div class="col-md-6">
-                            <input type="file" ng-file-select="onFileSelect($files)" ng-model="addUserForm.files" accept="image/*" ngf-max-size="2MB">
+                            <input type="file" file-model="files" ng-file-select="onFileSelect($files)" ng-model="addUserForm.files" accept="image/*" ngf-max-size="2MB">
                             <img class="thumbUserImage" ng-src="{{addUserForm.files}}" />
                         </div>
                     </div>
