@@ -34,7 +34,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -138,7 +140,7 @@ public class UserResource {
             ":" +                                  // ":"
             request.getServerPort() +              // "8080"
             request.getContextPath();              // "/myContextPath" or "" if deployed in root context
-            //mailService.sendCreationEmail(newUser, baseUrl);
+            mailService.sendCreationEmail(newUser, baseUrl);
             
             return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
                 .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
@@ -159,7 +161,9 @@ public class UserResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<ManagedUserVM> updateUser(@RequestBody ManagedUserVM managedUserVM) {
         log.debug("REST request to update User : {}", managedUserVM);
+        
         Optional<User> existingUser = userRepository.findOneByEmail(managedUserVM.getEmail());
+        
         if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserVM.getId()))) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("userManagement", "emailexists", "E-mail already in use")).body(null);
         }
@@ -167,12 +171,23 @@ public class UserResource {
         if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserVM.getId()))) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("userManagement", "userexists", "Login already in use")).body(null);
         }
-        userService.updateUser(managedUserVM.getId(), managedUserVM.getLogin(), managedUserVM.getFirstName(),
-            managedUserVM.getLastName(), managedUserVM.getEmail(), managedUserVM.isActivated(),
-            managedUserVM.getLangKey(), managedUserVM.getAuthorities());
         
+        //delete existing image 
+      	deleteUserImage(String.valueOf(managedUserVM.getId())); 
+      	
         log.debug("User updated successfully: {}", managedUserVM);
 
+        //Upload New Image 
+  		try {
+  			this.saveUploadedFiles(managedUserVM.getFiles(), managedUserVM.getId());  			
+  		} catch (IOException e) {
+              e.printStackTrace();
+        }
+        
+        userService.updateUser(managedUserVM.getId(), managedUserVM.getLogin(), managedUserVM.getFirstName(),
+            managedUserVM.getLastName(), managedUserVM.getEmail(), managedUserVM.isActivated(),
+            managedUserVM.getLangKey(), managedUserVM.getAuthorities(), String.valueOf(managedUserVM.getId()));
+        
         return ResponseEntity.ok()
             .headers(HeaderUtil.createAlert("userManagement.updated", managedUserVM.getLogin()))
             .body(new ManagedUserVM(userService.getUserWithAuthorities(managedUserVM.getId())));
@@ -208,7 +223,7 @@ public class UserResource {
     public ResponseEntity<ManagedUserVM> getUser(@PathVariable String login) {
         
         Optional<User> user = null; 
-        user = userRepository.findOneById(Long.parseLong(login));       
+        user = userRepository.findOneById(Long.parseLong(login)); 
         log.debug("REST request to get User : {}", user.get().getLogin());
 
         return userService.getUserWithAuthoritiesByLogin(user.get().getLogin())
@@ -228,10 +243,18 @@ public class UserResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
-        userService.deleteUser(login);
+        Optional<User> user = null; 
+        user = userRepository.findOneById(Long.parseLong(login)); 
+        if(user != null){
+        	deleteUserImage(String.valueOf(user.get().getId())); 
+
+            userService.deleteUser(login);
+        }
+                        
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
     }
 
+    
     /**
      * SEARCH  /_search/users/:query : search for the User corresponding
      * to the query.
@@ -279,5 +302,19 @@ public class UserResource {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
                 .body(resource);
     }
+    
+	/** 	Delete the image    */
+    public void deleteUserImage(String id){
+	   	 String filePath = UPLOAD_DIR + "/" + id +".png";
+	   	 try{ 
+	   		 Files.deleteIfExists(Paths.get(filePath)); 
+	   	 } catch(NoSuchFileException e) { 
+	   		 System.out.println("No such file/directory exists"); 
+	   	 } catch(DirectoryNotEmptyException e) { 
+	   		 System.out.println("Directory is not empty."); 
+	   	 } catch(IOException e) { 
+	   		 System.out.println("Invalid permissions."); 
+	   	 } 
+	}
     
 }

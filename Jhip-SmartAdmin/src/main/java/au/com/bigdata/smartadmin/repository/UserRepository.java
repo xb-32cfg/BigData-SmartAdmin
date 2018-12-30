@@ -40,7 +40,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     
     @Transactional
 	@Modifying
-	@Query("update jhi_user set imageName = ?1 where id = ?2")
+	@Query("update User set imageName = ?1 where id = ?2")
 	int saveImageUserById(String imgName, Long id);
     
 

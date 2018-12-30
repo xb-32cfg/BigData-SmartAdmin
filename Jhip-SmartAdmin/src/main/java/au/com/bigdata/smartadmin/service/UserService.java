@@ -122,7 +122,7 @@ public class UserService {
         user.setFirstName(managedUserVM.getFirstName());
         user.setLastName(managedUserVM.getLastName());
         user.setEmail(managedUserVM.getEmail());
-        if (managedUserVM.getLangKey() == null) {
+        if (managedUserVM.getLangKey() == null || managedUserVM.getLangKey().equalsIgnoreCase("undefined")) {
             user.setLangKey("en"); // default language
         } else {
             user.setLangKey(managedUserVM.getLangKey());
@@ -158,7 +158,7 @@ public class UserService {
     }
 
     public void updateUser(Long id, String login, String firstName, String lastName, String email,
-        boolean activated, String langKey, Set<String> authorities) {
+        boolean activated, String langKey, Set<String> authorities, String imageName) {
 
         userRepository
             .findOneById(id)
@@ -174,6 +174,7 @@ public class UserService {
                 authorities.stream().forEach(
                     authority -> managedAuthorities.add(authorityRepository.findOne(authority))
                 );
+                u.setImageName(imageName);
                 log.debug("Changed Information for User: {}", u);
             });
     }
