@@ -80,7 +80,7 @@ public class UserService {
     }
 
     public Optional<User> requestPasswordReset(String mail) {
-        return userRepository.findOneByEmail(mail)
+        return userRepository.findOneByEmailAddress(mail)
             .filter(User::getActivated)
             .map(user -> {
                 user.setResetKey(RandomUtil.generateResetKey());
@@ -102,7 +102,7 @@ public class UserService {
         newUser.setPassword(encryptedPassword);
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
-        newUser.setEmail(email);
+        newUser.setEmailAddress(email);
         newUser.setLangKey(langKey);
         // new user is not active
         newUser.setActivated(false);
@@ -121,7 +121,7 @@ public class UserService {
         user.setLogin(managedUserVM.getLogin());
         user.setFirstName(managedUserVM.getFirstName());
         user.setLastName(managedUserVM.getLastName());
-        user.setEmail(managedUserVM.getEmail());
+        user.setEmailAddress(managedUserVM.getEmailAddress());
         if (managedUserVM.getLangKey() == null || managedUserVM.getLangKey().equalsIgnoreCase("undefined")) {
             user.setLangKey("en"); // default language
         } else {
@@ -149,7 +149,7 @@ public class UserService {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
             u.setFirstName(firstName);
             u.setLastName(lastName);
-            u.setEmail(email);
+            u.setEmailAddress(email);
             u.setLangKey(langKey);
             userRepository.save(u);
             userSearchRepository.save(u);
@@ -166,7 +166,7 @@ public class UserService {
                 u.setLogin(login);
                 u.setFirstName(firstName);
                 u.setLastName(lastName);
-                u.setEmail(email);
+                u.setEmailAddress(email);
                 u.setActivated(activated);
                 u.setLangKey(langKey);
                 Set<Authority> managedAuthorities = u.getAuthorities();

@@ -25,7 +25,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByResetKey(String resetKey);
 
-    Optional<User> findOneByEmail(String email);
+    Optional<User> findOneByEmailAddress(String emailAddress);
 
     Optional<User> findOneByLogin(String login);
 
@@ -41,7 +41,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Transactional
 	@Modifying
 	@Query("update User set imageName = ?1 where id = ?2")
-	int saveImageUserById(String imgName, Long id);
+	int updateImageNameById(String imgName, Long id);
     
 
 }

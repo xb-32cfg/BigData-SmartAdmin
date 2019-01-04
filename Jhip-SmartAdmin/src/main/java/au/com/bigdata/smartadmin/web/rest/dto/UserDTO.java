@@ -36,7 +36,7 @@ public class UserDTO {
     
     @Email
     @Size(min = 5, max = 100)
-    private String email;
+    private String emailAddress;
 
     @Size(max = 50)
 	private String imageName;
@@ -55,19 +55,19 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this(user.getLogin(), null, user.getFirstName(), user.getLastName(),
-            user.getEmail(), user.getImageName(), user.getFiles(), user.getActivated(), user.getLangKey(),
+            user.getEmailAddress(), user.getImageName(), user.getFiles(), user.getActivated(), user.getLangKey(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String password, String firstName, String lastName,
-        String email, String imageName, MultipartFile files, boolean activated, String langKey, Set<String> authorities) {
+        String emailAddress, String imageName, MultipartFile files, boolean activated, String langKey, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.emailAddress = emailAddress;
         this.imageName = imageName;
         this.files = files; 
         this.activated = activated;
@@ -95,8 +95,8 @@ public class UserDTO {
         return imageName;
     }
     
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public boolean isActivated() {
@@ -122,7 +122,7 @@ public class UserDTO {
             ", password='" + password + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
+            ", emailAddress='" + emailAddress + '\'' +
             ", imageName='" + imageName + '\'' +
             ", files='" + files + '\'' +
             ", activated=" + activated +

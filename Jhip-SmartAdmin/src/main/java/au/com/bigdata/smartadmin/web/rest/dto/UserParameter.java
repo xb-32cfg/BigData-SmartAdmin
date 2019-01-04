@@ -28,7 +28,7 @@ public class UserParameter {
 
     private String nationalId;
     
-    private String email;
+    private String emailAddress;
     
     private String password;
     
@@ -99,12 +99,12 @@ public class UserParameter {
 		this.lastName = lastName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailAddress(String email) {
+		this.emailAddress = email;
 	}
 
 	public boolean isActivated() {
