@@ -260,7 +260,8 @@ if (appConfig.voice_command) {
 }
 
 appConfig.apiRootUrl = 'json';
-
+appConfig.serverUrl = 'http://localhost:8080';
+appConfig.uploadUrl = 'http://localhost:8080/upload/';
 window.appConfig = appConfig;
 
 /*

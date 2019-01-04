@@ -69,39 +69,66 @@ angular.module('SmartAdminWebapp').directive('addUserForm', function(){
                     validating: 'fa fa-refresh'
                 },
                 fields : {
-                    text: {
-                        // All the fields has 'isSearchSelector' class
-                        selector: '.isSearchSelector',
-                        validators: {
-                            callback: {
-                                message: 'You must enter at least one value',
-                                callback: function(value, validator, $field) {
-                                    var isEmpty = true,
-                                    // Get the list of fields
-                                        $fields = validator.getFieldElements('text');
-                                    for (var i = 0; i < $fields.length; i++) {
-                                        if ($fields.eq(i).val() !== '') {
-                                            isEmpty = false;
-                                            break;
-                                        }
-                                    }
-                                    if (!isEmpty) {
-                                        // Update the status of callback validator for all fields
-                                        validator.updateStatus('text', validator.STATUS_VALID, 'callback');
-                                        return true;
-                                    }
-                                    return false;
-                                }
+                    login : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            }
+                        }
+                    },
+                    firstName : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            }
+                        }
+                    },
+                    password : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
                             },
-                            isSearchSelector: {
-                                message: 'The value is not valid'
+                            stringLength : {
+                                min : 4,
+                                message : 'Must be more than 4 characters'
+                            }
+                        }
+                    },
+                    repassword : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            },
+                            stringLength : {
+                                min : 4,
+                                message : 'Must be more than 4 characters'
+                            }
+                        }
+                    },
+                    emailAddress : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            },
+                            regexp: {
+                                regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                                message: 'Please enter a valid Email Address'
+                            }
+                        }
+                    },
+                    authority : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
                             }
                         }
                     }
+
                 }  //.fields
             }).on('success.form.bv', function(e) {
                 e.preventDefault();
-            }).on('change', function(e) {
+            }).on('change', '[name="login"]', '[name="firstName"]', '[name="password"]', '[name="emailAddress"]',
+                '[name="authority"]', function(e) {
                 form.data('bootstrapValidator').resetForm();
             });
         }
@@ -154,9 +181,9 @@ angular.module('SmartAdminWebapp').directive('updateUserForm', function(){
                 }  //.fields
             }).on('success.form.bv', function(e) {
                 e.preventDefault();
-            }).on('change', function(e) {
+            });/*.on('change', function(e) {
                 form.data('bootstrapValidator').resetForm();
-            });
+            });*/
         }
     }
 });

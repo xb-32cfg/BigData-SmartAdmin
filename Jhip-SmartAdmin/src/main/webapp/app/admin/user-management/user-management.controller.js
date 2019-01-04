@@ -2,13 +2,13 @@
 
 angular.module('SmartAdminWebapp')
     .controller('UserManagementController',
-    function ($scope, $state, $http, Principal, User, ParseLinks, Language, $compile, $filter, fileReader, DTOptionsBuilder, DTColumnBuilder) {
+    function ($scope, $state, $http, Principal, User, ParseLinks, Language, $compile, APP_CONFIG,
+              $filter, fileReader, DTOptionsBuilder, DTColumnBuilder) {
         var vm = this;
         vm.entity = {};
         $scope.page = 1;
         $scope.isSaving = false;
         $scope.users = [];
-        $scope.addUserForm = {};
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_STUDENT", "ROLE_PARENTS", "ROLE_DEFAULT"];
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
@@ -40,6 +40,8 @@ angular.module('SmartAdminWebapp')
             $scope.isSaving = false;
             $scope.addUserForm = {};
             $scope.updateUserForm = {};
+            $('#addUserForm').data('bootstrapValidator').resetForm();
+            $('#updateUserForm').data('bootstrapValidator').resetForm();
         };
 
         vm.manageUserHeaderText = "user-management.title";
@@ -67,6 +69,8 @@ angular.module('SmartAdminWebapp')
             $scope.showUpdateUserForm = false;
             $scope.showUserDetailForm = false;
             $scope.showAddUserForm = true;
+            $scope.addUserForm = {};
+            $('#addUserForm').data('bootstrapValidator').resetForm();
         };
         /*  Show Update User Form    */
         $scope.UpdateUserForm = function(){
@@ -75,6 +79,8 @@ angular.module('SmartAdminWebapp')
             $scope.showListOfUserForm = false;
             $scope.showUserDetailForm = false;
             $scope.showUpdateUserForm = true;
+            $scope.updateUserForm = {};
+            $('#updateUserForm').data('bootstrapValidator').resetForm();
         };
 
 
@@ -106,8 +112,10 @@ angular.module('SmartAdminWebapp')
             DTColumnBuilder.newColumn('login'),
             DTColumnBuilder.newColumn('firstName'),
             DTColumnBuilder.newColumn('lastName'),
-            DTColumnBuilder.newColumn('email'),
-            DTColumnBuilder.newColumn('imageName'),
+            DTColumnBuilder.newColumn('emailAddress'),
+            DTColumnBuilder.newColumn('imageName').renderWith(function (data, type, full) {
+                return '<img style="width:40px;height:40px;" src='+APP_CONFIG.uploadUrl + data + ' />';
+            }),
             DTColumnBuilder.newColumn('authorities'),
             DTColumnBuilder.newColumn('activated'),
             DTColumnBuilder.newColumn('createdDate').renderWith(function (data, type, full) {
@@ -144,15 +152,13 @@ angular.module('SmartAdminWebapp')
             $scope.progress = progress.loaded / progress.total;
         });
         $scope.saveUser = function () {
-            console.log("file---> "+$scope.files[0].name);
-            console.log("name---> "+$scope.addUserForm.firstName);
             var data = new FormData();
             data.append("login", $scope.addUserForm.login);
             data.append("firstName", $scope.addUserForm.firstName);
             data.append("middleName", $scope.addUserForm.middleName);
             data.append("lastName", $scope.addUserForm.lastName);
             data.append("nationalId", $scope.addUserForm.nationalId);
-            data.append("email", $scope.addUserForm.email);
+            data.append("emailAddress", $scope.addUserForm.emailAddress);
             data.append("password", $scope.addUserForm.password);
             data.append("phone", $scope.addUserForm.phone);
             data.append("activated", $scope.addUserForm.activated);
@@ -161,7 +167,7 @@ angular.module('SmartAdminWebapp')
             data.append("maxFailAttemptsAllow", $scope.addUserForm.maxFailAttemptsAllow);
             data.append("accActivationDate", $scope.addUserForm.accActivationDate);
             data.append("langKey", $scope.addUserForm.langKey);
-            data.append("authorities", $scope.addUserForm.authorities);
+            data.append("authorities", $scope.addUserForm.authority);
             data.append("comments", $scope.addUserForm.comments);
             data.append("files",  $scope.files[0]);
 
@@ -177,7 +183,7 @@ angular.module('SmartAdminWebapp')
                 BootstrapDialog.save('', function (result) {
                     if (result) {
                         //User.save($scope.addUserForm, onSaveSuccess, onSaveError);
-                        $http.post("http://localhost:8080/api/users", data, config).then(
+                        $http.post(APP_CONFIG.serverUrl+"/api/users", data, config).then(
                             function(response) {
                                 console.log('User created successfully');
                                 onSaveSuccess(response);

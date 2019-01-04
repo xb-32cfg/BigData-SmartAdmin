@@ -11,7 +11,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-key"></i>
-                                <input class="form-control input-sm" type="text" name="id" ng-model="addUserForm.id" readonly>
+                                <input class="form-control input-sm" type="text" placeholder="" name="id" ng-model="addUserForm.id" readonly>
                             </div>
                         </div>
                     </div>
@@ -22,8 +22,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-key"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="login"
-                                       ng-model="addUserForm.login" lowercase>
+                                <input class="form-control input-sm" type="text" name="login" ng-model="addUserForm.login" lowercase>
                             </div>
                         </div>
                     </div>
@@ -34,8 +33,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="firstName"
-                                       ng-model="addUserForm.firstName" capitalize-each-word>
+                                <input class="form-control input-sm" type="text" name="firstName" ng-model="addUserForm.firstName" capitalize-each-word>
                             </div>
                         </div>
                     </div>
@@ -46,8 +44,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="middleName"
-                                       ng-model="addUserForm.middleName" capitalize-each-word>
+                                <input class="form-control input-sm" type="text" name="middleName" ng-model="addUserForm.middleName" capitalize-each-word>
                             </div>
                         </div>
                     </div>
@@ -58,8 +55,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="lastName"
-                                       ng-model="addUserForm.lastName" capitalize-each-word>
+                                <input class="form-control input-sm" type="text" name="lastName" ng-model="addUserForm.lastName" capitalize-each-word>
                             </div>
                         </div>
                     </div>
@@ -70,8 +66,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-id-card-o"></i>
-                                <input class="form-control input-sm" placeholder="" type="text"
-                                       name="nationalId" ng-model="addUserForm.nationalId" uppercase>
+                                <input class="form-control input-sm" type="text" name="nationalId" ng-model="addUserForm.nationalId" uppercase>
                             </div>
                         </div>
                     </div>
@@ -82,8 +77,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-envelope-o"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="email"
-                                       ng-model="addUserForm.email" lowercase>
+                                <input class="form-control input-sm" type="text" name="emailAddress" ng-model="addUserForm.emailAddress" lowercase>
                             </div>
                         </div>
                     </div>
@@ -94,7 +88,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="" type="password"
+                                <input class="form-control input-sm" type="password"
                                        name="password" ng-model="addUserForm.password">
                             </div>
                         </div>
@@ -106,7 +100,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="" type="password" name="repassword">
+                                <input class="form-control input-sm" type="password" name="repassword">
                             </div>
                         </div>
                     </div>
@@ -117,7 +111,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-phone"></i>
-                                <input class="form-control input-sm" placeholder="" type="text"
+                                <input class="form-control input-sm" type="text"
                                        data-smart-masked-input="(99) 999-9999-999" data-mask-placeholder= "X"
                                        name="phone" ng-model="addUserForm.phone">
                             </div>
@@ -160,7 +154,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="" type="date"
+                                <input class="form-control input-sm" type="date"
                                        name="passwordExpDate" ng-model="addUserForm.passwordExpDate">
                             </div>
                         </div>
@@ -172,8 +166,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="" type="number"
-                                       name="maxLogin" ng-model="addUserForm.maxLogin">
+                                <input class="form-control input-sm" type="number" name="maxLogin" ng-model="addUserForm.maxLogin" min="0" value="0">
                             </div>
                         </div>
                     </div>
@@ -184,8 +177,8 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="" type="number"
-                                       name="maxFailAttemptsAllow" ng-model="addUserForm.maxFailAttemptsAllow">
+                                <input class="form-control input-sm" type="number"
+                                       name="maxFailAttemptsAllow" ng-model="addUserForm.maxFailAttemptsAllow" min="0" value="0">
                             </div>
                         </div>
                     </div>
@@ -198,7 +191,7 @@
                         <div class="col-md-6 date">
                             <div class="input-icon-right date">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="" type="date"
+                                <input class="form-control input-sm" type="date"
                                        name="accActivationDate" ng-model="addUserForm.accActivationDate">
                             </div>
                         </div>
@@ -221,7 +214,7 @@
                         <label class="col-md-4 control-label">User Role </label>
                         <div class="col-md-6 selectContainer">
                             <div class="input-icon-right">
-                                <select class="form-control input-sm" multiple name="authority" ng-model="addUserForm.authorities"
+                                <select class="form-control input-sm" multiple name="authority" ng-model="addUserForm.authority"
                                         ng-options="authority for authority in authorities">
                                 </select>
                             </div>
@@ -235,7 +228,7 @@
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-comments-o"></i>
                                 <textarea class="form-control input-sm" placeholder="" rows="3"
-                                          name="comments" ng-model="addUserForm.comments" sentence-case=""></textarea>
+                                          name="comments" ng-model="addUserForm.comments" sentence-case></textarea>
                             </div>
                         </div>
                     </div>
@@ -249,7 +242,7 @@
     <div class="widget-footer">
         <div class="row">
             <div class="col-md-6">
-                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset">
+                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="clear()">
                     <i class="fa fa-refresh"></i> Reset</button>
                 <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit">
                     <i class="fa fa-save"></i> Save</button>

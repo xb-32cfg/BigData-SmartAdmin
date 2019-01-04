@@ -4,6 +4,7 @@ angular.module('SmartAdminWebapp')
 	.controller('UserManagementDeleteController', function($scope, $state, $stateParams, User) {
 
         $scope.user = {};
+        $scope.deleteUserForm = {};
 
         /*********************************************
          *          LOAD DELETE FORM                 *
@@ -26,7 +27,7 @@ angular.module('SmartAdminWebapp')
             var login = $scope.deleteUserForm.login;
             if (login != null) {
                 console.log("delete user id: "+login);
-                BootstrapDialog.save('', function(result){
+                BootstrapDialog.delete('', function(result){
                     if(result) {
                         User.delete({login: login}, onDeleteSuccess, onSaveError);
                     }
