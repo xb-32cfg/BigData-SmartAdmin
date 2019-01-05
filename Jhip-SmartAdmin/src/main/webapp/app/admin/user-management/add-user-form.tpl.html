@@ -1,5 +1,5 @@
 <form id="addUserForm" role="form" ng-controller="UserManagementController" class="form-horizontal"
-      novalidate ng-submit="saveUser()" show-validation>
+      novalidate ng-submit="saveUser()" smart-add-user-form-validation>
     <div class="row">
         <div class="col-md-12">
 
@@ -18,11 +18,11 @@
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Login ID</label>
-                        <div class="col-md-6">
+                        <label class="col-md-4 control-label">Login ID </label>
+                        <div class="col-md-6 inputGroupContainer">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-key"></i>
-                                <input class="form-control input-sm" type="text" name="login" ng-model="addUserForm.login" lowercase>
+                                <input class="form-control input-sm" type="text" name="loginId" ng-model="addUserForm.loginId" lowercase>
                             </div>
                         </div>
                     </div>
@@ -87,9 +87,9 @@
                         <label class="col-md-4 control-label">Password </label>
                         <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-lock"></i>
+                                <i class="icon-append fa fa-eye"></i>
                                 <input class="form-control input-sm" type="password"
-                                       name="password" ng-model="addUserForm.password">
+                                       name="userPassword" ng-model="addUserForm.userPassword">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <label class="col-md-4 control-label">Re-confirm Password </label>
                         <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-lock"></i>
+                                <i class="icon-append fa fa-eye-slash"></i>
                                 <input class="form-control input-sm" type="password" name="repassword">
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 <span class="onoffswitch">
                                     <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="createUserst1" ng-model="addUserForm.activated">
                                     <label class="onoffswitch-label" for="createUserst1">
-                                        <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
+                                        <span class="onoffswitch-inner" data-swchon-text="Active" data-swchoff-text="Lock"></span>
                                         <span class="onoffswitch-switch"></span>
                                     </label>
                                 </span>
@@ -137,17 +137,127 @@
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Upload User Photo </label>
-                        <div class="col-md-6">
+                        <div class="col-md-1">
+                            <div class="input-icon-left">
+                                <img class="thumbUserImage" ng-src="{{addUserForm.files}}" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <input type="file" file-model="files" ng-file-select="onFileSelect($files)" ng-model="addUserForm.files" accept="image/*" ngf-max-size="2MB">
-                            <img class="thumbUserImage" ng-src="{{addUserForm.files}}" />
                         </div>
                     </div>
                 </fieldset>
-
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Year (Level) </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <input class="form-control input-sm" type="number" name="studyYear" ng-model="addUserForm.studyYear">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Student ID </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <input class="form-control input-sm" type="text" name="studentId" ng-model="addUserForm.studentId">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
 
             <!-- 2nd column -->
             <div class="col-md-6">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Address </label>
+                        <div class="col-md-6">
+                            <div class="input-icon-right">
+                                <input class="form-control input-sm" placeholder="No." type="text" name="apartmentNo"
+                                       ng-model="addUserForm.apartmentNo" capitalize-each-word>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-info btn-sm" type="button" data-toggle="#moreAddressOption">
+                                <i class="fa fa-plus-circle"></i></button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- These fields will not be validated as long as they are not visible -->
+                <div id="moreAddressOption" style="display: none;">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-6">
+                                <div class="input-icon-right">
+                                    <i class="icon-append fa fa-road"></i>
+                                    <input class="form-control input-sm" placeholder="Street Name" type="text" name="address1"
+                                           ng-model="addUserForm.address1" capitalize-each-word>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-6">
+                                <div class="input-icon-right">
+                                    <input class="form-control input-sm" placeholder="Sub Locality" type="text" name="address2"
+                                           ng-model="addUserForm.address2" capitalize-each-word>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">City </label>
+                            <div class="col-md-6">
+                                <div class="input-icon-right">
+                                    <i class="icon-append fa fa-map-marker"></i>
+                                    <input class="form-control input-sm" placeholder="City" type="text" name="city"
+                                           ng-model="addUserForm.city" details=addUserForm googleplace
+                                           ng-autocomplete="result2" details="details2" options="options2">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">State </label>
+                            <div class="col-md-3">
+                                <div class="input-icon-right">
+                                    <input class="form-control input-sm" placeholder="State" type="text" name="states"
+                                           ng-model="addUserForm.states" autocomplete-states>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-icon-right">
+                                    <input class="form-control input-sm" placeholder="PostCode" type="text" name="postcode"
+                                           data-smart-masked-input="9999" data-mask-placeholder= "X"
+                                           ng-model="addUserForm.postcode">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Country </label>
+                            <div class="col-md-6">
+                                <div class="input-icon-right">
+                                    <input class="form-control input-sm" placeholder="Country" type="text" name="country"
+                                           ng-model="addUserForm.country" id="country">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br>
+                </div><!-- End of Address -->
+
+
                 <fieldset>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Password Expiration Date </label>
@@ -166,7 +276,8 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append"></i>
-                                <input class="form-control input-sm" type="number" name="maxLogin" ng-model="addUserForm.maxLogin" min="0" value="0">
+                                <input class="form-control input-sm" type="number" name="maxLogin" ng-model="addUserForm.maxLogin"
+                                       ng-init="maxLogin='0'" value="0" min="0">
                             </div>
                         </div>
                     </div>
@@ -191,7 +302,7 @@
                         <div class="col-md-6 date">
                             <div class="input-icon-right date">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" type="date"
+                                <input class="form-control input-sm" type="date" ng-change="newPasswordExpDate('addUserForm')"
                                        name="accActivationDate" ng-model="addUserForm.accActivationDate">
                             </div>
                         </div>
@@ -203,7 +314,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-language"></i>
-                                <input class="form-control input-sm" placeholder="en" type="text"
+                                <input class="form-control input-sm" type="text" value="en"
                                        name="langKey" ng-model="addUserForm.langKey">
                             </div>
                         </div>
@@ -228,7 +339,7 @@
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-comments-o"></i>
                                 <textarea class="form-control input-sm" placeholder="" rows="3"
-                                          name="comments" ng-model="addUserForm.comments" sentence-case></textarea>
+                                          name="adminComment" ng-model="addUserForm.adminComment" sentencecase></textarea>
                             </div>
                         </div>
                     </div>

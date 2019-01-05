@@ -1,0 +1,45 @@
+<div id="content">
+    <div class="shadowPanel">
+        <section id="home-widget-grid" data-widget-grid>
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div id="user-wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false"
+                 data-widget-deletebutton="false" data-widget-custombutton="false" data-jarvis-widget >
+                <header>
+                    <span class="widget-icon"><i class="glyphicon glyphicon-user"></i></span>
+                    <h2 translate="{{headerText}}"> Student Management </h2>
+
+                    <div class="widget-toolbar">
+                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
+                             ng-click="ListOfStudentAccountForm()"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
+                        </div>
+                        <div class="badge bg-color-green" data-tooltip="Create"
+                             ng-click="AddStudentForm()"><span class="widget-icon"><i class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="badge bg-color-green" data-tooltip="Update"
+                             ng-click="UpdateStudentForm()"><span class="widget-icon"><i class="fa fa-edit"></i></span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="widget-body" ng-show="showListOfStudentForm">
+                                <!--<list-of-students-form></list-of-students-form>-->
+                            </div>
+                            <div class="widget-body" ng-show="showAddStudentForm">
+                                <add-student-form></add-student-form>
+                            </div>
+                            <div class="widget-body" ng-show="showUpdateStudentForm">
+                                <update-student-form></update-student-form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <!-- /.modal-body -->
+
+            </div>
+
+        </section>
+    </div>
+</div>

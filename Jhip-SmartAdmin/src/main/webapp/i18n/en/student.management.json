@@ -1,0 +1,39 @@
+{
+    "student-management": {
+        "title": "Student Management",
+        "addForm":"Add New Student",
+        "updateForm":"Update Student",
+        "deleteForm":"Delete Student",
+        "listForm":"List of Students",
+        "detail":"Student Detail",
+        "createLabel": "Create a new Student",
+        "created": "A new student is created with identifier {{ param }}",
+        "updated": "A student is updated with identifier {{ param }}",
+        "deleted": "A student is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete Student {{ login }}?"
+        },
+        "button": {
+            "save": "Save",
+            "update": "Update",
+            "delete": "Delete",
+            "reset": "Reset",
+            "confirm": "Confirm",
+            "confirmDel": "Confirm Delete",
+            "cancel": "Cancel",
+            "back": "Back"
+        },
+        "login": "Login",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email Address",
+        "activated": "Activated",
+        "deactivated": "Deactivated",
+        "profiles": "Profiles",
+        "langKey": "Language",
+        "createdBy": "Created by",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date"
+    }
+}

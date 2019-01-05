@@ -23,7 +23,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-key"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="login"
+                                <input class="form-control input-sm" type="text" name="login"
                                        ng-model="updateUserForm.login" lowercase>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="firstName"
+                                <input class="form-control input-sm" type="text" name="firstName"
                                        ng-model="updateUserForm.firstName" capitalize-each-word>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="middleName"
+                                <input class="form-control input-sm" type="text" name="middleName"
                                        ng-model="updateUserForm.middleName" capitalize-each-word>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-user"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="lastName"
+                                <input class="form-control input-sm" type="text" name="lastName"
                                        ng-model="updateUserForm.lastName" capitalize-each-word>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-id-card-o"></i>
-                                <input class="form-control input-sm" placeholder="" type="text"
+                                <input class="form-control input-sm" type="text"
                                        name="nationalId" ng-model="updateUserForm.nationalId" uppercase="">
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-envelope-o"></i>
-                                <input class="form-control input-sm" placeholder="" type="text" name="emailAddress"
+                                <input class="form-control input-sm" type="text" name="emailAddress"
                                        ng-model="updateUserForm.emailAddress" lowercase>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="" type="password"
+                                <input class="form-control input-sm" type="password"
                                        name="password" ng-model="updateUserForm.password">
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" placeholder="" type="password" name="repassword">
+                                <input class="form-control input-sm" type="password" name="repassword">
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-phone"></i>
-                                <input class="form-control input-sm" placeholder="" type="text"
+                                <input class="form-control input-sm" type="text"
                                        data-smart-masked-input="(99) 999-9999-999" data-mask-placeholder= "X"
                                        name="phone" ng-model="updateUserForm.phone">
                             </div>
@@ -133,11 +133,24 @@
                                 <span class="onoffswitch">
                                     <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="updateUserActivation" ng-model="updateUserForm.activated">
                                     <label class="onoffswitch-label" for="updateUserActivation">
-                                        <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
+                                        <span class="onoffswitch-inner" data-swchon-text="Active" data-swchoff-text="Lock"></span>
                                         <span class="onoffswitch-switch"></span>
                                     </label>
                                 </span>
                             </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Upload User Photo </label>
+                        <div class="col-md-1">
+                            <div class="input-icon-left">
+                                <img class="thumbUserImage" ng-src="{{updateUserForm.files}}" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="file" file-model="files" ng-file-select="onFileSelect($files)" ng-model="updateUserForm.files" accept="image/*" ngf-max-size="2MB">
                         </div>
                     </div>
                 </fieldset>
@@ -151,7 +164,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="" type="date"
+                                <input class="form-control input-sm" type="date"
                                        name="passwordExpDate" ng-model="updateUserForm.passwordExpDate">
                             </div>
                         </div>
@@ -163,8 +176,8 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="" type="number"
-                                       name="maxLogin" ng-model="updateUserForm.maxLogin">
+                                <input class="form-control input-sm" type="number"
+                                       name="maxLogin" value="0" min="0" ng-model="updateUserForm.maxLogin">
                             </div>
                         </div>
                     </div>
@@ -175,8 +188,8 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append"></i>
-                                <input class="form-control input-sm" placeholder="" type="number"
-                                       name="maxFailAttemptsAllow" ng-model="updateUserForm.maxFailAttemptsAllow">
+                                <input class="form-control input-sm" type="number"
+                                       name="maxFailAttemptsAllow" value="0" min="0" ng-model="updateUserForm.maxFailAttemptsAllow">
                             </div>
                         </div>
                     </div>
@@ -189,7 +202,7 @@
                         <div class="col-md-6 date">
                             <div class="input-icon-right date">
                                 <i class="icon-append fa fa-calendar"></i>
-                                <input class="form-control input-sm" placeholder="" type="date"
+                                <input class="form-control input-sm" type="date" ng-change="newPasswordExpDate('updateUserForm')"
                                        name="accActivationDate" ng-model="updateUserForm.accActivationDate">
                             </div>
                         </div>

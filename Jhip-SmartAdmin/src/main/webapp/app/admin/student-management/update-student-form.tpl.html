@@ -1,0 +1,33 @@
+
+<form id="updateStudentForm" role="form" ng-controller="StudentManagementController" class="form-horizontal"
+      novalidate ng-submit="updateStudent()" show-validation >
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- 1st column -->
+            <div class="col-md-6">
+
+            </div>
+
+            <!-- 2nd column -->
+            <div class="col-md-6">
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="widget-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="clear()">
+                    <i class="fa fa-refresh"></i> <span translate="student-management.button.reset">Reset</span></button>
+                <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit" ng-disabled="updateUserForm.$invalid || isSaving">
+                    <i class="fa fa-save"></i> <span translate="student-management.button.update">Update</span></button>
+            </div>
+        </div>
+    </div>
+
+</form>
+

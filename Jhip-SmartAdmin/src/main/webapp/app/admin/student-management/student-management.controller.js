@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('SmartAdminWebapp')
-    .controller('UserManagementController',
-    function ($scope, $state, $http, Principal, User, ParseLinks, Language, $compile, APP_CONFIG,
+    .controller('StudentManagementController',
+    function ($scope, $state, $http, Principal, Student, ParseLinks, Language, $compile, APP_CONFIG,
               $filter, fileReader, DTOptionsBuilder, DTColumnBuilder) {
         var vm = this;
         vm.entity = {};
@@ -20,7 +20,7 @@ angular.module('SmartAdminWebapp')
         });
 
         function loadAll () {
-            User.query({page: $scope.page - 1, size: 20}, function (result, headers) {
+            Student.query({page: $scope.page - 1, size: 20}, function (result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.totalItems = headers('X-Total-Count');
                 $scope.users = result;
@@ -38,73 +38,74 @@ angular.module('SmartAdminWebapp')
          *           RESET                           *
          *********************************************/
         $scope.clear = function () {
+            console.log("clear reset");
             $scope.isSaving = false;
-            $scope.addUserForm = {};
-            $scope.updateUserForm = {};
-            $('#addUserForm').data('bootstrapValidator').resetForm();
-            $('#updateUserForm').data('bootstrapValidator').resetForm();
+            //$scope.addStudentForm = {};
+            //$scope.updateStudentForm = {};
+            //$('#addStudentForm').data('bootstrapValidator').resetForm();
+            //$('#updateStudentForm').data('bootstrapValidator').resetForm();
         };
 
-        vm.manageUserHeaderText = "user-management.title";
-        vm.createHeaderText = "user-management.addForm";
-        vm.updateHeaderText = "user-management.updateForm";
-        vm.deleteHeaderText = "user-management.deleteForm";
-        vm.detailHeaderText = "user-management.detail";
-        $scope.headerText = vm.manageUserHeaderText;
-        $scope.showListOfUserForm= true;
+        vm.manageStudentHeaderText = "student-management.title";
+        vm.createHeaderText = "student-management.addForm";
+        vm.updateHeaderText = "student-management.updateForm";
+        vm.deleteHeaderText = "student-management.deleteForm";
+        vm.detailHeaderText = "student-management.detail";
+        $scope.headerText = vm.manageStudentHeaderText;
+        $scope.showListOfStudentForm= true;
 
-        /*  Show List of User Form    */
-        $scope.ListOfUserAccountForm = function(){
-            $state.go('user-management', null, { reload: true });
+        /*  Show List of Student Form    */
+        $scope.ListOfStudentAccountForm = function(){
+            $state.go('student-management', null, { reload: true });
 
-            $scope.headerText = vm.manageUserHeaderText;
-            $scope.showAddUserForm = false;
-            $scope.showUpdateUserForm = false;
-            $scope.showUserDetailForm = false;
-            $scope.showListOfUserForm = true;
+            $scope.headerText = vm.manageStudentHeaderText;
+            $scope.showAddStudentForm = false;
+            $scope.showUpdateStudentForm = false;
+            $scope.showStudentDetailForm = false;
+            $scope.showListOfStudentForm = true;
         };
-        /*  Show Create New User Form    */
-        $scope.AddUserForm = function(){
+        /*  Show Create New Student Form    */
+        $scope.AddStudentForm = function(){
             $scope.headerText = vm.createHeaderText;
-            $scope.showListOfUserForm= false;
-            $scope.showUpdateUserForm = false;
-            $scope.showUserDetailForm = false;
-            $scope.showAddUserForm = true;
-            $scope.addUserForm = {};
-            $scope.addUserForm.activated = false;
-            $scope.addUserForm.maxLogin = 0;
-            $scope.addUserForm.maxFailAttemptsAllow = 0;
-            $scope.addUserForm.langKey = 'en';
-            $scope.addUserForm.accActivationDate = new Date();
-            $scope.addUserForm.passwordExpDate = new Date(new Date().setDate(today.getDate() + 365));
-            $('#addUserForm').data('bootstrapValidator').resetForm();
+            $scope.showListOfStudentForm= false;
+            $scope.showUpdateStudentForm = false;
+            $scope.showStudentDetailForm = false;
+            $scope.showAddStudentForm = true;
+            $scope.addStudentForm = {};
+            $scope.addStudentForm.activated = false;
+            $scope.addStudentForm.maxLogin = 0;
+            $scope.addStudentForm.maxFailAttemptsAllow = 0;
+            $scope.addStudentForm.langKey = 'en';
+            $scope.addStudentForm.accActivationDate = new Date();
+            $scope.addStudentForm.passwordExpDate = new Date(new Date().setDate(today.getDate() + 365));
+            //$('#addStudentForm').data('bootstrapValidator').resetForm();
         };
-        /*  Show Update User Form    */
-        $scope.UpdateUserForm = function(){
+        /*  Show Update Student Form    */
+        $scope.UpdateStudentForm = function(){
             $scope.headerText = vm.updateHeaderText;
-            $scope.showAddUserForm = false;
-            $scope.showListOfUserForm = false;
-            $scope.showUserDetailForm = false;
-            $scope.showUpdateUserForm = true;
-            $scope.updateUserForm = {};
-            $scope.updateUserForm.maxLogin = 0;
-            $scope.updateUserForm.maxFailAttemptsAllow = 0;
-            $('#updateUserForm').data('bootstrapValidator').resetForm();
+            $scope.showAddStudentForm = false;
+            $scope.showListOfStudentForm = false;
+            $scope.showStudentDetailForm = false;
+            $scope.showUpdateStudentForm = true;
+            $scope.updateStudentForm = {};
+            $scope.updateStudentForm.maxLogin = 0;
+            $scope.updateStudentForm.maxFailAttemptsAllow = 0;
+            //$('#updateStudentForm').data('bootstrapValidator').resetForm();
         };
         /*    Set Password Expired Date    */
         $scope.newPasswordExpDate = function(myFormName) {
-            if(myFormName=="addUserForm"){
-                var accActivationDate = $scope.addUserForm.accActivationDate;
+            if(myFormName=="addStudentForm"){
+                var accActivationDate = $scope.addStudentForm.accActivationDate;
                 if(accActivationDate < today){
-                    $scope.addUserForm.accActivationDate = new Date();
+                    $scope.addStudentForm.accActivationDate = new Date();
                 }
                 var new_exp_date =  moment(accActivationDate).add(365,'days').format('MM-DD-YYYY');
-                $scope.addUserForm.passwordExpDate = new Date(new_exp_date);
+                $scope.addStudentForm.passwordExpDate = new Date(new_exp_date);
 
-            }else if(myFormName=="updateUserForm"){
-                var accActivationDate = $scope.updateUserForm.accActivationDate;
+            }else if(myFormName=="updateStudentForm"){
+                var accActivationDate = $scope.updateStudentForm.accActivationDate;
                 var new_exp_date =  moment(accActivationDate).add(365,'days').format('MM-DD-YYYY');
-                $scope.updateUserForm.passwordExpDate = new Date(new_exp_date);
+                $scope.updateStudentForm.passwordExpDate = new Date(new_exp_date);
             }
         };
         /*    Upload Photo    */
@@ -157,16 +158,16 @@ angular.module('SmartAdminWebapp')
             DTColumnBuilder.newColumn(null).notSortable().renderWith(actionButtons)
         ];
 
-        // Action buttons added to the last column: to edit and delete rows ui-sref="user-management.edit({login:user.login})"
+        // Action buttons added to the last column: to edit and delete rows ui-sref="student-management.edit({login:user.login})"
         function actionButtons(data, type, full, meta) {
             vm.entity[data.id] = data;
             return '<button class="btn btn-info btn-xs" ng-click="loadUpdateFormById({login:' + data.id + '})">' +
                 '   <i class="fa fa-edit"></i>' +
                 '</button>&nbsp;' +
-                /*'<button class="btn btn-info btn-xs" ui-sref="user-management-detail({login:' + data.id + '})">' +
+                /*'<button class="btn btn-info btn-xs" ui-sref="student-management-detail({login:' + data.id + '})">' +
                 '   <i class="fa fa-eye"></i>' +
                 '</button>&nbsp;' +*/
-                '<button class="btn btn-danger btn-xs" ui-sref="user-management.delete({login:' + data.id + '})">' +
+                '<button class="btn btn-danger btn-xs" ui-sref="student-management.delete({login:' + data.id + '})">' +
                 '   <i class="fa fa-trash-o"></i>' +
                 '</button>';
         }
@@ -175,27 +176,27 @@ angular.module('SmartAdminWebapp')
         }
 
         /*********************************************
-         *        CREATE NEW USER                    *
+         *        CREATE NEW STUDENT                  *
          *********************************************/
-        $scope.saveUser = function () {
-            //console.log("create user--> "+JSON.stringify($scope.addUserForm));
+        $scope.saveStudent = function () {
+            //console.log("create Student--> "+JSON.stringify($scope.addStudentForm));
             var data = new FormData();
-            data.append("login", $scope.addUserForm.loginId);
-            data.append("firstName", $scope.addUserForm.firstName);
-            data.append("middleName", $scope.addUserForm.middleName);
-            data.append("lastName", $scope.addUserForm.lastName);
-            data.append("nationalId", $scope.addUserForm.nationalId);
-            data.append("emailAddress", $scope.addUserForm.emailAddress);
-            data.append("password", $scope.addUserForm.userPassword);
-            data.append("phone", $scope.addUserForm.phone);
-            data.append("activated", $scope.addUserForm.activated);
-            data.append("passwordExpDate", $scope.addUserForm.passwordExpDate);
-            data.append("maxLogin", $scope.addUserForm.maxLogin);
-            data.append("maxFailAttemptsAllow", $scope.addUserForm.maxFailAttemptsAllow);
-            data.append("accActivationDate", $scope.addUserForm.accActivationDate);
-            data.append("langKey", $scope.addUserForm.langKey);
-            data.append("authorities", $scope.addUserForm.authority);
-            data.append("comments", $scope.addUserForm.adminComment);
+            data.append("login", $scope.addStudentForm.loginId);
+            data.append("firstName", $scope.addStudentForm.firstName);
+            data.append("middleName", $scope.addStudentForm.middleName);
+            data.append("lastName", $scope.addStudentForm.lastName);
+            data.append("nationalId", $scope.addStudentForm.nationalId);
+            data.append("emailAddress", $scope.addStudentForm.emailAddress);
+            data.append("password", $scope.addStudentForm.studentPassword);
+            data.append("phone", $scope.addStudentForm.phone);
+            data.append("activated", $scope.addStudentForm.activated);
+            data.append("passwordExpDate", $scope.addStudentForm.passwordExpDate);
+            data.append("maxLogin", $scope.addStudentForm.maxLogin);
+            data.append("maxFailAttemptsAllow", $scope.addStudentForm.maxFailAttemptsAllow);
+            data.append("accActivationDate", $scope.addStudentForm.accActivationDate);
+            data.append("langKey", $scope.addStudentForm.langKey);
+            data.append("authorities", $scope.addStudentForm.authority);
+            data.append("comments", $scope.addStudentForm.adminComment);
             data.append("files",  $scope.files[0]);
 
             var config = {
@@ -206,17 +207,17 @@ angular.module('SmartAdminWebapp')
                 }
             };
 
-            if ( $('#addUserForm').data('bootstrapValidator').isValid() ) {
+            if ( $('#addStudentForm').data('bootstrapValidator').isValid() ) {
                 BootstrapDialog.save('', function (result) {
                     if (result) {
-                        //User.save($scope.addUserForm, onSaveSuccess, onSaveError);
-                        $http.post(APP_CONFIG.serverUrl+"/api/users", data, config).then(
+                        //Student.save($scope.addStudentForm, onSaveSuccess, onSaveError);
+                        $http.post(APP_CONFIG.serverUrl+"/api/Students", data, config).then(
                             function(response) {
-                                console.log('User created successfully');
+                                console.log('Student created successfully');
                                 onSaveSuccess(response);
                             },
                             function(errResponse) {
-                                console.error('Error while creating User');
+                                console.error('Error while creating Student');
                                 onSaveError(errResponse);
                             });
                     }
@@ -229,18 +230,18 @@ angular.module('SmartAdminWebapp')
          *           UPDATE                          *
          *********************************************/
         $scope.loadUpdateFormById = function(loginId){
-            this.UpdateUserForm();
-            User.get(loginId, function(result) {
-                $scope.updateUserForm = result;
+            this.UpdateStudentForm();
+            Student.get(loginId, function(result) {
+                $scope.updateStudentForm = result;
             });
         };
-        $scope.updateUser = function () {
-            console.log('---> '+ JSON.stringify($scope.updateUserForm));
-            var id = $scope.updateUserForm.id;
+        $scope.updateStudent = function () {
+            console.log('---> '+ JSON.stringify($scope.updateStudentForm));
+            var id = $scope.updateStudentForm.id;
             if (id != null) {
                 BootstrapDialog.save('', function(result){
                     if(result) {
-                        User.update($scope.updateUserForm, onUpdateSuccess, onSaveError);
+                        Student.update($scope.updateStudentForm, onUpdateSuccess, onSaveError);
                     }
                 });
             }

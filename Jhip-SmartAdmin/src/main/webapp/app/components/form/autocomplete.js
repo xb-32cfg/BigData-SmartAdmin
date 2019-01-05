@@ -12,7 +12,7 @@ angular.module('SmartAdminWebapp').directive('autocompleteStates', function ($ht
             'source': '='
         },
         link: function (scope, element, attributes) {
-            $http.get("json/common/states-my.json").then(function(response) {
+            $http.get("json/states-au.json").then(function(response) {
                 element.autocomplete({
                     source: response.data.data
                 });

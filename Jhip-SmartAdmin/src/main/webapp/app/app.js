@@ -2221,7 +2221,6 @@ angular.module('app.forms').value('formsCommon', {
             highlight: function(element, errorClass, validClass) {
                 $(element).addClass(errorClass).removeClass(validClass);
                 $(element).parent().addClass('state-error').removeClass('state-success');
-
             },
             unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass(errorClass).addClass(validClass);
@@ -10913,7 +10912,6 @@ angular.module('SmartAdmin.Forms').directive('smartDropzone', function () {
 });
 
 'use strict';
-
 angular.module('SmartAdmin.Forms').directive('smartValidateForm', function (formsCommon) {
     return {
         restrict: 'A',
@@ -10972,16 +10970,13 @@ angular.module('SmartAdmin.Forms').directive('smartValidateForm', function (form
                     });
                 }
             });
-
-
             form.validate(validateOptions);
-
         }
     }
 });
 
-'use strict';
 
+'use strict';
 angular.module('SmartAdmin.Forms').directive('smartFueluxWizard', function () {
     return {
         restrict: 'A',
@@ -11044,7 +11039,6 @@ angular.module('SmartAdmin.Forms').directive('smartWizard', function () {
 
                 $prev.toggleClass('disabled', step == 1)
             }
-
 
             element.on('click', '[data-smart-wizard-tab]', function (e) {
                 setStep(parseInt($(this).data('smartWizardTab')));

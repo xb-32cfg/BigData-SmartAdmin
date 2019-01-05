@@ -47,7 +47,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text" name="login"
-                                                           ng-model="deleteUserForm.login">
+                                                           ng-model="deleteUserForm.login" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +59,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text" name="firstName"
-                                                           ng-model="deleteUserForm.firstName" capitalize-each-word>
+                                                           ng-model="deleteUserForm.firstName" capitalize-each-word readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text" name="middleName"
-                                                           ng-model="deleteUserForm.middleName" capitalize-each-word>
+                                                           ng-model="deleteUserForm.middleName" capitalize-each-word readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-user"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text" name="lastName"
-                                                           ng-model="deleteUserForm.lastName" capitalize-each-word>
+                                                           ng-model="deleteUserForm.lastName" capitalize-each-word readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +95,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-id-card-o"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text"
-                                                           name="nationalId" ng-model="deleteUserForm.nationalId" uppercase="">
+                                                           name="nationalId" ng-model="deleteUserForm.nationalId" uppercase readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-envelope-o"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text" name="emailAddress"
-                                                           ng-model="deleteUserForm.emailAddress" lowercase>
+                                                           ng-model="deleteUserForm.emailAddress" lowercase readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +120,7 @@
                                                     <i class="icon-append fa fa-phone"></i>
                                                     <input class="form-control input-sm" placeholder="" type="text"
                                                            data-smart-masked-input="(99) 999-9999-999" data-mask-placeholder= "X"
-                                                           name="phone" ng-model="deleteUserForm.phone">
+                                                           name="phone" ng-model="deleteUserForm.phone" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                                     <span class="onoffswitch">
                                                         <input type="checkbox" class="onoffswitch-checkbox" name="statelock" id="deleteUserActivation" ng-model="deleteUserForm.activated">
                                                         <label class="onoffswitch-label" for="deleteUserActivation">
-                                                            <span class="onoffswitch-inner" data-swchon-text="Available" data-swchoff-text="Lock"></span>
+                                                            <span class="onoffswitch-inner" data-swchon-text="Active" data-swchoff-text="Lock"></span>
                                                             <span class="onoffswitch-switch"></span>
                                                         </label>
                                                     </span>
