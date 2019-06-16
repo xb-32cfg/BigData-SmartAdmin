@@ -28,5 +28,33 @@ angular.module('SmartAdminWebapp')
                     ])
 
                 }
+            })
+
+            .state('logoff', {
+                parent: 'account',
+                url: '/logoff',
+                data: {
+                    authorities: [],
+                    pageTitle: 'login.title'
+                },
+                views: {
+                    'root@': {
+                        templateUrl: 'app/account/lock/logoff.html',
+                        controller: 'LoginController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('login');
+                        return $translate.refresh();
+                    }]
+                },
+                srcipts: function(lazyScript){
+                    return lazyScript.register([
+                        'build/vendor.ui.js'
+                    ])
+
+                }
             });
+
     });

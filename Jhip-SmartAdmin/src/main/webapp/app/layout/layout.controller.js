@@ -7,9 +7,16 @@ angular.module('SmartAdminWebapp')
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
 
+        /*    Logout  */
         $scope.logout = function () {
             Auth.logout();
             $state.go('login');
+        };
+
+        /*    Logoff  */
+        $scope.Logoff = function () {
+            Auth.logout();
+            $state.go('logoff');
         };
 
     });

@@ -23,4 +23,6 @@ angular.module('SmartAdminWebapp')
                     }]
                 }
             });
+
+
     });

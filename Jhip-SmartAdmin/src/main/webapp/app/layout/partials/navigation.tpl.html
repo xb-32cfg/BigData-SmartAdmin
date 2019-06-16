@@ -10,20 +10,20 @@
         traditional href="" links. See documentation for details.
         -->
 
+        <!-- NOTE: This allows you to pull menu items from server -->
+        <!-- <ul data-smart-menu-items="/api/menu-items.json"></ul> -->
+
         <ul data-smart-menu>
-            <li>
-                <a data-ui-sref="home" title="Home"><i class="fa fa-lg fa-fw fa-home"></i> <span
-                        class="menu-item-parent">Home</span></a>
+            <li has-authority="ROLE_USER">
+                <a data-ui-sref="home" title="Home"><i class="fa fa-lg fa-fw fa-home"></i>
+                    <span class="menu-item-parent">Home</span></a>
             </li>
+
+
             <!--  DASHBOARD MODULE  -->
-            <li data-menu-collapse>
-                <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i> <span
-                        class="menu-item-parent"> Dashboard</span></a>
-                <ul>
-                    <li data-ui-sref-active="active">
-                        <a data-ui-sref="dashboard"><i class="fa fa-dashboard"></i> Analytics Dashboard</a>
-                    </li>
-                </ul>
+            <li has-authority="ROLE_USER">
+                <a data-ui-sref="dashboard" title="Dashboard"><i class="fa fa-lg fa-fw fa-dashboard"></i>
+                    <span class="menu-item-parent"> Dashboard</span></a>
             </li>
 
             <!--  SYSTEM SETTING MODULES  -->
@@ -39,19 +39,34 @@
                 </ul>
             </li>
 
+
+            <!-- SMART CHAT API  -->
             <li data-menu-collapse class="chat-users top-menu-invisible">
                 <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i>
                     <span class="menu-item-parent">Smart Chat API<sup>beta</sup></span></a>
                 <div aside-chat-widget></div>
             </li>
+
+            <!-- SCREEN LOCK  -->
+            <li has-authority="ROLE_USER">
+                <div id="userlogoff" ng-controller="LayoutController"><span>
+                    <a data-ui-sref="logoff" title="Log off" ng-click="Logoff()"
+                              data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+                        <i class="fa fa-lg fa-fw fa-lock"></i><span class="menu-item-parent">Log off</span></a>
+                    </span>
+                </div>
+            </li>
+
         </ul>
 
         <!-- NOTE: This allows you to pull menu items from server -->
         <!-- <ul data-smart-menu-items="/api/menu-items.json"></ul> -->
     </nav>
 
+
   <span class="minifyme" data-action="minifyMenu" minify-menu>
     <i class="fa fa-arrow-circle-left hit"></i>
   </span>
+
 
 </aside>

@@ -32,4 +32,5 @@ angular.module('SmartAdminWebapp')
             });
         };
 
+
     });
