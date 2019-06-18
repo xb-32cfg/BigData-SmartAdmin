@@ -1,9 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>DailyFx Solutions</title>
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
 
+<head>
+    <!-- Standard Meta -->
     <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Nuruzzaman">
     <meta name="description" content="DailyFx Solutions">
@@ -17,562 +18,580 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.dailyfx.com.au">
 
-    <!-- CSS FILES : PUBLIC WEB ACCESS -->
-    <link rel="stylesheet" href="public-assets/css/main.css">
-    <link rel="stylesheet" href='public-assets/css/revolution.addon.bubblemorph.css'/>
-    <link rel="stylesheet" href="public-assets/css/style.css">
-</head>
+    <!-- Site Properties -->
+    <title>DailyFx Solutions</title>
+    <link rel="shortcut icon" href="front-end/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="front-end/images/apple-touch-icon.png">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="front-end/css/uikit.min.css">
+    <link rel="stylesheet" href="front-end/css/style.css">
+    <link rel="stylesheet" href="front-end/css/components/swiper.css">
+    <link rel="stylesheet" href="front-end/css/components/font-awesome.css"> </head>
 
 <body>
+    <header>
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-2-5@l uk-width-1-3@m uk-width-1-4@s">
+                    <!-- logo header begin -->
+                    <div id="header-logo">
+                        <a class="uk-logo" href="index.html"><img src="styles/img/dailyfx/dailyfx-logo.png" alt="DailyFx" /></a>
+                    </div>
+                    <!-- logo header end -->
+                </div>
+                <div class="uk-width-3-5@l uk-width-2-3@m uk-width-3-4@s uk-visible@m">
+                    <div class="uk-grid">
+                        <div class="uk-width-1-2">
+                            <div class="idz-mini-nav uk-align-right">
+                                <form class="uk-display-inline">
+                                    <div data-uk-form-custom="target: > * > span:last-child">
+                                        <select>
+                                            <option value="1">English</option>
+                                            <!--<option value="2">Indonesia</option>-->
+                                        </select>
+                                        <span>
+                                            <span class="idz-globe"><i class="fa fa-globe"></i></span>
+                                            <span></span>
+                                        </span>
+                                    </div>
+                                </form> <a class="uk-button uk-display-inline" href=""><i class="fa fa-sign-in"></i>&nbsp; Login</a>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-2 phone-number">
+                            <h2 class="uk-align-right">+61 449 031 241 </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1">
+                    <hr>
+                    <!-- Main navigation begin -->
+                    <nav class="uk-navbar-container uk-visible@m" data-uk-navbar style="z-index: 980;" data-uk-sticky="animation: uk-animation-slide-top; cls-active: uk-sticky; cls-inactive: uk-navbar-container; bottom: #offset">
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <li class="uk-active"> <a href="index.html">Home</a>
+                                    <!--<div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav idz-dropdown-nopadding">
+                                            <li><a href="front-end/index-layout2.html">Homepage 2</a></li>
+                                            <li><a href="front-end/index-layout3.html">Homepage 3</a></li>
+                                            <li><a href="front-end/index-layout4.html">Homepage 4</a></li>
+                                        </ul>
+                                    </div>-->
+                                </li>
+                                <li> <a href="">About Us</a>
+                                    <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+                                        <div class="uk-navbar-dropdown-grid uk-child-width-1-2" data-uk-grid>
+                                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                <li><a href="front-end/about.html">Our History</a></li>
+                                                <li><a href="front-end/team.html">Our Shareholders</a></li>
+                                                <li><a href="front-end/testimonials.html">Testimonials</a></li>
+                                                <li><a href="front-end/faq.html">FAQ</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="front-end/investment.html">Investment</a></li>
+                                <li><a href="front-end/education.html">Education</a></li>
+                                <li><a href="front-end/news.html">News</a></li>
+                                <li><a href="front-end/contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-navbar-right uk-visible@l">
+                            <div data-uk-margin> <a class="uk-button uk-button-default" href="">Demo</a> <a class="uk-button uk-button-primary" href="">Create Account</a> </div>
+                        </div>
+                    </nav>
+                    <!-- Main navigation end -->
 
-<div class="preloader">
-  <div class="loader">
-    <div class="second-part">
-      <div class="line"></div>
-    </div>
-    <!-- end second-part -->
-    <div class="first-part">
-      <div class="line"></div>
-    </div>
-    <!-- end first-part --> 
-  </div>
-  <!-- end loader -->
-  <div class="layer1"></div>
-</div>
-<!-- end preloader -->
-
-
-
-<main id="home">
-  <header class="header" id="stick-me">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-         <!-- <div class="logo"><a href="index.html"><img src="public-assets/images/logo-light.png" alt="DailyFx"></a></div>-->
-          <!-- end logo --> 
-          <span class="mobile-menu"><i class="icon-menu"></i></span>
-          <a href="#download" class="download page-scroll">DOWNLOAD</a>
-          <ul class="site-nav">
-            <li class="nav-item"><a href="#home" class="nav-link page-scroll">HOME</a> </li>
-              <li class="nav-item"><a href="#services" class="nav-link page-scroll">SERVICES</a></li>
-              <li class="nav-item"><a href="http://192.168.1.13:8080/portal-index.html" class="nav-link page-scroll">CLIENT PORTAL</a> </li>
-            <li class="nav-item"><a href="#partnership" class="nav-link page-scroll">PARTNERSHIP</a></li>
-            <li class="nav-item"><a href="#education" class="nav-link page-scroll">EDUCATION</a></li>
-            <li class="nav-item"><a href="#about-us" class="nav-link page-scroll">ABOUT US</a></li>
-          </ul>
-        </div>
-        <!-- end col-12 --> 
-      </div>
-      <!-- end row --> 
-    </div>
-    <!-- end container --> 
-  </header>
-  <!-- end header -->
-
-  <section class="slider gradiant-bg1">
-    <div id="rev_slider_263_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="bubble-morph" data-source="gallery"> 
-      <div id="rev_slider_263_1" class="rev_slider fullscreenbanner" data-version="5.4.7.4">
-        <ul>
-          <!-- SLIDE  -->
-          <li data-index="rs-638" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb=""  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description=""> 
-            <!-- MAIN IMAGE --> 
-            <img src="public-assets/images/transparent.png" data-bgcolor="" alt="Image"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-            <!-- LAYERS -->
-            <div id="rrzm_638" class="rev_row_zone rev_row_zone_middle" style="z-index: 8;"> 
-			<!-- LAYER NR. 1 -->
-			<div class="tp-caption" 
-			id="slide-1-layer-1" 
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-			data-width="none"
-			data-height="none"
-			data-whitespace="nowrap"
-			data-type="row" 
-			data-columnbreak="3" 
-			data-responsive_offset="on" 
-			data-responsive="off"
-			data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: #ffffff; letter-spacing: 0px;"> 
-			<!-- LAYER NR. 2 -->
-			<div class="tp-caption" 
-			id="slide-1-layer-2" 
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['100','100','100','100']" 
-			data-width="none"
-			data-height="none"
-			data-whitespace="nowrap"
-			data-type="column" 
-			data-responsive_offset="on" 
-			data-responsive="off"
-			data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
- 			data-columnwidth="100%"
-			data-verticalalign="top"
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['left','left','left','left']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 9; width: 100%;"> 
-			<!-- LAYER NR. 3 -->
-			<div class="tp-caption icon gradiant-bg2" 
-			id="slide-1-layer-3" 
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-fontsize="['23','23','23','23']"
-			data-lineheight="['44','44','44','44']"
-			data-width="['40','40','40','40']"
-			data-height="['40','40','40','40']"
-			data-whitespace="normal"
-			data-type="text" 
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":"+90","speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,30,30,30]"
-			data-textAlign="['center','center','center','center']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 10; min-width: 40px; max-width: 40px; white-space: normal; font-size: 20px; line-height: 40px; color: #ffffff; letter-spacing: 0px; display: inline-block; border-radius:50%;"><i class="icon-layers"></i></div>
-			<!-- LAYER NR. 4 -->
-			<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
-			id="slide-1-layer-4" 
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-width="full"
-			data-height="['30','30','20','10']"
-			data-whitespace="normal"
-			data-type="shape" 
-			data-responsive_offset="on" 
-			data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 19; display: block;"> </div>
-			<!-- LAYER NR. 5 -->
-			<h2 class="tp-caption title" 
-			id="slide-1-layer-5" 
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-fontsize="['46','46','36','30']"
-			data-lineheight="['50','50','40','35']"
-			data-width="none"
-			data-height="none"
-			data-whitespace="normal"
-			data-type="text" 
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":"+190","speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,30,30,30]"
-			data-textAlign="['left','left','left','left']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,30,30]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 11; white-space: normal; font-size: 46px; line-height: 50px; letter-spacing: 0px; display: block;">DailyFx</h2>
-			<!-- LAYER NR. 6 -->
-			<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
-			id="slide-1-layer-6" 
-			data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-width="full"
-			data-height="10"
-			data-whitespace="normal"
-			data-type="shape" 
-			data-responsive_offset="on" 
-			data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 16; display: block;"> </div>  
-			<!-- LAYER NR. 7 --> 
-			<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
-			id="slide-1-layer-7" 
-			data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-width="full"
-			data-height="['30','30','30','20']"
-			data-whitespace="normal"
-			data-type="shape" 
-			data-responsive_offset="on" 
-			data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 17; display: block;"> </div>	
-			<!-- LAYER NR. 8 -->
-			<div class="tp-caption description" 
-			id="slide-1-layer-8" 
-			data-x="['left','left','center','center']" data-hoffset="['10','10','10','10']" 
-			data-y="['top','top','top','top']" data-voffset="['10','10','10','10']" 
-			data-fontsize="['16','16','16','14']"
-			data-lineheight="['30','30','30','22']"
-			data-width="['500','480','100%','100%']"
-			data-height="none"
-			data-whitespace="normal"
-			data-type="text" 
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":"+390","speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,30,30,30]"
-			data-textAlign="['left','left','left','left']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,30,30]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 13; min-width: 340px; max-width: 340px; white-space: normal; font-size: 16px; line-height: 30px;  letter-spacing: 0px; display: inline-block;"> Total Investment till today: $120,000.00 </div>
-
-            <!-- LAYER NR. 9 -->
-			<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
-			id="slide-1-layer-9"
-			data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-width="full"
-			data-height="['50','50','50','30']"
-			data-whitespace="normal"
-			data-type="shape" 
-			data-responsive_offset="on" 
-			data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 18; display: block;"> </div>
-
-			<!-- LAYER NR. 10 --> 
-			<a class="tp-caption rev-btn gradiant-bg2" href="http://www.dailyfx.com.au/" target="_blank"	id="slide-1-layer-10"
-			data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
-			data-fontsize="['14','14','13','13']"
-			data-lineheight="['60','60','50','40']"
-			data-width="['280','280','250','250']"
-			data-height="none"
-			data-whitespace="normal"
-			data-type="button" 
-			data-actions=''
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":"+790","speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[10,10,10,10]"
-			data-marginbottom="[10,10,10,10]"
-			data-marginleft="[0,30,30,30]"
-			data-textAlign="['center','center','center','center']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 14;">Join Now</a>
-			<!-- LAYER NR. 11 -->
-
-			 </div>
-              </div>
+                    <!-- Mobile navigation begin -->
+                    <a class="uk-button uk-align-center idz-mobile-nav uk-hidden@m" href="#modal-full" data-uk-icon="icon: menu" data-uk-toggle>Menu</a>
+                    <div id="modal-full" class="uk-modal-full" data-uk-modal>
+                        <div class="uk-modal-dialog">
+                            <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
+                            <div data-uk-height-viewport>
+                                <div class="uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                    <ul class="uk-nav-primary uk-nav-parent-icon" data-uk-nav>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li class="uk-parent"> <a href="#">About Us</a>
+                                            <ul class="uk-nav-sub">
+                                                <li><a href="front-end/about.html">Our History</a></li>
+                                                <li><a href="front-end/team.html">Our Shareholders</a></li>
+                                                <li><a href="front-end/testimonials.html">Testimonials</a></li>
+                                                <li><a href="front-end/faq.html">FAQ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="front-end/investment.html">Investment</a></li>
+                                        <li><a href="front-end/education.html">Education</a></li>
+                                        <li><a href="front-end/news.html">News</a></li>
+                                        <li><a href="front-end/contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile navigation end -->
+                </div>
             </div>
-            <!-- LAYER NR. 12 -->
-            <div class="tp-caption tp-shape tp-shapewrapper tp-bubblemorph" 
-			id="slide-1-layer-12" 
-			data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-			data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-			data-width="100%"
-			data-height="100%"
-			data-whitespace="nowrap"
-			data-type="shape" 
-			data-bubblesbg="transparent" 
-			data-numbubbles="6|6|6|6" 
-			data-bubblesbufferx="100|100|100|100" 
-			data-bubblesbuffery="100|100|100|100" 
-			data-bubblesspeedx="0.25|0.25|0.25|0.25" 
-			data-bubblesspeedy="0.25|0.25|0.25|0.25" 
-			data-bubblesbordercolor="#00fbbe|#00fbbe|#00fbbe|#00fbbe" 
-			data-bubblesbordersize="0|0|0|0" 
-			data-basealign="slide" 
-			data-responsive_offset="on" 
-			data-frames='[{"delay":100,"speed":3000,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			data-blendmode="multiply"
-			style="z-index: 5;"> </div>  
-            <!-- LAYER NR. 13 -->
-            <div class="tp-caption  tp-no-events tp-shape tp-shapewrapper tp-bubblemorph" 
-			id="slide-1-layer-13" 
-			data-x="['center','center','center','center']" data-hoffset="['-650','-450','200','100']" 
-			data-y="['middle','middle','bottom','bottom']" data-voffset="['150','150','0','0']" 
-			data-width="['700','400','500','300']"
-			data-height="['700','450','300','200']"
-			data-whitespace="nowrap"
-			data-type="shape" 
-			data-bubblesbg="{&type&:&linear&,&angle&:&180&,&colors&:[{&r&:176,&g&:0,&b&:247,&a&:&1&,&position&:0,&align&:&top&},{&r&:176,&g&:0,&b&:247,&a&:&1&,&position&:0,&align&:&bottom&},{&r&:79,&g&:0,&b&:246,&a&:&1&,&position&:100,&align&:&bottom&},{&r&:79,&g&:0,&b&:246,&a&:&1&,&position&:100,&align&:&top&}]}" 
-			data-numbubbles="6|6|inherit|6" 
-			data-bubblesbufferx="100|50|inherit|20" 
-			data-bubblesbuffery="100|50|inherit|20" 
-			data-bubblesspeedx="0.25|0.25|0.25|0.25" 
-			data-bubblesspeedy="0.25|0.25|0.25|0.25" 
-			data-basealign="slide" 
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":1000,"speed":3000,"frame":"0","from":"opacity:0;fb:30px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 6;background:linear-gradient(180deg, rgba(176,0,247,1) 0%, rgba(79,0,246,1) 100%);pointer-events:none;"> </div>            
-            <!-- LAYER NR. 14 -->
-            <div class="tp-caption  tp-no-events tp-shape tp-shapewrapper tp-bubblemorph " 
-			id="slide-1-layer-14" 
-			data-x="['center','center','center','center']" data-hoffset="['-600','-400','-200','-100']" 
-			data-y="['middle','middle','bottom','bottom']" data-voffset="['-150','-150','0','0']" 
-			data-width="['700','400','500','300']"
-			data-height="['700','450','300','200']"
-			data-whitespace="nowrap"
-			data-type="shape" 
-			data-bubblesbg="{&type&:&linear&,&angle&:&180&,&colors&:[{&r&:0,&g&:250,&b&:158,&a&:&1&,&position&:0,&align&:&top&},{&r&:0,&g&:250,&b&:158,&a&:&1&,&position&:0,&align&:&bottom&},{&r&:0,&g&:255,&b&:230,&a&:&1&,&position&:100,&align&:&bottom&},{&r&:0,&g&:255,&b&:230,&a&:&1&,&position&:100,&align&:&top&}]}" 
-			data-numbubbles="6|6|inherit|6" 
-			data-bubblesbufferx="100|50|inherit|20" 
-			data-bubblesbuffery="100|50|inherit|20" 
-			data-bubblesspeedx="0.25|0.25|0.25|0.25" 
-			data-bubblesspeedy="0.25|0.25|0.25|0.25" 
-			data-basealign="slide" 
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":1500,"speed":3000,"frame":"0","from":"opacity:0;fb:30px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-textAlign="['inherit','inherit','inherit','inherit']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			data-blendmode="multiply"
-			style="z-index: 7;background:linear-gradient(180deg, rgba(0,250,158,1) 0%, rgba(0,255,230,1) 100%);pointer-events:none;"> </div>
-            <!-- LAYER NR. 15 -->
-            <div class="tp-caption tp-resizeme" 
-			id="slide-1-layer-15" 
-			data-x="['right','right','right','right']" data-hoffset="['0','0','1000','1000']" 
-			data-y="['middle','middle','middle','middle']" data-voffset="['0','0','50','50']" 
-			data-width="none"
-			data-height="none"
-			data-whitespace="normal"
-			data-responsive_offset="off" 
-			data-responsive="off"
-			data-frames='[{"delay":"+190","speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
-			data-margintop="[0,0,0,0]"
-			data-marginright="[0,0,0,0]"
-			data-marginbottom="[0,0,0,0]"
-			data-marginleft="[0,0,0,0]"
-			data-textAlign="['left','left','left','left']"
-			data-paddingtop="[0,0,0,0]"
-			data-paddingright="[0,0,0,0]"
-			data-paddingbottom="[0,0,0,0]"
-			data-paddingleft="[0,0,0,0]"
-			style="z-index: 8;"><img src="public-assets/images/mockup-hero.png" alt="Image"  data-no-retina> </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!-- end site-section -->
+        </div>
+    </header>
 
-</main>
-<!-- end main -->
+    <section id="slideshow-container">
+        <!-- Slideshow wrapper begin -->
+        <div data-uk-slideshow="autoplay: true; animation: slide; max-height: 500">
+            <div class="uk-position-relative">
+                <ul class="uk-slideshow-items">
 
+                    <!-- Slide 1 begin -->
+                    <li>
+                        <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center">
+                            <img src="front-end/images/slideshow/bg_slide1.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-container uk-position-center">
+                            <div class="uk-grid">
+                                <div class="uk-width-3-4@l uk-width-1-1@s uk-margin-medium-left">
+                                    <h1 class="uk-margin-small-bottom">Modern investment advice means having better choices.</h1>
+                                    <h3 class="uk-margin-small-top uk-margin-medium-bottom idz-thin uk-visible@m">You do life, we do investing</h3>
+                                    <a class="uk-button uk-button-primary" href="">Learn More</a>
+                                    <a class="uk-button uk-button-secondary uk-margin-small-left uk-visible@m" href="">Sign Up</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
+                    <!-- Slide 2 begin -->
+                    <li>
+                        <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center">
+                            <img src="front-end/images/slideshow/bg_slide2.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-container uk-position-center">
+                            <div class="uk-grid">
+                                <div class="uk-width-1-1 uk-align-center uk-text-center">
+                                    <h1 class="uk-margin-small-bottom">Don't wait. Open an account today.</h1>
+                                    <h3 class="uk-margin-small-top uk-margin-bottom idz-thin uk-visible@m">Get up to $500 plus in 30 days of commission-free CFD and FX trades</h3>
+                                    <form class="uk-grid-small" data-uk-grid>
+                                        <div class="uk-width-1-4@s uk-visible@m">
+                                            <input class="uk-input" type="text" placeholder="Full name"> </div>
+                                        <div class="uk-width-1-4@s uk-visible@m">
+                                            <input class="uk-input" type="text" placeholder="Email address"> </div>
+                                        <div class="uk-width-1-4@s uk-visible@m">
+                                            <input class="uk-input" type="text" placeholder="Phone number"> </div>
+                                        <div class="uk-width-1-4@s">
+                                            <button class="uk-button uk-width-1-1 uk-button-secondary">Create Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-<div class="footer-spacing"></div>
-<footer class="footer">
-  <div class="inner">
-    <div class="row">
-      <!--<div class="col-lg-3 col-sm-12"><img src="" alt="DailyFx" class="logo"> </div>-->
-      <!-- end col-3 -->
-      <div class="col-lg-3 col-md-4">
-        <h6 class="footer-title">SAY HELLO</h6>
-        <p>43A Haldon Street<br>
-          Lakemba, NSW 2195<br>
-          Australia </p>
-      </div>
-      <!-- end col-3 -->
-      
-      <div class="col-lg-3 col-md-4">
-        <h6 class="footer-title">REACH US</h6>
-        <p> p: +61 449 031 241 <br>
-          dr.zaman1981@gmail.com</p>
-      </div>
-      <!-- end col-3 -->
-      <div class="col-lg-3 col-md-4">
-        <h6 class="footer-title">FOLLOW US ON</h6>
-        <ul class="footer-menu">
-          <li><a href="https://www.facebook.com/Daily-Fx-486885305419300">Facebook</a></li>
-          <li><a href="#">Twitter</a></li>
-        </ul>
-      </div>
-      <!-- end col-3 -->
-      <div class="col-12">
-        <div class="sub-footer"> <small class="pull-left">© 2019 DailyFx. All rights reserved.</small> <small class="pull-right">Created by: <a href="#">Nuruzzaman</a></small> </div>
-        <!-- end sub-footer --> 
-      </div>
-      <!-- end col-12 --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end inner --> 
-</footer>
-<a href="#" class="scrollup gradiant-bg2"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a> 
+                    <!-- Slide 3 begin -->
+                    <li>
+                        <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center">
+                            <img src="front-end/images/slideshow/bg_slide3.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-container uk-position-center">
+                            <div class="uk-grid">
+                                <div class="uk-width-3-4@l uk-width-1-1@s uk-margin-medium-left">
+                                    <h1 class="uk-margin-small-bottom">Made Over $5,000 Overnight</h1>
+                                    <h3 class="idz-thin uk-margin-small-top uk-margin-bottom uk-visible@m">"I’ve always believed that to be successful you have to find someone that’s successful, do what they do to get the same results"</h3>
+                                    <div class="uk-label uk-label-success"> Dr. Razbeen Shawket - Shareholder since May 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-<!-- JS FILES --> 
-<script src="public-assets/js/jquery.min.js"></script>
-<script src="public-assets/js/main.js"></script>
+                    <!-- Slide 4 begin -->
+                    <li>
+                        <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center">
+                            <img src="front-end/images/slideshow/bg_slide3.jpg" alt="" uk-cover>
+                        </div>
+                        <div class="uk-container uk-position-center">
+                            <div class="uk-grid">
+                                <div class="uk-width-3-4@l uk-width-1-1@s uk-margin-medium-left">
+                                    <h1 class="uk-margin-small-bottom">Most Profitable way to Trade</h1>
+                                    <h3 class="idz-thin uk-margin-small-top uk-margin-bottom uk-visible@m">"Best trading strategy to success. Lower invest, more return. "</h3>
+                                    <div class="uk-label uk-label-success"> Dr. Iffat Jarin - Shareholder since June 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-<!-- REVOLUTION JS FILES --> 
-<script src="public-assets/js/revolution/jquery.themepunch.tools.min.js"></script>
-<script src="public-assets/js/revolution/jquery.themepunch.revolution.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.actions.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.carousel.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.kenburn.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.layeranimation.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.navigation.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.parallax.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.slideanims.min.js"></script>
-<script src="public-assets/js/revolution/revolution.extension.video.min.js"></script>
+                </ul>
+            </div>
+            <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        </div>
+        <!-- Slideshow wrapper end -->
+    </section>
 
-<script src="public-assets/js/revolution/revolution.extension.migration.min.js"></script>
-<script src="public-assets/js/revolution/revolution.addon.slicey.min.js?ver=1.0.0"></script>
-<script src='public-assets/js/revolution/revolution.addon.bubblemorph.min.js'></script>
-
-<script>
-	function setREVStartSize(e){
-	try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
-			if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
-		}catch(d){console.log("Failure at Presize of Slider:"+d)}
-	};
-</script>
-
-<script>
-var revapi263,
-	tpj;	
-(function() {			
-	if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();	
-	function onLoad() {				
-		if (tpj===undefined) { tpj = jQuery; if("off" == "on") tpj.noConflict();}
-	if(tpj("#rev_slider_263_1").revolution == undefined){
-		revslider_showDoubleJqueryError("#rev_slider_263_1");
-	}else{
-		revapi263 = tpj("#rev_slider_263_1").show().revolution({
-			sliderType:"standard",
-			jsFileLocation:"revolution/js/",
-			sliderLayout:"fullscreen",
-			dottedOverlay:"none",
-			delay:9000,
-			navigation: {
-				keyboardNavigation:"on",
-				keyboard_direction: "horizontal",
-				mouseScrollNavigation:"off",
-				mouseScrollReverse:"default",
-				onHoverStop:"off",
-				touch:{
-					touchenabled:"on",
-					touchOnDesktop:"off",
-					swipe_threshold: 75,
-					swipe_min_touches: 1,
-					swipe_direction: "horizontal",
-					drag_block_vertical: false
-				}
-				,
-				bullets: {
-					enable:false,
-					hide_onmobile:false,
-					style:"hermes",
-					hide_onleave:false,
-					direction:"horizontal",
-					h_align:"center",
-					v_align:"bottom",
-					h_offset:0,
-					v_offset:20,
-					space:5,
-					tmp:''
-				}
-			},
-			responsiveLevels:[1240,1024,778,480],
-			visibilityLevels:[1240,1024,778,480],
-			gridwidth:[1240,1024,778,480],
-			gridheight:[868,768,960,720],
-			lazyType:"none",
-			shadow:0,
-			spinner:"off",
-			stopLoop:"on",
-			stopAfterLoops:0,
-			stopAtSlide:1,
-			shuffle:"off",
-			autoHeight:"off",
-			fullScreenAutoWidth:"off",
-			fullScreenAlignForce:"off",
-			fullScreenOffsetContainer: "",
-			fullScreenOffset: "",
-			disableProgressBar:"on",
-			hideThumbsOnMobile:"off",
-			hideSliderAtLimit:0,
-			hideCaptionAtLimit:0,
-			hideAllCaptionAtLilmit:0,
-			debugMode:false,
-			fallbacks: {
-				simplifyAll:"off",
-				nextSlideOnWindowFocus:"off",
-				disableFocusListener:false,
-			}
-		});
-	}; /* END OF revapi call */
-	
-    BubbleMorphAddOn(jQuery, revapi263, false)
-
- }; /* END OF ON LOAD FUNCTION */
-}()); /* END OF WRAPPING FUNCTION */
-</script>
-
+    <section class="uk-margin-medium-bottom">
+        <!-- Stock ticker begin -->
+        <div class="uk-container uk-container-expand uk-padding-remove idz-stock-ticker-container" data-uk-slider="autoplay: true">
+            <ul class="idz-stock-ticker uk-slider-items uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-2@s uk-grid-small uk-text-center">
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        USD/JPY
+                        <span class="idz-stock-ticker-down">108.640<span class="ticker-down"></span>(1.41%)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        EUR/USD
+                        <span class="idz-stock-ticker-up">1.2320<span class="ticker-up"></span>(1.45%)</span>
+                    </div>    
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        GBP/USD
+                        <span class="idz-stock-ticker-up">1.25810<span class="ticker-down"></span>(4.24%)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        NZD/USD
+                        <span class="idz-stock-ticker-down">0.64915<span class="ticker-down"></span>(1.35%)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        Tesla Inc (TSLA)                    
+                        <span class="idz-stock-ticker-down">321.35<span class="ticker-up"></span>(1.31%)</span>    
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        AUD/USD
+                        <span class="idz-stock-ticker-up">0.64945<span class="ticker-up"></span>(0.59%)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        Amazon.com (AMZN)                    
+                        <span class="idz-stock-ticker-down">1,571.68<span class="ticker-down"></span>(0.67%)</span>    
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        Exxon Mobil (XOM)                    
+                        <span class="idz-stock-ticker-up">75.12<span class="ticker-up"></span>(0.94%)</span>    
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        Walmart Inc (WMT)                    
+                        <span class="idz-stock-ticker-up">89.17<span class="ticker-up"></span>(1.90%)</span>    
+                    </div>
+                </li>
+                <li>
+                    <div class="idz-stock-ticker-price">
+                        GOLD
+                        <span class="idz-stock-ticker-down">1335.40<span class="ticker-down"></span>(2.16%)</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Stock ticker end -->
+    </section>
+    <section>
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h2 class="uk-text-center">Many ways to invest, one place to do it.</h2>
+                        <div class="uk-child-width-1-4@l uk-child-width-1-2@m uk-child-width-1-1@s" data-uk-grid>
+                            <div class="uk-text-center"> <img class="uk-margin-bottom" src="front-end/images/content/content_icon1.png" alt="">
+                                <h6 class="uk-text-uppercase uk-text-muted uk-margin-remove-top uk-margin-small-bottom">Value Investing</h6>
+                                <p class="uk-margin-remove-top">$6.95/trade fee Low pricing. No hidden fees</p>
+                            </div>
+                            <div class="uk-text-center"> <img class="uk-margin-bottom" src="front-end/images/content/content_icon2.png" alt="">
+                                <h6 class="uk-text-uppercase uk-text-muted uk-margin-remove-top uk-margin-small-bottom">Full Suite of Products</h6>
+                                <p class="uk-margin-remove-top">Trade Stocks/ETFs, Options, and over 11,000 Mutual Funds</p>
+                            </div>
+                            <div class="uk-text-center"> <img class="uk-margin-bottom" src="front-end/images/content/content_icon3.png" alt="">
+                                <h6 class="uk-text-uppercase uk-text-muted uk-margin-remove-top uk-margin-small-bottom">Powerfull Trading Tools</h6>
+                                <p class="uk-margin-remove-top">Platform that bring trading power to your fingertips</p>
+                            </div>
+                            <div class="uk-text-center"> <img class="uk-margin-bottom" src="front-end/images/content/content_icon4.png" alt="">
+                                <h6 class="uk-text-uppercase uk-text-muted uk-margin-remove-top uk-margin-small-bottom">Work with an advisor</h6>
+                                <p class="uk-margin-remove-top">Get professional help building a personalized financial plan</p>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-medium-top uk-margin-medium-bottom">
+                        <div class="uk-child-width-1-2@l uk-child-width-1-2@m uk-child-width-1-1@s idz-award-container" data-uk-grid>
+                            <div class="uk-margin-remove-bottom">
+                                <div class="uk-panel idz-award-logo">
+                                    <h5 class="uk-text-uppercase uk-text-right uk-float-left">Best Online Brokers<br/><span class="idz-thin">2016</span></h5>
+                                    <ul class="uk-list idz-award-rating uk-float-left">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul> <img src="front-end/images/content/award_logo1.png" alt=""> </div>
+                            </div>
+                            <div class="uk-margin-remove-bottom">
+                                <div class="uk-panel idz-award-logo">
+                                    <h5 class="uk-text-uppercase uk-text-right uk-float-left">Best trade platforms<br/><span class="idz-thin">2016</span></h5>
+                                    <ul class="uk-list idz-award-rating uk-float-left">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul> <img src="front-end/images/content/award_logo2.png" alt=""> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="uk-margin-large-bottom idz-invest-product">
+        <div class="uk-container">
+            <div class="uk-grid uk-margin-small-top">
+                <div class="uk-width-3-5@l uk-width-1-1@m uk-width-1-1@s">
+                    <h2 class="uk-margin-remove-bottom">A relationship on your terms.</h2>
+                    <h3 class="uk-margin-remove-top idz-thin">Work with us the way you want.</h3>
+                    <p class="uk-text-lead">Some believe you must choose between an online broker and a wealth management firm. At DailyFx, you don’t need to compromise. Whether you invest on your own, with an advisor, or a little of both — we can support you.</p>
+                    <div class="uk-child-width-1-3@l uk-child-width-1-3@m uk-child-width-1-2@s uk-grid-small uk-grid-match uk-margin-medium-top" data-uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card green">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Investing</h6>
+                                <p class="uk-margin-remove-top">A wide selection of investment product to help build diversified portfolio</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card blue">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Trading</h6>
+                                <p class="uk-margin-remove-top">Powerful trading tools, resources and support</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card purple">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Wealth Management</h6>
+                                <p class="uk-margin-remove-top">Dedicated financial consultant to help reach your own specific goals</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card midnight">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Investment advisory</h6>
+                                <p class="uk-margin-remove-top">A wide selection of investing strategies from seasoned portfolio managers</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card grey">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Smart portfolio</h6>
+                                <p class="uk-margin-remove-top">A revolutionary, fully-automated investmend advisory services</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body uk-inline idz-invest-card orange">
+                                <h6 class="uk-text-uppercase uk-margin-small-bottom">Advisor network</h6>
+                                <p class="uk-margin-remove-top">Specialized guidance from independent local advisor for hight-net-worth investors</p>
+                                <div class="uk-position-bottom-right"> <a><i class="fa fa-2x fa-angle-right"></i></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="uk-margin-medium-bottom">
+        <div class="uk-container uk-container-expand uk-background-fixed uk-background-cover uk-background-center-center" style="background-image: url(front-end/images/content/content_background2.jpg);">
+            <div class="uk-container uk-margin-medium-top">
+                <div class="uk-grid">
+                    <div class="uk-width-1-1">
+                        <h2 class="uk-text-center uk-margin-medium-bottom">Take on the market with our powerful platforms.</h2>
+                        <div class="uk-child-width-1-2" data-uk-grid>
+                            <div class="uk-width-1-3@l uk-width-2-5@m">
+                                <ul class="uk-list uk-margin-medium-bottom idz-platform-icon">
+                                    <li><i class="fa fa-3x fa-windows"></i>Windows</li>
+                                    <li><i class="fa fa-3x fa-apple"></i>OS X &amp; iOS</li>
+                                    <li><i class="fa fa-3x fa-android"></i>Android</li>
+                                    <li><i class="fa fa-3x fa-internet-explorer"></i>Browser</li>
+                                </ul>
+                                <div class="uk-card uk-card-default uk-card-medium uk-card-body idz-card-custom">
+                                    <h6 class="uk-text-uppercase uk-text-success">DailyFx Trading System</h6>
+                                    <p class="uk-text-lead">Our flagship trading platform, designed for all kinds of traders</p>
+                                    <p>Trade from your desktop or on-the-go with the most powerful &amp; convenient trading platform for any platform.</p>
+                                    <div class="uk-text-center uk-margin-small-bottom"> <a class="uk-button uk-button-primary" href="">Download FITS 2.0</a> </div>
+                                </div>
+                            </div>
+                            <div class="uk-width-2-3@l uk-width-3-5@m uk-inline"> <img class="uk-align-center uk-position-bottom idz-media-adjust1" src="front-end/images/content/content_sample1.png" alt=""> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="uk-margin-large-bottom">
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <h2 class="uk-text-center uk-margin-medium-bottom">Knowledge empowers you</h2>
+                    <div class="uk-child-width-1-3@l uk-child-width-1-2@s uk-grid-medium uk-grid-match" data-uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-card-body idz-resources-card">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-book"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-text-muted uk-margin-small-bottom">Beginners Course</h6>
+                                        <p class="uk-margin-remove-top">Learn the basic concepts of trading, what this market is all about, and why you should be a part of it.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-card-body idz-resources-card">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-gears"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-text-muted uk-margin-small-bottom">Trading Tools</h6>
+                                        <p class="uk-margin-remove-top">Familiarize yourself with advanced strategies and FITS trading toolset. Take your trading to the next level.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-card-body idz-resources-card">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-area-chart"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-text-muted uk-margin-small-bottom">Technical Analysis</h6>
+                                        <p class="uk-margin-remove-top">Technical analysis uses chart patterns and techniques to predict future price movements.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-card-body idz-resources-card">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-calculator"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-text-muted uk-margin-small-bottom">Fundamental Analysis</h6>
+                                        <p class="uk-margin-remove-top">Fundamental analysts consider all available data to help them to determine the relative value of a market.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-small uk-card-body idz-resources-card">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-support"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-text-muted uk-margin-small-bottom">Risk Management</h6>
+                                        <p class="uk-margin-remove-top">Get to know why you should focus on position sizing and why risk management is crucial to trading success.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-primary uk-card-small uk-card-body idz-resources-card red">
+                                <div class="uk-grid-small uk-flex-top" data-uk-grid>
+                                    <div class="uk-width-auto"> <i class="fa fa-3x fa-youtube-play"></i> </div>
+                                    <div class="uk-width-expand">
+                                        <h6 class="uk-text-uppercase uk-margin-small-bottom">Video Tutorial</h6>
+                                        <p class="uk-margin-remove-top">Various trading principle and study case video tutorials from our professional trainers and practitioners.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="uk-container uk-container-expand idz-create-account">
+            <div class="uk-container uk-margin-medium-top uk-margin-medium-bottom">
+                <div class="uk-width-1-1">
+                    <h2 class="uk-margin-small-bottom">Open your account</h2>
+                    <p class="uk-text-lead uk-margin-remove-top uk-visible@m">Connect with over 5 millions investors in the world’s leading social investment network</p>
+                    <form class="uk-grid-small uk-margin-bottom" data-uk-grid>
+                        <div class="uk-width-1-5@l uk-width-1-4@s">
+                            <input class="uk-input" type="text" placeholder="Full name"> </div>
+                        <div class="uk-width-1-5@l uk-width-1-4@s">
+                            <input class="uk-input" type="text" placeholder="Email address"> </div>
+                        <div class="uk-width-1-5@l uk-width-1-4@s">
+                            <input class="uk-input" type="text" placeholder="Phone number"> </div>
+                        <div class="uk-width-1-5@l uk-width-1-4@s">
+                            <button class="uk-button uk-button-primary">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="uk-container uk-light">
+            <div class="uk-grid uk-margin-large-top">
+                <div class="uk-width-1-4@l uk-width-1-5@m uk-width-1-3@s">
+                    <ul class="uk-list">
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Press Room</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="front-end/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="uk-width-1-4@l uk-width-1-5@m uk-width-1-3@s">
+                    <ul class="uk-list">
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Help &amp; Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="uk-width-1-4@l uk-width-1-5@m uk-width-1-3@s">
+                    <ul class="uk-list">
+                        <li><a href="#">Software Development</a></li>
+                        <li><a href="#">Retirement Planning</a></li>
+                        <li><a href="front-end/investment.html">Investment Planning</a></li>
+                        <li><a href="front-end/education.html">Forex Education</a></li>
+                    </ul>
+                </div>
+                <div class="uk-width-1-4@l uk-width-2-5@m uk-width-1-1@s">
+                    <div class="uk-align-right idz-footer-adjust">
+                        <a href="https://www.facebook.com/Daily-Fx-486885305419300" class="uk-icon-button uk-margin-small-right" data-uk-icon="icon: facebook"></a>
+                        <a href="" class="uk-icon-button  uk-margin-small-right" data-uk-icon="icon: twitter"></a>
+                        <a href="" class="uk-icon-button  uk-margin-small-right" data-uk-icon="icon: instagram"></a>
+                        <a href="" class="uk-icon-button" data-uk-icon="icon: youtube"></a>
+                    </div>
+                    <div class="idz-footer-download uk-visible@m">
+                        <a href=""><img src="front-end/images/download_apple.png" alt=""></a>
+                        <a href=""><img src="front-end/images/download_google.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-margin-large-top uk-margin-large-bottom">
+                    <!-- logo footer begin -->
+                    <div id="footer-logo">
+                        <p><span>Copyright ©2019 DailyFx Solutions. All Rights Reserved.</span></p>
+                    </div>
+                    <!-- logo footer end -->
+                    <hr>
+                    <div class="uk-margin-small-top">
+                        <p>DailyFx is registered company at Australian Securities and Investment Commission ("ASIC").
+                            Registration does not imply a certain level of skill or training nor does it imply endorsement by the ASIC.​
+                            Past performance is not a guarantee of future return, nor is it necessarily indicative of future performance.
+                            Keep in mind investing involves risk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="uk-inline" href="#" data-uk-totop data-uk-scroll data-uk-scrollspy="cls: uk-animation-fade; hidden: true; offset-top: 100px; repeat: true"></a>
+    </footer>
+    <!-- Javascript -->
+    <script src="front-end/js/jquery.js"></script>
+    <script src="front-end/js/uikit.min.js"></script>
+    <script src="front-end/js/uikit-icons.min.js"></script>
+    <script src="front-end/js/components/mediaelement.js"></script>
+    <script src="front-end/js/config.js"></script>
 </body>
+
 </html>
