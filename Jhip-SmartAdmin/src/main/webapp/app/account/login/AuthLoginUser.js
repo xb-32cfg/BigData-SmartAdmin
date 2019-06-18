@@ -1,7 +1,7 @@
 
 
 'use strict';
-angular.module('SmartAdminWebapp').factory('AuthLoginUser', function ($http, $q, APP_CONFIG, $cookies) {
+angular.module('SmartAdminWebapp').factory('AuthLoginUser', function ($http, $q, APP_CONFIG, $cookies, $rootScope) {
     var dfd = $q.defer();
     var UserModel = {
         initialized: dfd.promise,
@@ -11,8 +11,10 @@ angular.module('SmartAdminWebapp').factory('AuthLoginUser', function ($http, $q,
 
      $http.get(APP_CONFIG.apiRootUrl + '/user.json').then(function(response){
 
-         var username = $cookies.get('username');
-         UserModel.username = 'Nuruzzaman';
+         var username="";
+         username = $rootScope.loginUserName;
+         console.log("Login User Name: "+username);
+         UserModel.username = username;
 
          UserModel.picture= response.data.picture;
          dfd.resolve(UserModel)
@@ -20,5 +22,3 @@ angular.module('SmartAdminWebapp').factory('AuthLoginUser', function ($http, $q,
 
     return UserModel;
 });
-
-

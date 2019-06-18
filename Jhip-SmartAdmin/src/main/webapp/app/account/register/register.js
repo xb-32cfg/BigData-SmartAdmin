@@ -11,7 +11,7 @@ angular.module('SmartAdminWebapp')
                     pageTitle: 'register.title'
                 },
                 views: {
-                    'content@': {
+                    'root@': {
                         templateUrl: 'app/account/register/register.html',
                         controller: 'RegisterController'
                     }

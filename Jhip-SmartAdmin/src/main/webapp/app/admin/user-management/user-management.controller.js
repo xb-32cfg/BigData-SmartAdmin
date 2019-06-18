@@ -10,7 +10,7 @@ angular.module('SmartAdminWebapp')
         $scope.page = 1;
         $scope.isSaving = false;
         $scope.users = [];
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_STUDENT", "ROLE_PARENTS", "ROLE_DEFAULT"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_SHAREHOLDER", "ROLE_INVESTOR", "ROLE_DEFAULT"];
         Language.getAll().then(function (languages) {
             $scope.languages = languages;
         });
@@ -144,7 +144,7 @@ angular.module('SmartAdminWebapp')
             DTColumnBuilder.newColumn('lastName'),
             DTColumnBuilder.newColumn('emailAddress'),
             DTColumnBuilder.newColumn('imageName').renderWith(function (data, type, full) {
-                return '<img style="width:40px;height:40px;" src='+APP_CONFIG.uploadUrl + data + ' />';
+                return '<img style="width:40px;height:40px;" src='+APP_CONFIG.uploadUrl + data +'.png' + ' />';
             }),
             DTColumnBuilder.newColumn('authorities'),
             DTColumnBuilder.newColumn('activated'),

@@ -73,6 +73,10 @@ angular.module('SmartAdminWebapp').directive('addUserForm', function(){
                         validators : {
                             notEmpty : {
                                 message : 'This field is required'
+                            },
+                            regexp: {
+                                regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                                message: 'Please enter a valid Email Address'
                             }
                         }
                     },

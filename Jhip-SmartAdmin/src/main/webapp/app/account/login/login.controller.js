@@ -26,6 +26,7 @@ angular.module('SmartAdminWebapp')
                 } else {
                     //$rootScope.back();
                     $state.go('home');
+                    $rootScope.loginUserName = $scope.username;
                 }
             }).catch(function () {
                 $scope.authenticationError = true;

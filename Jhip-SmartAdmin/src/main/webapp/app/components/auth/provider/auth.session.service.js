@@ -12,6 +12,7 @@ angular.module('SmartAdminWebapp')
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).success(function (response) {
+
                     return response;
                 });
             },
