@@ -90,7 +90,7 @@ public class UserService {
             });
     }
 
-    public User createUser(String login, String password, String firstName, String lastName, String email,
+    public User createUserInformation(String login, String password, String firstName, String lastName, String email,
         String langKey) {
 
         User newUser = new User();
@@ -156,6 +156,19 @@ public class UserService {
             log.debug("Changed Information for User: {}", u);
         });
     }
+    
+    public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
+        userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).ifPresent(u -> {
+            u.setFirstName(firstName);
+            u.setLastName(lastName);
+            u.setEmailAddress(email);
+            u.setLangKey(langKey);
+            userRepository.save(u);
+            userSearchRepository.save(u);
+            log.debug("Changed Information for User: {}", u);
+        });
+    }
+
 
     public void updateUser(Long id, String login, String firstName, String lastName, String email,
         boolean activated, String langKey, Set<String> authorities, String imageName) {

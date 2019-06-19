@@ -19,10 +19,10 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/bigdatasmartadmin2018?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://localhost:3306/dailh6bauvyfkf_dailyfx?useUnicode=true&characterEncoding=utf8&useSSL=false
         name:
         username: root
-        password: soho123
+        password: Rayo*0304
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -61,7 +61,7 @@ server:
         min-response-size: 1024
 
 # ===================================================================
-# BigData-SmartAdmin specific properties
+# DailyFx-SmartAdmin specific properties
 # ===================================================================
 
 jhipster:
@@ -77,7 +77,7 @@ jhipster:
             # security key (this key should be unique for your application, and kept secret)
             key: 3e374cdf5c1b0dcb78602e6cf080979a2774e468
     mail: # specific SmartAdmin mail property, for standard properties see MailProperties
-        from: BigData-SmartAdmin@localhost
+        from: DailyFx-SmartAdmin@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -88,7 +88,7 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: BigDataSmartAdmin
+            prefix: DailyFxSmartAdmin
         logs: # Reports Dropwizard metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds

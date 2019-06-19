@@ -19,7 +19,7 @@ management:
 
 spring:
     application:
-        name: Bigdata-SmartAdmin
+        name: DailyFx-SmartAdmin
     profiles:
         # The commented value for `active` can be replaced with valid spring profiles to load.
         # Otherwise, it will be filled in by maven when building the WAR file
@@ -62,10 +62,10 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: Bigdata-SmartAdmin@localhost
+        from: DailyFx-SmartAdmin@localhost
     swagger:
-        title: Bigdata SmartAdmin API
-        description: Bigdata SmartAdmin API documentation
+        title: DailyFx SmartAdmin API
+        description: DailyFx SmartAdmin API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contactName:
