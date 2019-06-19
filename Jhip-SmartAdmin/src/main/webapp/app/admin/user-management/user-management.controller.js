@@ -6,7 +6,16 @@ angular.module('SmartAdminWebapp')
               $filter, fileReader, DTOptionsBuilder, DTColumnBuilder) {
         var vm = this;
         vm.entity = {};
+        vm.activated = {};
         var today = new Date();
+        var config = {
+            transformRequest: angular.identity,
+            transformResponse: angular.identity,
+            headers: {
+                'Content-Type': undefined
+            }
+        };
+
         $scope.page = 1;
         $scope.isSaving = false;
         $scope.users = [];
@@ -115,12 +124,22 @@ angular.module('SmartAdminWebapp')
 
 
         /*********************************************
-         *           TABLE LIST                      *
+         *          ANGULAR JS DATATABLE LIST                      *
          *********************************************/
         vm.dtOptions = DTOptionsBuilder.newOptions().withOption('ajax', {
             url: '/api/users/',
             type: 'GET'
-        })  .withOption('createdRow', createdRow)
+        })  //.withOption('createdRow', createdRow)
+            .withOption('createdRow', function(row, data, dataIndex) {
+                $compile(angular.element(row).contents())($scope);
+            })
+            .withOption('headerCallback', function(header) {
+                if (!vm.headerCompiled) {
+                    // Use this headerCompiled field to only compile header once
+                    vm.headerCompiled = true;
+                    $compile(angular.element(header).contents())($scope);
+                }
+            })
             .withDisplayLength(10)
             .withPaginationType('full_numbers')
             .withDOM("<'dt-toolbar'<'col-xs-6 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'l>r>" +
@@ -129,7 +148,7 @@ angular.module('SmartAdminWebapp')
             .withColReorder()
             .withColReorderOption('iFixedColumnsLeft', 1)
             .withColReorderOption('iFixedColumnsRight', 1) // Fix last right column
-            .withOption('responsive', true)
+            .withOption('responsive', true) // Adding 'Plus' button
             //.withDOM('frtip') // disable select [10,20,30,50]
             /*.withButtons([
                 'print',
@@ -138,7 +157,7 @@ angular.module('SmartAdminWebapp')
             .withBootstrap();
 
         vm.dtColumns = [
-            DTColumnBuilder.newColumn('id'),
+            DTColumnBuilder.newColumn('id').withTitle('ID').withClass('text-danger'),
             DTColumnBuilder.newColumn('login'),
             DTColumnBuilder.newColumn('firstName'),
             DTColumnBuilder.newColumn('lastName'),
@@ -147,7 +166,19 @@ angular.module('SmartAdminWebapp')
                 return '<img style="width:40px;height:40px;" src='+APP_CONFIG.uploadUrl + data +'.png' + ' />';
             }),
             DTColumnBuilder.newColumn('authorities'),
-            DTColumnBuilder.newColumn('activated'),
+            DTColumnBuilder.newColumn(null)
+                .renderWith(function(data, type, full) {
+                    vm.activated[data.activated] = data;
+                    vm.entity[data.id] = data;
+                    return '<span class="onoffswitch">'+
+                        '<input type="checkbox" class="onoffswitch-checkbox" name="activated" id="statelockAct' + data.id + '" ' +
+                        'ng-model='+data.activated+' ng-click="activateUserAccountById({login:' + data.id + '})" >'+
+                        '<label class="onoffswitch-label" for="statelockAct' + data.id + '">'+
+                        '<span class="onoffswitch-inner" data-swchon-text="Active" data-swchoff-text="Lock"></span>'+
+                        '<span class="onoffswitch-switch"></span>'+
+                        '</label>'+
+                        '</span>';
+                }),
             DTColumnBuilder.newColumn('createdDate').renderWith(function (data, type, full) {
                 return $filter('date')(data, 'dd/MM/yyyy'); }), //date filter
             DTColumnBuilder.newColumn('langKey').withTitle('Lang').withClass('none'),
@@ -171,6 +202,7 @@ angular.module('SmartAdminWebapp')
                 '</button>';
         }
         function createdRow(row, data, dataIndex) {
+            // Recompiling so we can bind Angular directive to the DT
             $compile(angular.element(row).contents())($scope);
         }
 
@@ -198,14 +230,6 @@ angular.module('SmartAdminWebapp')
             data.append("comments", $scope.addUserForm.adminComment);
             data.append("files",  $scope.files[0]);
 
-            var config = {
-                transformRequest: angular.identity,
-                transformResponse: angular.identity,
-                headers: {
-                    'Content-Type': undefined
-                }
-            };
-
             if ( $('#addUserForm').data('bootstrapValidator').isValid() ) {
                 BootstrapDialog.save('', function (result) {
                     if (result) {
@@ -224,6 +248,18 @@ angular.module('SmartAdminWebapp')
             }
         };
 
+        /*********************************************
+         *        USER ACCOUNT ACTIVATION            *
+         *********************************************/
+        $scope.activateUserAccountById = function(id){
+            $http.put(APP_CONFIG.serverUrl+"/api/users/userActivationById/"+ id.login, config).then(
+                function(response) {
+                    onSaveSuccess(response);
+                },
+                function(errResponse) {
+                    onSaveError(errResponse);
+                });
+        };
 
         /*********************************************
          *           UPDATE                          *
@@ -235,7 +271,7 @@ angular.module('SmartAdminWebapp')
             });
         };
         $scope.updateUser = function () {
-            console.log('---> '+ JSON.stringify($scope.updateUserForm));
+            //console.log('---> '+ JSON.stringify($scope.updateUserForm));
             var id = $scope.updateUserForm.id;
             if (id != null) {
                 BootstrapDialog.save('', function(result){

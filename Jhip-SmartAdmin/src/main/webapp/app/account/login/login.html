@@ -1,13 +1,13 @@
 <header id="header"  class="animated fadeInDown" >
 
     <div id="logo-group">
-        <span id="logo"> <img src="styles/img/logo.png" alt="DailyFx"> </span>
+        <span id="logo"> <img src="/styles/img/logo.png" alt="DailyFx"> </span>
     </div>
 
-    <form id="login" class="smart-form client-form" data-smart-validate-form>
+    <!--<form id="login" class="smart-form client-form" data-smart-validate-form>
         <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a
                 ui-sref="register" class="btn btn-danger">Register here</a> </span>
-    </form>
+    </form>-->
 
 </header>
 
@@ -17,32 +17,21 @@
         <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-                <h1 class="txt-color-red login-header-big">DailyFx Solutions</h1>
-
-                <div class="hero">
-                    <div class="pull-left login-desc-box-l">
-                        <h4 class="paragraph-header">Step to shine your future </h4>
-
-                        <!-- <div class="login-app-icons">
-                             <a ui-sref="app.dashboard" class="btn btn-danger btn-sm">Frontend Template</a>
-                             <a href-void class="btn btn-danger btn-sm">Find out more</a>
-                         </div>-->
-                    </div>
-                    <img src="styles/img/demo/iphoneview.png" class="pull-right display-image" alt style="width:210px">
-                </div>
-
+                <span id="logo2"> <img src="/styles/img/dailyfx/dailyfx-logo.png" alt="DailyFx"> </span>
             </div>
+
+
+            <!--    LOGIN   -->
             <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
                 <div class="well no-padding">
 
+                    <!--    LOGIN   -->
                     <div class="alert alert-danger" ng-show="authenticationError" translate="login.messages.error.authentication">
                         <strong>Failed to sign in!</strong> Please check your credentials and try again.
                     </div>
 
                     <form id="login2" class="smart-form client-form" ng-submit="login($event)" data-smart-validate-form>
-                        <header>
-                            Sign In
-                        </header>
+                        <header>Sign In</header>
                         <fieldset>
                             <section>
                                 <label class="label">User ID</label>
@@ -58,7 +47,7 @@
                             <section>
                                 <label class="label">Password</label>
                                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                                    <input type="password" name="password" id="password" ng-model="password"
+                                    <input type="password" name="password" id="password1" ng-model="password"
                                            data-smart-validate-input
                                            data-required
                                            data-minlength="3"
@@ -86,8 +75,173 @@
 
                 </div>
 
+                <h5 class="text-center"> - Or sign in using -</h5>
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href-void class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href-void class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href-void class="btn btn-danger btn-circle"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href-void class="btn btn-danger btn-circle"><i class="fa fa-youtube-play"></i></a>
+                    </li>
+                    <li>
+                        <a href-void class="btn btn-primary btn-circle"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+
+
+
+                <!--    REGISTRATION  FORM -->
+                <div class="well no-padding">
+
+                    <!--    REGISTRATION  MESSAGE -->
+                    <div class="col-md-4">
+                        <div class="alert alert-success" ng-show="success">
+                            <!--<strong>Registration saved!</strong> Please check your email for confirmation.-->
+                            <strong>Registration saved!</strong> Please wait for admin to activate your account.
+                        </div>
+                        <div class="alert alert-danger" ng-show="error">
+                            <strong>Registration failed!</strong> Please try again later.
+                        </div>
+                        <div class="alert alert-danger" ng-show="errorUserExists">
+                            <strong>Login name already registered!</strong> Please choose another one.
+                        </div>
+                        <div class="alert alert-danger" ng-show="errorEmailExists">
+                            <strong>E-mail is already in use!</strong> Please choose another one.
+                        </div>
+                        <div class="alert alert-danger" ng-show="doNotMatch">
+                            The password and its confirmation do not match!
+                        </div>
+                    </div>
+
+
+                    <form class="smart-form client-form" id="smart-form-register" ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
+                        <header> Registration is FREE* </header>
+
+                        <fieldset>
+                            <div class="form-group">
+                                <!--<label class="control-label" for="login" translate="global.form.firstname">First Name</label>-->
+                                <input type="text" class="form-control" name="firstname" placeholder="{{'global.form.firstname' | translate}}"
+                                       ng-model="registerAccount.firstname" ng-minlength=2 ng-maxlength=50 required>
+                                <div ng-show="form.firstname.$dirty && form.firstname.$invalid">
+                                    <p class="help-block" ng-show="form.firstname.$error.required">Your firstname is required.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label class="control-label" for="login" translate="global.form.lastname">Last Name</label>-->
+                                <input type="text" class="form-control" name="lastname" placeholder="{{'global.form.lastname' | translate}}"
+                                       ng-model="registerAccount.lastname" ng-minlength=2 ng-maxlength=50 required>
+                                <div ng-show="form.lastname.$dirty && form.lastname.$invalid">
+                                    <p class="help-block" ng-show="form.lastname.$error.required">Your lastname is required.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label class="control-label" for="login" translate="global.form.username">Username</label>-->
+                                <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.username' | translate}}"
+                                       ng-model="registerAccount.login" ng-minlength=1 ng-maxlength=20 ng-pattern="/^[A-Za-z0-9]*$/" required>
+                                <div ng-show="form.login.$dirty && form.login.$invalid">
+                                    <p class="help-block" ng-show="form.login.$error.required">Your username is required.</p>
+                                    <p class="help-block" ng-show="form.login.$error.minlength">Your username is required to be at least 1 character.</p>
+                                    <p class="help-block" ng-show="form.login.$error.maxlength" >Your username cannot be longer than 50 characters.</p>
+                                    <p class="help-block" ng-show="form.login.$error.pattern">Your username can only contain lower-case letters and digits.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label class="control-label" for="emailAddress" translate="global.form.email">E-mail Address</label>-->
+                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="{{'global.form.email.placeholder' | translate}}"
+                                       ng-model="registerAccount.emailAddress" ng-minlength=5 ng-maxlength=100 required>
+                                <div ng-show="form.emailAddress.$dirty && form.emailAddress.$invalid">
+                                    <p class="help-block"
+                                       ng-show="form.emailAddress.$error.required" translate="global.messages.validate.email.required">
+                                        Your e-mail is required.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.emailAddress.$error.emailAddress" translate="global.messages.validate.email.invalid">
+                                        Your e-mail is invalid.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.emailAddress.$error.minlength" translate="global.messages.validate.email.minlength">
+                                        Your e-mail is required to be at least 5 characters.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.emailAddress.$error.maxlength" translate="global.messages.validate.email.maxlength">
+                                        Your e-mail cannot be longer than 100 characters.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label class="control-label" for="password" translate="global.form.newpassword">New password</label>-->
+                                <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
+                                       ng-model="registerAccount.password" ng-minlength=5 ng-maxlength=50 required>
+                                <div ng-show="form.password.$dirty && form.password.$invalid">
+                                    <p class="help-block"
+                                       ng-show="form.password.$error.required" translate="global.messages.validate.newpassword.required">
+                                        Your password is required.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.password.$error.minlength" translate="global.messages.validate.newpassword.minlength">
+                                        Your password is required to be at least 5 characters.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
+                                        Your password cannot be longer than 50 characters.
+                                    </p>
+                                </div>
+                                <!--<password-strength-bar password-to-check="registerAccount.password"></password-strength-bar>-->
+                            </div>
+
+                            <div class="form-group">
+                                <!--<label class="control-label" for="confirmPassword" translate="global.form.confirmpassword">New password confirmation</label>-->
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="{{'global.form.confirmpassword.placeholder' | translate}}"
+                                       ng-model="confirmPassword" ng-minlength=5 ng-maxlength=50 required>
+                                <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+                                    <p class="help-block"
+                                       ng-show="form.confirmPassword.$error.required" translate="global.messages.validate.confirmpassword.required">
+                                        Your confirmation password is required.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.confirmPassword.$error.minlength" translate="global.messages.validate.confirmpassword.minlength">
+                                        Your confirmation password is required to be at least 5 characters.
+                                    </p>
+                                    <p class="help-block"
+                                       ng-show="form.confirmPassword.$error.maxlength" translate="global.messages.validate.confirmpassword.maxlength">
+                                        Your confirmation password cannot be longer than 50 characters.
+                                    </p>
+                                </div>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="terms" id="terms" ng-model="terms" required>
+                                    <i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
+                            </div>
+                        </fieldset>
+
+                        <footer>
+                            <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Register</button>
+                        </footer>
+                    </form>
+
+                </div>
+                <p class="note text-center">*FREE Registration ends on July 2019. T&C Apply.</p>
+
             </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="page-footer">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <span class="txt-color-blueLight hidden-mobile">
+                Past performance is not a guarantee of future return, nor it is indicative of future performance.
+                Keep in mind investing involves risk. </span>
         </div>
     </div>
 </div>
-

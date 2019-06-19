@@ -37,14 +37,16 @@
             "language": "Language"
         },
         "form": {
-            "username": "Username",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "username": "User ID",
             "username.placeholder": "Your username",
             "newpassword": "New password",
-            "newpassword.placeholder": "New password",
-            "confirmpassword": "New password confirmation",
+            "newpassword.placeholder": "New Password",
+            "confirmpassword": "Confirm Password",
             "confirmpassword.placeholder": "Confirm the new password",
-            "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email": "E-mail Address",
+            "email.placeholder": "Your e-mail address"
         },
         "messages": {
             "info": {

@@ -3,21 +3,17 @@
         <section id="home-widget-grid" data-widget-grid>
 
             <div class="row">
-                <div class="col-md-4">
-                    <span class="hipster img-responsive img-rounded"></span>
-                </div>
-                <div class="col-md-8">
-                    <h1>DASHBOARD </h1>
-                    <p class="lead">This is BigData System </p>
+                <big-breadcrumbs items="['Dashboard', 'Investment Summary']" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+                <div smart-include="app/layout/partials/sub-header.tpl.html"></div>
+            </div>
 
-                    <div ng-switch="isAuthenticated()">
-                        <div class="alert alert-success" ng-switch-when="true">
-                            User Information: "{{account.firstName}}".
-                        </div>
+            <div class="row">.</div>
 
-                    </div>
-
-                </div>
+            <!--    live feeds  -->
+            <div class="row">
+                <article class="col-sm-12">
+                    <div smart-include="app/dashboard/live-feeds.tpl.html" class="placeholder-live-feeds"></div>
+                </article>
             </div>
 
         </section>

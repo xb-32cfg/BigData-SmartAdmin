@@ -66,7 +66,6 @@ angular.module('SmartAdminWebapp')
 
             createAccount: function (account, callback) {
                 var cb = callback || angular.noop;
-
                 return Register.save(account,
                     function () {
                         return cb(account);
