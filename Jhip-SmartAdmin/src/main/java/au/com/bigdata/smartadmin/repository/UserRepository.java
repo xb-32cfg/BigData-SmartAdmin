@@ -29,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByLogin(String login);
 
-    Optional<User> findOneById(Long userId);
+    Optional<User> findOneById(Long id);
 
     @Query(value = "select distinct user from User user join fetch user.authorities",
         countQuery = "select count(user) from User user")
