@@ -158,9 +158,9 @@ angular.module('SmartAdminWebapp').directive('updateStudentForm', function(){
                 }  //.fields
             }).on('success.form.bv', function(e) {
                 e.preventDefault();
-            });/*.on('change', function(e) {
+            }).on('change', function(e) {
                 form.data('bootstrapValidator').resetForm();
-            });*/
+            });
         }
     }
 });

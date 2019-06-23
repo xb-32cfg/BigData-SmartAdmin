@@ -1,33 +1,118 @@
+<form id="updateStudentForm" role="form" ng-controller="StudentManagementController" novalidate ng-submit="saveUser()"
+      class="smart-form" smart-contacts-form>
 
-<form id="updateStudentForm" role="form" ng-controller="StudentManagementController" class="form-horizontal"
-      novalidate ng-submit="updateStudent()" show-validation >
-    <div class="row">
-        <div class="col-md-12">
-
-            <!-- 1st column -->
-            <div class="col-md-6">
-
-            </div>
-
-            <!-- 2nd column -->
-            <div class="col-md-6">
-
-            </div>
-
+    <fieldset>
+        <div class="row">
+            <section class="col col-2">
+                <label class="label pull-right">First Name</label>
+            </section>
+            <section class="col col-3">
+                <div class="form-group" ng-class="{'has-error': updateStudentForm.name.$touched && updateStudentForm.name.$invalid}">
+                <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <input type="text" name="name" id="named" ng-model="updateStudentForm.name">
+                    <b class="tooltip tooltip-top-right">Enter your first name</b>
+                </label>
+                </div>
+            </section>
+            <section class="col col-3">
+                <label class="label pull-right">E-mail Address 1</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-envelope-o"></i>
+                    <input type="email" name="email" id="emaild">
+                </label>
+            </section>
         </div>
-    </div>
+
+        <div class="row">
+            <section class="col col-2">
+                <label class="label pull-right">First Name</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <input type="text" name="name2" id="named2">
+                </label>
+            </section>
+            <section class="col col-3">
+                <label class="label pull-right">E-mail Address 2</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-envelope-o"></i>
+                    <input type="email" name="email2" id="emaild2">
+                </label>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="col col-2">
+                <label class="label pull-right">First Name</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <input type="text" name="name3" id="named3">
+                </label>
+            </section>
+            <section class="col col-3">
+                <label class="label pull-right">E-mail Address 3</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-envelope-o"></i>
+                    <input type="email" name="email3" id="emaild3">
+                </label>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="col col-2">
+                <label class="label pull-right">First Name</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <input type="text" name="name4" id="named4">
+                </label>
+            </section>
+            <section class="col col-3">
+                <label class="label pull-right">E-mail Address 4</label>
+            </section>
+            <section class="col col-3">
+                <label class="input">
+                    <i class="icon-append fa fa-envelope-o"></i>
+                    <input type="email" name="email4" id="emaild4">
+                </label>
+            </section>
+        </div>
+
+        <section>
+            <label class="label">Message</label>
+            <label class="textarea">
+                <i class="icon-append fa fa-comment"></i>
+                <textarea rows="4" name="message" id="message"></textarea>
+            </label>
+        </section>
+
+        <section>
+            <label class="checkbox"><input type="checkbox" name="copy" id="copy"><i></i>Send a copy to my e-mail address</label>
+        </section>
+    </fieldset>
+
 
     <!-- Footer -->
     <div class="widget-footer">
         <div class="row">
             <div class="col-md-6">
-                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="clear()">
-                    <i class="fa fa-refresh"></i> <span translate="student-management.button.reset">Reset</span></button>
-                <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit" ng-disabled="updateUserForm.$invalid || isSaving">
-                    <i class="fa fa-save"></i> <span translate="student-management.button.update">Update</span></button>
+                <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="studentFormClear()">
+                    <i class="fa fa-refresh"></i> Reset</button>
+                <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit">
+                    <i class="fa fa-save"></i> Save</button>
             </div>
         </div>
     </div>
 
 </form>
-

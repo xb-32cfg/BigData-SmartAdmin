@@ -37,13 +37,15 @@ angular.module('SmartAdminWebapp')
         /*********************************************
          *           RESET                           *
          *********************************************/
-        $scope.clear = function () {
-            console.log("clear reset");
+        $scope.studentFormClear = function () {
+            console.log("student clear reset");
             $scope.isSaving = false;
-            //$scope.addStudentForm = {};
-            //$scope.updateStudentForm = {};
-            //$('#addStudentForm').data('bootstrapValidator').resetForm();
-            //$('#updateStudentForm').data('bootstrapValidator').resetForm();
+            $scope.updateStudentForm = {};
+
+            $('#updateStudentForm').data('bootstrapValidator').resetForm();
+            var validator = $('#updateStudentForm').validate();
+            validator.resetForm();
+
         };
 
         vm.manageStudentHeaderText = "student-management.title";

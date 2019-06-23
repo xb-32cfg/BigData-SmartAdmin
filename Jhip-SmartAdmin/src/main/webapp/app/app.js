@@ -278,7 +278,6 @@ $(function () {
     angular.bootstrap(document, ['SmartAdminWebapp']);
 });
 
-
 /**
  * @ngdoc overview
  * @name app [smartadminApp]
@@ -1959,8 +1958,7 @@ angular.module('app.dashboard').controller('DashboardCtrl', function ($scope, $i
 
 
 });
-'use strict'
-
+'use strict';
 angular.module('app.forms').value('formsCommon', {
         countries: [
             {key: "244", value: "Aaland Islands"},
@@ -10102,13 +10100,13 @@ angular.module('SmartAdmin.Forms').directive('smartCommentForm', function (forms
                     },
 
                     // Ajax form submition
-                    submitHandler : function() {
+                    /*submitHandler : function() {
                         form.ajaxSubmit({
                             success : function() {
                                 form.addClass('submited');
                             }
                         });
-                    }
+                    }*/
 
                 }, formsCommon.validateOptions));
             });
@@ -10118,7 +10116,6 @@ angular.module('SmartAdmin.Forms').directive('smartCommentForm', function (forms
 });
 
 'use strict';
-
 angular.module('SmartAdmin.Forms').directive('smartContactsForm', function (formsCommon, lazyScript) {
     return {
         restrict: 'A',
@@ -10152,23 +10149,14 @@ angular.module('SmartAdmin.Forms').directive('smartContactsForm', function (form
                         message : {
                             required : 'Please enter your message'
                         }
-                    },
-
-                    // Ajax form submition
-                    submitHandler : function() {
-                        form.ajaxSubmit({
-                            success : function() {
-                                form.addClass('submited');
-                            }
-                        });
                     }
                 }, formsCommon.validateOptions));
             });
         }
     }
 });
-'use strict';
 
+'use strict';
 angular.module('SmartAdmin.Forms').directive('smartOrderForm', function (formsCommon, lazyScript) {
     return {
         restrict: 'E',
