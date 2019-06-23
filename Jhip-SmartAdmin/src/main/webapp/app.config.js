@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 var appConfig = window.appConfig || {};
 
 appConfig.menu_speed = 200;
@@ -54,6 +56,8 @@ appConfig.skins = [
 
 ];
 
+
+
 appConfig.sound_path = "sound/";
 appConfig.sound_on = true; 
 
@@ -64,6 +68,7 @@ appConfig.sound_on = true;
 * The colors are best displayed in chrome browser.
 */
 
+
 appConfig.debugState = false;	
 appConfig.debugStyle = 'font-weight: bold; color: #00f;';
 appConfig.debugStyle_green = 'font-weight: bold; font-style:italic; color: #46C246;';
@@ -71,6 +76,7 @@ appConfig.debugStyle_red = 'font-weight: bold; color: #ed1c24;';
 appConfig.debugStyle_warning = 'background-color:yellow';
 appConfig.debugStyle_success = 'background-color:green; font-weight:bold; color:#fff;';
 appConfig.debugStyle_error = 'background-color:#ed1c24; font-weight:bold; color:#fff;';
+
 
 appConfig.voice_command = true;
 appConfig.voice_command_auto = false;
@@ -122,7 +128,7 @@ appConfig.voice_command_auto = false;
  *                    ['it-CH', 'Svizzera']
  *  Magyar            ['hu-HU']
  *  Nederlands        ['nl-NL']
- *  Norsk bokmГ�?l     ['nb-NO']
+ *  Norsk bokmГҐl     ['nb-NO']
  *  Polski            ['pl-PL']
  *  PortuguГЄs        ['pt-BR', 'Brasil']
  *                    ['pt-PT', 'Portugal']
@@ -137,9 +143,9 @@ appConfig.voice_command_auto = false;
  *  н•њкµ­м–ґ         ['ko-KR']
  *  дё­ж–‡            ['cmn-Hans-CN', 'ж™®йЂљиЇќ (дё­е›Ѕе¤§й™†)']
  *                    ['cmn-Hans-HK', 'ж™®йЂљиЇќ (й¦™жёЇ)']
- *                    ['cmn-Hant-TW', 'дё­ж–‡ (е�?°зЃЈ)']
+ *                    ['cmn-Hant-TW', 'дё­ж–‡ (еЏ°зЃЈ)']
  *                    ['yue-Hant-HK', 'зІµиЄћ (й¦™жёЇ)']
- *  ж—�?жњ¬иЄћ         ['ja-JP']
+ *  ж—Ґжњ¬иЄћ         ['ja-JP']
  *  Lingua latД«na    ['la']
  */
 appConfig.voice_command_lang = 'en-US';
@@ -260,7 +266,7 @@ if (appConfig.voice_command) {
     };
 }
 
-appConfig.apiRootUrl = 'json';
+appConfig.apiRootUrl = 'api';
 
 window.appConfig = appConfig;
 

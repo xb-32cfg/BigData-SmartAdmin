@@ -1,7 +1,7 @@
 {
   "name": "smartadmin-angularjs-app",
   "version": "1.8.1",
-  "description": "DailyFx Solutions",
+  "description": "Demo Application for AngularJS version of SmartAdmin application template",
   "main": "index.html",
   "private": true,
   "scripts": {
