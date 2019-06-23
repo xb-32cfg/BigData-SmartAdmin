@@ -9,7 +9,6 @@
  * unique to you with each update of SmartAdmin.
  */
 
-
 body{
     /*font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-size:14px;
@@ -48,10 +47,6 @@ div.dataTables_info{
     font-weight: initial;
     font-style:normal;
 }
-
-
-
-
     /*    Footer Button: Save, Reset, Delete    */
 .widget-footer{
     margin:0px -17px -15px !important;
@@ -71,6 +66,13 @@ div.dataTables_info{
     text-align:center;pointer-events:none;
     width:32px;height:30px;line-height:18px !important;
 }
+
+
+.smart-form section{
+    margin-bottom:6px !important;
+}
+
+
 
 /*  Upload User Photo */
 .upload-user-pic>img{
