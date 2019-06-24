@@ -146,9 +146,10 @@ public class AccountResourceIntTest {
             null,                   // id
             "joe",                  // login
             "password",             // password
-            "Joe",                  // firstName
-            "Shmoe",                // lastName
-            "joe@example.com",      // e-mail
+            "Mohammad",                  // firstName
+            "Nuruzzaman",			// middleName
+            "Nayan",                // lastName
+            "dr.zaman@dailyfx.com.au",// e-mail
             null,					// photo 
             null, 					// multipart files
             true,                   // activated
@@ -176,9 +177,10 @@ public class AccountResourceIntTest {
             null,                   // id
             "funky-log!n",          // login <-- invalid
             "password",             // password
-            "Funky",                // firstName
-            "One",                  // lastName
-            "funky@example.com",    // e-mail
+            "Mohammad",                  // firstName
+            "Nuruzzaman",			// middleName
+            "Nayan",                // lastName
+            "dr.zaman@dailyfx.com.au",// e-mail
             null,					// photo 
             null, 					// multipart files
             true,                   // activated
@@ -207,6 +209,7 @@ public class AccountResourceIntTest {
             "bob",              // login
             "password",         // password
             "Bob",              // firstName
+            "mmm", 
             "Green",            // lastName
             "invalid",          // e-mail <-- invalid
             null,				// photo 
@@ -237,6 +240,7 @@ public class AccountResourceIntTest {
             "bob",              // login
             "123",              // password with only 3 digits
             "Bob",              // firstName
+            "middle name", 
             "Green",            // lastName
             "bob@example.com",  // e-mail
             null,				// photo 
@@ -268,6 +272,7 @@ public class AccountResourceIntTest {
             "alice",                // login
             "password",             // password
             "Alice",                // firstName
+            "middle name", 
             "Something",            // lastName
             "alice@example.com",    // e-mail
             null,				// photo 
@@ -281,7 +286,7 @@ public class AccountResourceIntTest {
         );
 
         // Duplicate login, different e-mail
-        ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), validUser.getLogin(), validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
+        ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), validUser.getLogin(), validUser.getPassword(), validUser.getLogin(), validUser.getMiddleName(), validUser.getLastName(),
             "alicejr@example.com", validUser.getImageName(), validUser.getFiles(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
@@ -311,6 +316,7 @@ public class AccountResourceIntTest {
             "john",                 // login
             "password",             // password
             "John",                 // firstName
+            "middle name", 
             "Doe",                  // lastName
             "john@example.com",     // e-mail
             null,				// photo 
@@ -324,7 +330,7 @@ public class AccountResourceIntTest {
         );
 
         // Duplicate e-mail, different login
-        ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), "johnjr", validUser.getPassword(), validUser.getLogin(), validUser.getLastName(),
+        ManagedUserVM duplicatedUser = new ManagedUserVM(validUser.getId(), "johnjr", validUser.getPassword(), validUser.getLogin(), validUser.getMiddleName(), validUser.getLastName(),
             validUser.getEmailAddress(), validUser.getImageName(), validUser.getFiles(), true, validUser.getLangKey(), validUser.getAuthorities(), validUser.getCreatedDate(), validUser.getLastModifiedBy(), validUser.getLastModifiedDate());
 
         // Good user
@@ -353,6 +359,7 @@ public class AccountResourceIntTest {
             "badguy",               // login
             "password",             // password
             "Bad",                  // firstName
+            "mmm", 
             "Guy",                  // lastName
             "badguy@example.com",   // e-mail
             null,					// photo 
