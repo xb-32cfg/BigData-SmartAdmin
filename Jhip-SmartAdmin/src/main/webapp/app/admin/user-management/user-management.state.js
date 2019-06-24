@@ -27,7 +27,6 @@ angular.module('SmartAdminWebapp')
                         'build/vendor.ui.js',
                         'bootstrap-validator'
                     ])
-
                 }
             })
 
@@ -51,5 +50,33 @@ angular.module('SmartAdminWebapp')
                     }]
                 }
             });
+
+            /*.state('user-management.changePassword', {
+                parent: 'site',
+                url: '/user-management/chgpwd/:login',
+                data: {
+                    authorities: ['ROLE_ADMIN'],
+                    pageTitle: 'global.menu.account.password'
+                },
+                views: {
+                    'content': {
+                        templateUrl: 'app/admin/user-management/change-password-form.tpl.html',
+                        controller: 'PwdChangeControllerByAdmin'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('password');
+                        return $translate.refresh();
+                    }]
+                },
+                scripts: function(lazyScript){
+                    return lazyScript.register([
+                        'build/vendor.ui.js',
+                        'bootstrap-validator'
+                    ])
+                }
+            });*/
+
 
     });

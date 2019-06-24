@@ -126,23 +126,23 @@
                         <fieldset>
                             <div class="form-group">
                                 <!--<label class="control-label" for="login" translate="global.form.firstname">First Name</label>-->
-                                <input type="text" class="form-control" name="firstname" placeholder="{{'global.form.firstname' | translate}}"
-                                       ng-model="registerAccount.firstname" ng-minlength=2 ng-maxlength=50 required>
-                                <div ng-show="form.firstname.$dirty && form.firstname.$invalid">
-                                    <p class="help-block" ng-show="form.firstname.$error.required">Your firstname is required.</p>
+                                <input type="text" class="form-control" name="firstName" placeholder="{{'global.form.firstName' | translate}}"
+                                       ng-model="registerAccount.firstName" ng-minlength=2 ng-maxlength=50 required>
+                                <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
+                                    <p class="help-block" ng-show="form.firstName.$error.required">Your first name is required.</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label class="control-label" for="login" translate="global.form.lastname">Last Name</label>-->
-                                <input type="text" class="form-control" name="lastname" placeholder="{{'global.form.lastname' | translate}}"
-                                       ng-model="registerAccount.lastname" ng-minlength=2 ng-maxlength=50 required>
-                                <div ng-show="form.lastname.$dirty && form.lastname.$invalid">
-                                    <p class="help-block" ng-show="form.lastname.$error.required">Your lastname is required.</p>
+                                <input type="text" class="form-control" name="lastName" placeholder="{{'global.form.lastName' | translate}}"
+                                       ng-model="registerAccount.lastName" ng-minlength=2 ng-maxlength=50 required>
+                                <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
+                                    <p class="help-block" ng-show="form.lastName.$error.required">Your last name is required.</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label class="control-label" for="login" translate="global.form.username">Username</label>-->
-                                <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.username' | translate}}"
+                                <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.userName' | translate}}"
                                        ng-model="registerAccount.login" ng-minlength=1 ng-maxlength=20 ng-pattern="/^[A-Za-z0-9]*$/" required>
                                 <div ng-show="form.login.$dirty && form.login.$invalid">
                                     <p class="help-block" ng-show="form.login.$error.required">Your username is required.</p>
@@ -153,23 +153,23 @@
                             </div>
                             <div class="form-group">
                                 <!--<label class="control-label" for="emailAddress" translate="global.form.email">E-mail Address</label>-->
-                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="{{'global.form.email.placeholder' | translate}}"
+                                <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="{{'global.form.emailAddress.placeholder' | translate}}"
                                        ng-model="registerAccount.emailAddress" ng-minlength=5 ng-maxlength=100 required>
                                 <div ng-show="form.emailAddress.$dirty && form.emailAddress.$invalid">
                                     <p class="help-block"
-                                       ng-show="form.emailAddress.$error.required" translate="global.messages.validate.email.required">
+                                       ng-show="form.emailAddress.$error.required" translate="global.messages.validate.emailAddress.required">
                                         Your e-mail is required.
                                     </p>
                                     <p class="help-block"
-                                       ng-show="form.emailAddress.$error.emailAddress" translate="global.messages.validate.email.invalid">
+                                       ng-show="form.emailAddress.$error.emailAddress" translate="global.messages.validate.emailAddress.invalid">
                                         Your e-mail is invalid.
                                     </p>
                                     <p class="help-block"
-                                       ng-show="form.emailAddress.$error.minlength" translate="global.messages.validate.email.minlength">
+                                       ng-show="form.emailAddress.$error.minlength" translate="global.messages.validate.emailAddress.minlength">
                                         Your e-mail is required to be at least 5 characters.
                                     </p>
                                     <p class="help-block"
-                                       ng-show="form.emailAddress.$error.maxlength" translate="global.messages.validate.email.maxlength">
+                                       ng-show="form.emailAddress.$error.maxlength" translate="global.messages.validate.emailAddress.maxlength">
                                         Your e-mail cannot be longer than 100 characters.
                                     </p>
                                 </div>

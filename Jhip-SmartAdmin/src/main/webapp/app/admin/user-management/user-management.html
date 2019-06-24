@@ -10,15 +10,18 @@
                     <h2 translate="{{headerText}}"> User Management </h2>
 
                     <div class="widget-toolbar">
-                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
+                        <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-uib-tooltip="List of Users"
                              ng-click="ListOfUserAccountForm()"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
                         </div>
-                        <div class="badge bg-color-green" data-tooltip="Create"
+                        <div class="badge bg-color-green" data-tooltip-placement="bottom" data-uib-tooltip="Add User"
                              ng-click="AddUserForm()"><span class="widget-icon"><i class="fa fa-plus"></i></span>
                         </div>
-                        <div class="badge bg-color-green" data-tooltip="Update"
+                        <!--<div class="badge bg-color-purple" data-tooltip-placement="bottom" data-uib-tooltip="Update User"
                              ng-click="UpdateUserForm()"><span class="widget-icon"><i class="fa fa-edit"></i></span>
                         </div>
+                        <div class="badge bg-color-orange" data-tooltip-placement="bottom" data-uib-tooltip="Change Password"
+                             ng-click="ChangePasswordForm()"><span class="widget-icon"><i class="fa fa-key"></i></span>
+                        </div>-->
                     </div>
                 </header>
 
@@ -33,6 +36,9 @@
                             </div>
                             <div class="widget-body" ng-show="showUpdateUserForm">
                                 <update-user-form></update-user-form>
+                            </div>
+                            <div class="widget-body" ng-show="showChangePwdForm">
+                                <change-pwd-form></change-pwd-form>
                             </div>
                         </div>
                     </div>

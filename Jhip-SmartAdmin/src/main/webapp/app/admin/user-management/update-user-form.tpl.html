@@ -1,6 +1,6 @@
 
 <form id="updateUserForm" role="form" ng-controller="UserManagementController" class="form-horizontal"
-      novalidate ng-submit="updateUser()" show-validation >
+      novalidate ng-submit="updateUser()" update-user-form >
     <div class="row">
         <div class="col-md-12">
 
@@ -107,7 +107,7 @@
                         <div class="col-md-6">
                             <div class="input-icon-right">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input class="form-control input-sm" type="password" name="repassword">
+                                <input class="form-control input-sm" type="password" name="repassword" ng-model="updateUserForm.repassword">
                             </div>
                         </div>
                     </div>

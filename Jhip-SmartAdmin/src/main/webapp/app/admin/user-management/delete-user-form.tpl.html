@@ -17,8 +17,17 @@
                         <div class="badge bg-color-magenta" data-tooltip-placement="bottom" data-tooltip="List"
                              ui-sref="user-management"><span class="widget-icon"><i class="fa fa-list-ul"></i></span>
                         </div>
-                        <div class="badge bg-color-red" data-tooltip="Delete">
+                        <div class="badge bg-color-green" data-tooltip-placement="bottom" data-uib-tooltip="Create a User"
+                             ng-click="AddUserForm()"><span class="widget-icon"><i class="fa fa-plus"></i></span>
+                        </div>
+                        <div class="badge bg-color-purple" data-tooltip-placement="bottom" data-uib-tooltip="Update User"
+                             ng-click="UpdateUserForm()"><span class="widget-icon"><i class="fa fa-edit"></i></span>
+                        </div>
+                        <div class="badge bg-color-red" data-tooltip-placement="bottom" data-tooltip="Delete">
                             <span class="widget-icon"><i class="fa fa-trash-o"></i></span>
+                        </div>
+                        <div class="badge bg-color-orange" data-tooltip="Change Password">
+                            <span class="widget-icon"><i class="fa fa-key"></i></span>
                         </div>
                     </div>
                 </header>
@@ -152,7 +161,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-calendar"></i>
                                                     <input class="form-control input-sm" placeholder="" type="date"
-                                                           name="passwordExpDate" ng-model="deleteUserForm.passwordExpDate">
+                                                           name="passwordExpDate" ng-model="deleteUserForm.passwordExpDate" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +173,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append"></i>
                                                     <input class="form-control input-sm" placeholder="" type="number"
-                                                           name="maxLogin" ng-model="deleteUserForm.maxLogin">
+                                                           name="maxLogin" ng-model="deleteUserForm.maxLogin" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -176,7 +185,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append"></i>
                                                     <input class="form-control input-sm" placeholder="" type="number"
-                                                           name="maxFailAttemptsAllow" ng-model="deleteUserForm.maxFailAttemptsAllow">
+                                                           name="maxFailAttemptsAllow" ng-model="deleteUserForm.maxFailAttemptsAllow" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,7 +199,7 @@
                                                 <div class="input-icon-right date">
                                                     <i class="icon-append fa fa-calendar"></i>
                                                     <input class="form-control input-sm" placeholder="" type="date"
-                                                           name="accActivationDate" ng-model="deleteUserForm.accActivationDate">
+                                                           name="accActivationDate" ng-model="deleteUserForm.accActivationDate" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,7 +211,7 @@
                                                 <div class="input-icon-right">
                                                     <i class="icon-append fa fa-language"></i>
                                                     <input class="form-control input-sm" placeholder="en" type="text"
-                                                           name="langKey" ng-model="deleteUserForm.langKey">
+                                                           name="langKey" ng-model="deleteUserForm.langKey" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,9 +221,9 @@
                                             <label class="col-md-4 control-label">User Role </label>
                                             <div class="col-md-6 selectContainer">
                                                 <div class="input-icon-right">
-                                                    <select class="form-control input-sm" multiple name="authority" ng-model="deleteUserForm.authorities"
-                                                            ng-options="authority for authority in authorities">
-                                                    </select>
+                                                    <i class="icon-append fa fa-language"></i>
+                                                    <input class="form-control input-sm" placeholder="ROLE_USER" type="text"
+                                                           name="authority" ng-model="deleteUserForm.authorities" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,7 +234,7 @@
                                             <div class="col-md-6">
                                                 <div class="input-icon-right"><i class="icon-append fa fa-comments-o"></i>
                                                     <textarea class="form-control input-sm" placeholder="" rows="3"
-                                                              name="comments" ng-model="deleteUserForm.comments" sentence-case=""></textarea>
+                                                              name="comments" ng-model="deleteUserForm.comments" sentence-case="" readonly></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -238,8 +247,8 @@
                     <div class="widget-footer">
                         <div class="row">
                             <div class="col-md-6">
-                                <!--<button class="btn btn-sm txt-color-white bg-color-blueDark" type="reset" ui-sref="user-management">
-                                    <i class="fa fa-backward"></i> <span translate="user-management.button.back">back</span></button>-->
+                                <button class="btn btn-sm txt-color-white bg-color-blueDark" type="reset" ng-click="back()">
+                                    <i class="fa fa-backward"></i> <span translate="user-management.button.back">Back</span></button>
                                 <button class="btn btn-sm txt-color-white bg-color-red" type="submit" ng-disabled="deleteUserForm.$invalid || isSaving">
                                     <i class="fa fa-trash-o"></i> <span translate="user-management.button.confirmDel">Confirm Delete</span></button>
                             </div>

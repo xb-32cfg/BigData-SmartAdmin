@@ -24,6 +24,14 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.5)
 }
 
+/*    Font Size inside the Textbox  */
+.input-sm{
+    font-size:13px !important;
+}
+
+.onoffswitch{
+    margin-top: 7px !important;
+}
 /*   Remove Shadow from Top of the Table   */
 .dt-toolbar{
     background: none !important;

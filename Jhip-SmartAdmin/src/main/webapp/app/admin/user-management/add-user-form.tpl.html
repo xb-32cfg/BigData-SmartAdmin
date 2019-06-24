@@ -87,9 +87,8 @@
                         <label class="col-md-4 control-label">Password </label>
                         <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-eye"></i>
-                                <input class="form-control input-sm" type="password"
-                                       name="userPassword" ng-model="addUserForm.userPassword">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input class="form-control input-sm" type="password" name="userPassword" ng-model="addUserForm.userPassword">
                             </div>
                         </div>
                     </div>
@@ -99,8 +98,8 @@
                         <label class="col-md-4 control-label">Re-confirm Password </label>
                         <div class="col-md-6">
                             <div class="input-icon-right">
-                                <i class="icon-append fa fa-eye-slash"></i>
-                                <input class="form-control input-sm" type="password" name="repassword">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input class="form-control input-sm" type="password" name="confirmPwd" ng-model="addUserForm.confirmPwd">
                             </div>
                         </div>
                     </div>
@@ -176,6 +175,7 @@
                         <label class="col-md-4 control-label">Address </label>
                         <div class="col-md-6">
                             <div class="input-icon-right">
+                                <i class="icon-append fa fa-map-marker"></i>
                                 <input class="form-control input-sm" placeholder="Residential Address" type="text" name="apartmentNo"
                                        ng-model="addUserForm.apartmentNo" capitalize-each-word>
                             </div>
@@ -353,6 +353,8 @@
     <div class="widget-footer">
         <div class="row">
             <div class="col-md-6">
+                <button class="btn btn-sm txt-color-white bg-color-blueDark" type="reset" ng-click="back()">
+                    <i class="fa fa-backward"></i> <span translate="user-management.button.back">Back</span></button>
                 <button class="btn btn-sm txt-color-white bg-color-blue" type="reset" ng-click="clear()">
                     <i class="fa fa-refresh"></i> Reset</button>
                 <button class="btn btn-sm txt-color-white bg-color-greenDark" type="submit">

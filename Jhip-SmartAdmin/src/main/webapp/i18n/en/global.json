@@ -37,16 +37,16 @@
             "language": "Language"
         },
         "form": {
-            "firstname": "First Name",
-            "lastname": "Last Name",
-            "username": "User ID",
-            "username.placeholder": "Your username",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "userName": "User ID",
+            "userName.placeholder": "Your username",
             "newpassword": "New password",
             "newpassword.placeholder": "New Password",
             "confirmpassword": "Confirm Password",
             "confirmpassword.placeholder": "Confirm the new password",
-            "email": "E-mail Address",
-            "email.placeholder": "Your e-mail address"
+            "emailAddress": "E-mail Address",
+            "emailAddress.placeholder": "Your e-mail address"
         },
         "messages": {
             "info": {
@@ -68,7 +68,7 @@
                     "minlength": "Your confirmation password is required to be at least 5 characters.",
                     "maxlength": "Your confirmation password cannot be longer than 50 characters."
                 },
-                "email": {
+                "emailAddress": {
                     "required": "Your e-mail is required.",
                     "invalid": "Your e-mail is invalid.",
                     "minlength": "Your e-mail is required to be at least 5 characters.",

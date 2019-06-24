@@ -33,7 +33,7 @@ angular.module('SmartAdminWebapp')
             });
         };
 
-        /*    Registration  */
+        /*   New User Registration  */
         $scope.success = null;
         $scope.error = null;
         $scope.doNotMatch = null;
@@ -51,6 +51,7 @@ angular.module('SmartAdminWebapp')
                 $scope.errorUserExists = null;
                 $scope.errorEmailExists = null;
 
+                //console.log(JSON.stringify($scope.registerAccount));
                 Auth.createAccount($scope.registerAccount)
                     .then(function () {
                         $scope.success = 'OK';

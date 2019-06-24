@@ -5,6 +5,8 @@ angular.module('SmartAdminWebapp')
 
         $scope.user = {};
         $scope.deleteUserForm = {};
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_SHAREHOLDER", "ROLE_INVESTOR", "ROLE_DEFAULT"];
+
 
         /*********************************************
          *          LOAD DELETE FORM                 *
@@ -35,6 +37,20 @@ angular.module('SmartAdminWebapp')
 
             }
         };
+
+
+        /*********************************************
+         *         BACK BUTTON                       *
+         *********************************************/
+        $scope.back = function () {
+            $state.go('user-management', null, { reload: true });
+        };
+
+
+        $scope.AddUserForm = function () {
+            $state.go('user-management', null, { reload: true });
+        };
+
 
         var onDeleteSuccess = function (result) {
             DeleteMessageDisplay(result);

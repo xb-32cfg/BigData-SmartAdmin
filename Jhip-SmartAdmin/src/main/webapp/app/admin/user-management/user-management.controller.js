@@ -5,7 +5,6 @@ angular.module('SmartAdminWebapp')
         function ($scope, $state, $http, Principal, User, ParseLinks, Language, $compile, APP_CONFIG,
                   $filter, fileReader, DTOptionsBuilder, DTColumnBuilder) {
             var vm = this;
-            vm.entity = {};
             var today = new Date();
             var config = {
                 transformRequest: angular.identity,
@@ -49,14 +48,17 @@ angular.module('SmartAdminWebapp')
                 $scope.isSaving = false;
                 $scope.addUserForm = {};
                 $scope.updateUserForm = {};
+                $scope.changePwdForm = {};
                 $('#addUserForm').data('bootstrapValidator').resetForm();
                 $('#updateUserForm').data('bootstrapValidator').resetForm();
+                $('#changePwdForm').data('bootstrapValidator').resetForm();
             };
 
             vm.manageUserHeaderText = "user-management.title";
             vm.createHeaderText = "user-management.addForm";
             vm.updateHeaderText = "user-management.updateForm";
             vm.deleteHeaderText = "user-management.deleteForm";
+            vm.changePwdHeaderText = "user-management.changePassword";
             vm.detailHeaderText = "user-management.detail";
             $scope.headerText = vm.manageUserHeaderText;
             $scope.showListOfUserForm= true;
@@ -94,11 +96,27 @@ angular.module('SmartAdminWebapp')
                 $scope.showListOfUserForm = false;
                 $scope.showUserDetailForm = false;
                 $scope.showUpdateUserForm = true;
+                $scope.showChangePwdForm = false;
                 $scope.updateUserForm = {};
                 $scope.updateUserForm.maxLogin = 0;
                 $scope.updateUserForm.maxFailAttemptsAllow = 0;
                 $('#updateUserForm').data('bootstrapValidator').resetForm();
             };
+            /*  Show Change User Password Form    */
+            $scope.ChangePasswordForm = function(){
+                $scope.headerText = vm.changePwdHeaderText;
+                $scope.showAddUserForm = false;
+                $scope.showListOfUserForm = false;
+                $scope.showUserDetailForm = false;
+                $scope.showUpdateUserForm = false;
+                $scope.showChangePwdForm = true;
+                $scope.updateUserForm = {};
+                $scope.updateUserForm.maxLogin = 0;
+                $scope.updateUserForm.maxFailAttemptsAllow = 0;
+                $('#updateUserForm').data('bootstrapValidator').resetForm();
+            };
+
+
             /*    Set Password Expired Date    */
             $scope.newPasswordExpDate = function(myFormName) {
                 if(myFormName=="addUserForm"){
@@ -129,8 +147,7 @@ angular.module('SmartAdminWebapp')
             vm.dtOptions = DTOptionsBuilder.newOptions().withOption('ajax', {
                 url: '/api/users/',
                 type: 'GET'
-            })  //.withOption('createdRow', createdRow)
-                .withOption('createdRow', function(row, data, dataIndex) {
+            }).withOption('createdRow', function(row, data, dataIndex) {
                     $compile(angular.element(row).contents())($scope);
                 })
                 .withOption('headerCallback', function(header) {
@@ -158,7 +175,7 @@ angular.module('SmartAdminWebapp')
 
 
             vm.dtColumns = [
-                DTColumnBuilder.newColumn('id').withTitle('ID').withClass('text-danger'),
+                DTColumnBuilder.newColumn('id'),
                 DTColumnBuilder.newColumn('login'),
                 DTColumnBuilder.newColumn('firstName'),
                 DTColumnBuilder.newColumn('lastName'),
@@ -186,16 +203,16 @@ angular.module('SmartAdminWebapp')
 
             // Action buttons added to the last column: to edit and delete rows ui-sref="user-management.edit({login:user.login})"
             function actionButtons(data, type, full, meta) {
-                vm.entity[data.id] = data;
-                return '<button class="btn btn-info btn-xs" ng-click="loadUpdateFormById({login:' + data.id + '})">' +
-                    '   <i class="fa fa-edit"></i>' +
-                    '</button>&nbsp;' +
+                return '<button class="btn btn-info bg-color-purple btn-xs" data-tooltip-placement="bottom" data-uib-tooltip="Update" ' +
+                    'ng-click="loadUpdateFormById({login:' + data.id + '})"> <i class="fa fa-edit"></i></button>&nbsp;' +
                     /*'<button class="btn btn-info btn-xs" ui-sref="user-management-detail({login:' + data.id + '})">' +
                     '   <i class="fa fa-eye"></i>' +
                     '</button>&nbsp;' +*/
-                    '<button class="btn btn-danger btn-xs" ui-sref="user-management.delete({login:' + data.id + '})">' +
-                    '   <i class="fa fa-trash-o"></i>' +
-                    '</button>';
+                    '<button class="btn btn-danger btn-xs" data-tooltip-placement="bottom" data-uib-tooltip="Delete" ' +
+                    'ui-sref="user-management.delete({login:' + data.id + '})"> <i class="fa fa-trash-o"></i></button>&nbsp;' +
+
+                    '<button class="btn btn-danger bg-color-orange btn-xs" data-tooltip-placement="bottom" data-uib-tooltip="Change Password" ' +
+                    'ng-click="loadChangePasswordForm({login:' + data.id + '})"> <i class="fa fa-key"></i></button>';
             }
 
 
@@ -241,9 +258,9 @@ angular.module('SmartAdminWebapp')
                 }
             };
 
-            /*********************************************
-             *        USER ACCOUNT ACTIVATION            *
-             *********************************************/
+            /***********************************************
+             *     USER ACCOUNT ACTIVATE / DEACTIVATE      *
+             ***********************************************/
             $scope.activateUserAccountById = function(id){
                 var statusUpdateURL = "";
                 if(id.status==true){
@@ -275,15 +292,37 @@ angular.module('SmartAdminWebapp')
             };
             $scope.updateUser = function () {
                 //console.log('---> '+ JSON.stringify($scope.updateUserForm));
-                var id = $scope.updateUserForm.id;
-                if (id != null) {
-                    BootstrapDialog.save('', function(result){
+                if ( $('#updateUserForm').data('bootstrapValidator').isValid() ){
+                    BootstrapDialog.update('', function(result){
                         if(result) {
                             User.update($scope.updateUserForm, onUpdateSuccess, onSaveError);
                         }
                     });
                 }
             };
+
+
+            /*********************************************
+             *         LOAD CHANGE PASSWORD FORM         *
+             *********************************************/
+            $scope.loadChangePasswordForm = function (id) {
+                this.ChangePasswordForm();
+                var loginId = id.login;
+                User.get({login: loginId}, function(result) {
+                    $scope.user = result;
+                    $scope.changePwdForm = result;
+                    $scope.changePwdUserName = result.firstName +' '+ result.lastName;
+                });
+            };
+
+
+            /*********************************************
+             *         BACK BUTTON                       *
+             *********************************************/
+            $scope.back = function () {
+                $state.go('user-management', null, { reload: true });
+            };
+
 
 
             /*********************************************

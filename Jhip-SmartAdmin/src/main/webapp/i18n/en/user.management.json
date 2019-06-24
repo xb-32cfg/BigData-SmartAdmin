@@ -5,6 +5,7 @@
         "updateForm":"Update User",
         "deleteForm":"Delete User",
         "listForm":"List of Users",
+        "changePassword": "Change Password for [<b>{{username}}</b>]",
         "detail":"User Detail",
         "createLabel": "Create a new user",
         "created": "A new user is created with identifier {{ param }}",

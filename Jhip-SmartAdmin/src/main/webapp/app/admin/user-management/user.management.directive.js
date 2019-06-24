@@ -87,7 +87,7 @@ angular.module('SmartAdminWebapp').directive('addUserForm', function(){
                             }
                         }
                     },
-                    password : {
+                    userPassword : {
                         validators : {
                             notEmpty : {
                                 message : 'This field is required'
@@ -98,7 +98,7 @@ angular.module('SmartAdminWebapp').directive('addUserForm', function(){
                             }
                         }
                     },
-                    repassword : {
+                    confirmPwd : {
                         validators : {
                             notEmpty : {
                                 message : 'This field is required'
@@ -268,4 +268,81 @@ angular.module('SmartAdminWebapp').directive('updateUserForm', function(){
         }
     }
 });
+
+
+"use strict";
+angular.module('SmartAdminWebapp').directive('changePwdForm', function(){
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'app/admin/user-management/change-password-form.tpl.html',
+        link: function(scope, form){
+            form.bootstrapValidator({
+                feedbackIcons : {
+                    valid: 'fa fa-check',
+                    invalid: 'fa fa-times',
+                    validating: 'fa fa-refresh'
+                },
+                fields : {
+                    text: {
+                        // All the fields has 'isSearchSelector' class
+                        selector: '.isSearchSelector',
+                        validators: {
+                            callback: {
+                                message: 'You must enter at least one value',
+                                callback: function(value, validator, $field) {
+                                    var isEmpty = true,
+                                        // Get the list of fields
+                                        $fields = validator.getFieldElements('text');
+                                    for (var i = 0; i < $fields.length; i++) {
+                                        if ($fields.eq(i).val() !== '') {
+                                            isEmpty = false;
+                                            break;
+                                        }
+                                    }
+                                    if (!isEmpty) {
+                                        // Update the status of callback validator for all fields
+                                        validator.updateStatus('text', validator.STATUS_VALID, 'callback');
+                                        return true;
+                                    }
+                                    return false;
+                                }
+                            },
+                            isSearchSelector: {
+                                message: 'The value is not valid'
+                            }
+                        }
+                    },
+                    userPassword : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            },
+                            stringLength : {
+                                min : 4,
+                                message : 'Must be more than 4 characters'
+                            }
+                        }
+                    },
+                    confirmPwd : {
+                        validators : {
+                            notEmpty : {
+                                message : 'This field is required'
+                            },
+                            stringLength : {
+                                min : 4,
+                                message : 'Must be more than 4 characters'
+                            }
+                        }
+                    }
+                }  //.fields
+            }).on('success.form.bv', function(e) {
+                e.preventDefault();
+            });/*.on('change', function(e) {
+                form.data('bootstrapValidator').resetForm();
+            });*/
+        }
+    }
+});
+
 
