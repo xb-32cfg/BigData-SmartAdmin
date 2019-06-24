@@ -31,8 +31,11 @@ public class UserDTO {
     @Size(max = 50)
     private String firstName;
 
+    @Size(max = 30)
+    private String middleName;   
+    
     @Size(max = 50)
-    private String lastName;   
+    private String lastName;
     
     @Email
     @Size(min = 5, max = 100)
@@ -54,18 +57,19 @@ public class UserDTO {
     }
 
     public UserDTO(User user) {
-        this(user.getLogin(), null, user.getFirstName(), user.getLastName(),
+        this(user.getLogin(), null, user.getFirstName(), user.getMiddleName(), user.getLastName(), 
             user.getEmailAddress(), user.getImageName(), user.getFiles(), user.getActivated(), user.getLangKey(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
-    public UserDTO(String login, String password, String firstName, String lastName,
+    public UserDTO(String login, String password, String firstName, String middleName, String lastName,
         String emailAddress, String imageName, MultipartFile files, boolean activated, String langKey, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
         this.firstName = firstName;
+        this.middleName = middleName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.imageName = imageName;
@@ -87,10 +91,14 @@ public class UserDTO {
         return firstName;
     }
 
+    public String getMiddleName() {
+        return middleName;
+    }
+    
     public String getLastName() {
         return lastName;
     }
-
+    
     public String getImageName() {
         return imageName;
     }
@@ -121,6 +129,7 @@ public class UserDTO {
             "login='" + login + '\'' +
             ", password='" + password + '\'' +
             ", firstName='" + firstName + '\'' +
+            ", middleName='" + middleName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", emailAddress='" + emailAddress + '\'' +
             ", imageName='" + imageName + '\'' +

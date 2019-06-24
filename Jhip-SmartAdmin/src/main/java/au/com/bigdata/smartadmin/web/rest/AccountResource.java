@@ -185,7 +185,7 @@ public class AccountResource {
     }
 
     /**
-     * POST  /change_password -> changes the current user's password
+     * POST  /change_password -> changes the current user password
      */
     @RequestMapping(value = "/account/change_password",
         method = RequestMethod.POST,
@@ -199,6 +199,21 @@ public class AccountResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    /**
+     * POST  /change_password -> changes the current user password
+     */
+    @RequestMapping(value = "/account/changeUserPasswordByAdmin",
+        method = RequestMethod.POST,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<?> changeUserPwdByAdmin(@RequestBody String password, @RequestBody String loginId) {
+        if (!checkPasswordLength(password)) {
+            return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
+        }
+        userService.changeUserPasswordByAdmin(loginId, password);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
     /**
      * GET  /account/sessions -> get the current open sessions.
      */
